@@ -1,0 +1,316 @@
+@font-face {
+    font-family: Lato-Bold;
+    src: url("../fonts/Lato-Bold.ttf");
+}
+@font-face {
+    font-family: Lato-Black;
+    src: url("../fonts/Lato-Black.ttf");
+}
+@font-face {
+    font-family: Lato-Light;
+    src: url("../fonts/Lato-Light.ttf");
+}
+.header{
+    background: #222222;
+}
+.footer{
+    margin-top:20px;
+    background: #222222;
+}
+.selected{
+    color:#FF3333 !important;
+}
+.banner{
+    padding: 0;
+    margin-top:3px;
+}
+.banner-content{
+    padding: 0;
+    margin: 0;
+}
+.item-images{
+    max-height: 330px !important;
+    max-width:930px !important;	
+    margin-left:-40px;      
+}
+.top-game{
+    border:solid 1px #FF0000;
+    background: #222222;
+}
+.title-topgame{
+    background-color:#EEEEEE;
+    text-align: center;
+    font-family: Lato-Black;
+}
+.content-topgame ul{
+    list-style: none;
+}
+.topgame-image
+{
+    max-height: 60px;
+    max-width: 60px;	
+}
+.images-topgame{
+    float:left;
+    width:25%;
+}
+.context-topgame{
+    float:left;
+    width:75%;	
+    color:#FFF;
+    font-family: Lato-Bold;
+    text-transform: uppercase;
+}
+.select-topgame{
+    float:left;
+}
+.content-topgame{
+    margin-top:-12px;   
+}
+.context-topgame:hover,.select-topgame:hover{
+    background-color:#DDDDDD;
+    color:#FF6633;
+}
+.menu-product{
+    background-color:#222222;
+    margin-left:15px;
+    margin-right:15px;
+}
+.menu-product a{
+    color:#FF0000;
+}
+.images-product{
+    height: 150px !important;
+    width:100px !important;
+}
+.images-involve{
+    height: 150px !important;
+    width:100px !important;
+}
+.product-list ul{
+    list-style: none;
+    margin-left:-40px;
+    background-color:#222222;
+}
+.list-product h4{
+    color:#FF0000;
+    margin-left:15px;
+}
+.bgbody{
+    background-image: url(../images/bg.png);
+}
+.footer-content h4{
+    color:#EEEEEE;
+}
+.footer-content a{
+    color:#EEEEEE;
+}
+.footer-context span{
+    font-weight: bold;
+    color:#AAAAAA;
+}
+.paging{
+    text-align: center !important;
+}
+
+.header-support{
+    color:#FF0000;
+    margin-top:10px;
+    font-size:26px;
+}
+.context-top-support{
+    text-transform: uppercase;
+    font-size:20px;
+    margin-top:10px;
+    color:#00CC00;
+}
+.images-top-support{
+    margin-top:10px;
+
+}
+.context-center-support{
+    color:#FFF;
+    margin-top:10px;
+}
+.span-header-login{
+    color:#FFF;
+    margin-left:5px;
+}
+#name-header-content a{
+    color:#FF0000;
+    padding: 5px !important;
+}
+.giohang{
+    background-color:#222222;
+}
+.giohang th{
+    color:#FFF;
+}
+.detail-images-giohang{
+    max-height: 180px !important;
+    max-width: 180px !important;
+}
+.images-giohang{
+}
+.context-giohang{
+    padding-top: 70px;
+    color:#FF0000;
+    font-size:24px;
+}
+.price-context-giohang{
+    padding-top: 70px;
+    color:#FF0000;
+    font-size:24px;
+}
+.number-product-giohang{
+    padding-top: 70px;
+    color:#FF0000;
+    font-size:24px;
+}
+.tongtien-one-giohang{
+    padding-top: 70px;
+    color:#FF0000;
+    font-size:24px;
+}
+.tongthanhtoan{
+    padding-bottom:10px;
+}
+.sotientt{
+    color:#FF0000;
+    font-size:28px;
+}
+.div-a-delete-giohang{
+    padding-top: 80px;
+}
+.a-delete-giohang{
+    color:#FF0000;   
+}
+.content-giohang{
+    margin-top:10px;	
+}
+.errorDH h3{
+    padding-left:30px;
+    background-color: #222222;
+    padding-right:30px;
+    color:red;
+}
+.errorDH a{
+    text-decoration: none;
+}
+.content-thongtintaikhoan{
+    margin-top:15px;
+    margin-bottom: 15px;
+}
+.conten-tttk{
+    background-color:#222222;
+}
+.conten-tttk h2{
+    color:#FF0000;
+}
+.conten-tttk h4{
+    color:#FFCC33;
+    float:left;
+}
+.conten-tttk span{
+    color:#FFF;
+    font-size: 16px;
+    float:left;
+    margin-top:10px;
+    margin-left:6px;
+}
+.images-tttk{
+    text-align: center;
+}
+.image-tttk{
+    max-height: 400px;
+    max-width: 450px;
+}
+.black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=80);
+}
+
+.white_content {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    width: 400px;
+    height: 260px;
+    padding: 16px;
+    background-color: #222222;
+    z-index:1002;
+    overflow: auto;
+}
+.label-changePass{
+    color:#FF0000;
+}
+.web-pay h5{
+    color:#FF0000;
+}
+.web-pay h3{
+    color:#FF0000;
+}
+.spantientt{
+    color:#FFCC33;
+    font-size:20px;
+}
+.content-thanhtoan{
+    background-color:#222222;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.text-rdo{
+    color:#FF0000;
+    font-size:18px;	
+}
+#pay-quavi{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+#pay-nganhang{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.label-taikhoan{
+    float:left;
+    margin-top:5px;
+    color:#FF0000;
+}
+.txt-taikhoan{
+    float:left;
+    width:400px;
+}
+.thanhtoanSuccess{
+    margin-top:10px;
+    margin-bottom: 10px;
+    background-color:#222222;   
+}
+.color-h{
+    color:#FF0000;
+}
+.thanhtoanSuccess a{
+    color:blue;
+}
+.thanhtoanFail{
+    margin-top:10px;
+    margin-bottom: 10px;
+    background-color:#222222;   
+}
+.thanhtoanFail a{
+    color:blue;
+}
+.number-tongthanhtoan{
+    color:#FFCC33;
+    font-size:28px;
+}

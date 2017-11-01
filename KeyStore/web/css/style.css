@@ -1,0 +1,96 @@
+.navbar{
+	margin-bottom: 0;
+	border-radius: 0;
+	padding: 10px 0;
+}
+.navbar-default{
+	border: none !important;
+	background: #222222 !important;
+}
+.caption{
+	text-align: center;
+}
+.caption p{
+	color:red;
+	font-weight: bold;
+}
+.caption h5{
+        font-size:14px;
+	color:#FFF;
+}
+.caption .col-md-4{
+    white-space: nowrap !important;
+    overflow: hidden;
+}
+.thumbnail{
+	background-color:#222222;
+	border-color:#FF0000;	
+}
+.dropdown-menu{
+	background-color:#222222;
+}
+.dropdown-menu a{
+	color:#FF0000 !important;
+}
+.pagination li a{
+    border:none;
+    background-color:#222222; 
+    color:#FF0000;
+}
+.pagination li a:hover{
+    border:none;
+    background-color:#FF0000; 
+    color:#222222;
+}
+.content-updatetttk{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.wrapper{
+	padding: 50px 0;
+        background-color:#222222;
+        margin-left:15px;
+        margin-right:15px;
+        margin-top:15px;
+}
+.label{
+	font-weight: bold;
+	font-size: 30px !important;
+	color: red;
+}
+.wrapper p{
+	font-weight: bold;
+	font-size: 17px;
+	color: white;
+	margin-top: 20px;
+}
+.wrapper h4{
+	font-weight: bold;
+	font-size: 17px;
+	color: red;
+}
+.wrapper h3{
+	font-weight: bold;
+	font-size: 17px;
+	color: red;
+}
+.wrapper a{
+	font-weight: bold;
+	font-size: 17px;
+	color: rgb(0, 255, 0);
+}
+.abcd{
+	text-decoration: underline;
+	font-size: 20px !important;
+}
+.efgh{
+	font-size: 20px !important;
+}
+.step{
+	text-decoration: underline;
+	font-size: 18px !important;
+	color: rgb(0, 255, 0) !important;
+}
+.step span{
+	text-decoration: none !important;
+}

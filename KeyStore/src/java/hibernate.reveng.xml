@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="keystore"/>
+  <table-filter match-name="order"/>
+  <table-filter match-name="product_detail"/>
+  <table-filter match-name="admin"/>
+  <table-filter match-name="product_image"/>
+  <table-filter match-name="order_detail"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="product_key"/>
+  <table-filter match-name="type"/>
+  <table-filter match-name="manufacturer"/>
+  <table-filter match-name="catalog"/>
+  <table-filter match-name="payment_method"/>
+</hibernate-reverse-engineering>

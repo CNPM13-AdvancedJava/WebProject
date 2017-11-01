@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 21, 2017 10:21:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="keystore" name="entities.database.ProductDetail" optimistic-lock="version" table="product_detail">
+    <id name="productId" type="java.lang.Integer">
+      <column name="product_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="entities.database.Manufacturer" fetch="join" name="manufacturer">
+      <column name="manufacturer_id"/>
+    </many-to-one>
+    <many-to-one class="entities.database.Type" fetch="join" name="type">
+      <column name="type_id"/>
+    </many-to-one>
+    <property name="productName" type="string">
+      <column length="200" name="product_name" not-null="true"/>
+    </property>
+    <property name="releaseTime" type="date">
+      <column length="10" name="release_time"/>
+    </property>
+    <property name="status" type="java.lang.Byte">
+      <column name="status"/>
+    </property>
+    <property name="language" type="string">
+      <column length="200" name="language"/>
+    </property>
+    <property name="region" type="string">
+      <column length="45" name="region"/>
+    </property>
+    <property name="description" type="string">
+      <column name="description"/>
+    </property>
+    <property name="introduction" type="string">
+      <column length="16777215" name="introduction"/>
+    </property>
+    <property name="price" type="double">
+      <column name="price" not-null="true" precision="22" scale="0"/>
+    </property>
+    <property name="viewedNumber" type="java.lang.Integer">
+      <column name="viewed_number"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="orderDetails" table="order_detail">
+      <key>
+        <column name="product_id" not-null="true"/>
+      </key>
+      <one-to-many class="entities.database.OrderDetail"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="false" name="productImages" table="product_image">
+      <key>
+        <column name="product_id"/>
+      </key>
+      <one-to-many class="entities.database.ProductImage"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="productKeys" table="product_key">
+      <key>
+        <column name="product_id"/>
+      </key>
+      <one-to-many class="entities.database.ProductKey"/>
+    </set>
+  </class>
+</hibernate-mapping>

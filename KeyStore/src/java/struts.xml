@@ -1,0 +1,20 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <!-- User action -->
+        <action name="getProductPagination" class="action.user.ProductAction" method="getPagination">
+            <result name="success">listProductPagination.jsp</result>
+        </action>
+        <action name="getBanner" class="action.user.ProductAction" method="getBanner">
+            <result name="success">banner.jsp</result>
+        </action>
+        <action name="getTop5" class="action.user.ProductAction" method="getTop5">
+            <result name="success">topgame.jsp</result>
+        </action>
+        <!-- Admin action -->
+    </package>
+</struts>
