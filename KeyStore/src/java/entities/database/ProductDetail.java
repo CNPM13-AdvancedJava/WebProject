@@ -71,6 +71,18 @@ public class ProductDetail  implements java.io.Serializable {
             }
         }
     }
+    
+    public static void getThumnailImage(ProductDetail product){
+        Iterator itr = product.productImages.iterator();
+        product.thumbnailUrl = "images/product/product1.jpg";
+        while (itr.hasNext()){
+            ProductImage img = (ProductImage) itr.next();
+            if (img.getFlag() == 1 && img.getIsAva() == 1){
+                product.thumbnailUrl = img.getImageLink();
+                break;
+            }
+        }
+    }
    
     public Integer getProductId() {
         return this.productId;

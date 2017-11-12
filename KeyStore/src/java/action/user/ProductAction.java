@@ -8,10 +8,9 @@ package action.user;
 import com.opensymphony.xwork2.ActionSupport;
 import controller.user.ProductController;
 import entities.Page;
+import entities.Product;
+import entities.database.Catalog;
 import entities.database.ProductDetail;
-import entities.database.ProductImage;
-import java.lang.reflect.Array;
-import java.util.Set;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -25,8 +24,10 @@ public class ProductAction extends ActionSupport implements ServletRequestAware{
     private HttpServletRequest request;
     
     private List<ProductDetail> lstProduct; 
+    private List<Catalog> lstCatalog;
+    public Product product;
     
-    private final int pageSize = 20;
+    private final int pageSize = 18;
     private int totalPage;
     private List<Page> lstPage; 
     
@@ -65,6 +66,24 @@ public class ProductAction extends ActionSupport implements ServletRequestAware{
         return SUCCESS;
     }
     
+    public String getMenu(){
+        lstCatalog = controller.getAllCatalog();
+        return SUCCESS;
+    }
+    
+    public String getProductDetail(){
+        String id = request.getParameter("productId");
+        int productId = 0;
+            try {
+                productId = Integer.parseInt(id);
+            } catch (Exception e) {
+        }
+        ProductDetail detail = controller.getProductById(productId);
+        ProductDetail.getThumnailImage(detail);
+        product = new Product(detail);
+        return SUCCESS;
+    }
+    
     @Override
     public void setServletRequest(HttpServletRequest hsr) {
       this.request = hsr;
@@ -86,8 +105,12 @@ public class ProductAction extends ActionSupport implements ServletRequestAware{
         return lstPage;
     }
 
-    public void setLstPage(List<Page> lstPage) {
-        this.lstPage = lstPage;
+    public List<Catalog> getLstCatalog() {
+        return lstCatalog;
+    }
+
+    public Product getProduct() {
+        return product;
     }
 
     

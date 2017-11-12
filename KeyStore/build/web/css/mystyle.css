@@ -63,6 +63,7 @@
 }
 .select-topgame{
     float:left;
+    width:100%;	
 }
 .content-topgame{
     margin-top:-12px;   
@@ -313,4 +314,18 @@
 .number-tongthanhtoan{
     color:#FFCC33;
     font-size:28px;
+}
+
+.my-thumnail {
+    min-height: 280px;
+}
+
+.searchBar {
+    float: right !important;
+    margin-bottom: 3px !important;
+    margin-top: 3px !important;
+}
+
+.error-message {
+    color: red;
 }

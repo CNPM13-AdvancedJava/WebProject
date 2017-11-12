@@ -3,11 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Linh/Documents/NetBeansProjects/KeyStore/web/banner.jsp</file>
-            <file>file:/C:/Users/Linh/Documents/NetBeansProjects/KeyStore/src/java/action/user/ProductAction.java</file>
-            <file>file:/C:/Users/Linh/Documents/NetBeansProjects/KeyStore/src/java/controller/user/ProductController.java</file>
-            <file>file:/C:/Users/Linh/Documents/NetBeansProjects/KeyStore/web/home.jsp</file>
-            <file>file:/C:/Users/Linh/Documents/NetBeansProjects/KeyStore/src/java/entities/database/ProductDetail.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/action/user/ProductAction.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/login.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/user/ProductController.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/action/user/UserAction.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/struts.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/home.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/menu.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/entities/Product.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/user/UserController.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/productDetail.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/css/mystyle.css</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/header.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/entities/database/ProductDetail.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/util/Constant.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/entities/UserInfo.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/entities/database/User.hbm.xml</file>
         </group>
     </open-files>
 </project-private>

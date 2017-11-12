@@ -9,8 +9,8 @@
                     <ul>
                         <s:iterator value="lstProduct">
                             <li>
-                                <div class="col-xs-12 col-lg-2 col-md-4 col-sm-6">
-                                    <a href="getPro?productId=<s:property value="productId"/>" class="thumbnail">
+                                <div class="col-xs-12 col-lg-2 col-md-4 col-sm-6 my-thumnail">
+                                    <a href="getProduct?productId=<s:property value="productId"/>" class="thumbnail">
                                         <img class="images-product" src="<s:property value="thumbnailUrl"/>" alt="...">
                                         <div class="caption">
                                             <h5 class=""><s:property value="productName"/></h5>

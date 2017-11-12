@@ -10,7 +10,7 @@
     <property name="catalogName" type="string">
       <column length="200" name="catalog_name"/>
     </property>
-    <set fetch="select" inverse="true" lazy="true" name="types" table="type">
+    <set fetch="select" inverse="true" lazy="false" name="types" table="type">
       <key>
         <column name="catalog_id"/>
       </key>

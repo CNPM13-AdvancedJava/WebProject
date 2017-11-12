@@ -5,6 +5,7 @@
  */
 package controller.user;
 
+import entities.database.Catalog;
 import entities.database.ProductDetail;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +58,31 @@ public class ProductController {
             System.err.println(e);
         }
         return lstProduct;
+    }
+
+    public List<Catalog> getAllCatalog() {
+        List<Catalog> lstCatalog = new ArrayList<>();
+        try {
+            session.beginTransaction();
+            Query query = session.createQuery("from Catalog").setMaxResults(5);
+            lstCatalog = query.list();
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return lstCatalog;
+    }
+
+    public ProductDetail getProductById(int id) {
+        ProductDetail product = null;
+        try {
+            session.beginTransaction();
+            product = (ProductDetail) session.get(ProductDetail.class, id);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return product;
     }
 
 }

@@ -32,7 +32,7 @@
                         <div class="product-content">
                             <div class="row">
                                 <div class="product-menu">
-                                    <s:action name="getAllCatalog" executeResult="true"/> 
+                                    <s:action name="getMenu" executeResult="true"/> 
                                 </div>
                             </div>
                             <s:action name="getProductPagination" executeResult="true"/>                                

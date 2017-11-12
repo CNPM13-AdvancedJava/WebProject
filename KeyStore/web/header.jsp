@@ -26,12 +26,7 @@
                                         <li><a href="#">Hỗ trợ</a></li>	
                                     </ul>								
                                     <ul class="nav navbar-nav navbar-right">
-                                        <form action="findProduct" method="POST" class="navbar-form navbar-left" role="search">
-                                            <div class="form-group">										
-                                                <input type="search" name="txt-searchValue" class="form-control" placeholder="Tìm kiếm">	
-                                                <button type="submit" class="btn btn-default form-control"><span class="glyphicon glyphicon-search"></span></button>
-                                            </div>
-                                        </form>
+                                        
                                         <% if((session.getAttribute("userName"))!=null){ %>                             
                                         <li role="presentation" class="dropdown" id="name-header-content">
                                             <span class="span-header-login">Xin Chào</span>
@@ -50,14 +45,14 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="getLogOut">
+                                                    <a href="logout">
                                                         Đăng Xuất
                                                     </a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <% } else {%>
-                                        <li><a class="selected" href="loginIn.jsp">Đăng Nhập</a></li>
+                                        <li><a class="selected" href="login.jsp">Đăng Nhập</a></li>
                                         <%}%>
                                     </ul>
                                 </div>

@@ -28,7 +28,7 @@ public class Util {
         
         int maxSize = lst.size();
         int startIndex = (page-1) * pageSize;
-        int endIndex = (page * pageSize) - 1;
+        int endIndex = (page * pageSize);
         
         if (maxSize <= startIndex){
             return lst;

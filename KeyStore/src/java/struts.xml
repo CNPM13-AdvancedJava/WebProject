@@ -15,6 +15,20 @@
         <action name="getTop5" class="action.user.ProductAction" method="getTop5">
             <result name="success">topgame.jsp</result>
         </action>
+        <action name="getMenu" class="action.user.ProductAction" method="getMenu">
+            <result name="success">menu.jsp</result>
+        </action> 
+        <action name="getProduct" class="action.user.ProductAction" method="getProductDetail">
+            <result name="success">productDetail.jsp</result>
+        </action> 
+        
+        <action name="login" class="action.user.UserAction" method="normalLogin">
+            <result name="success">home.jsp</result>
+            <result name="error">login.jsp</result>
+        </action> 
+        <action name="logout" class="action.user.UserAction" method="logout">
+            <result name="success">home.jsp</result>
+        </action>
         <!-- Admin action -->
     </package>
 </struts>
