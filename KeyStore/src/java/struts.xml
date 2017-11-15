@@ -26,6 +26,10 @@
             <result name="success">home.jsp</result>
             <result name="error">login.jsp</result>
         </action> 
+        <action name="register" class="action.user.UserAction" method="normalRegister">
+            <result name="success">home.jsp</result>
+            <result name="error">register.jsp</result>
+        </action> 
         <action name="logout" class="action.user.UserAction" method="logout">
             <result name="success">home.jsp</result>
         </action>

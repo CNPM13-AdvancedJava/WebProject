@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="panel-body" style="padding-top:30px;">
                                     <form action="login" method="POST" class="form-horizontal" id="form-login" role="form" enctype="multipart/form-data">
-                                        <span class="error-message"><s:property value="user.errorMessage"/></span>
+                                        <span style="color: red"><s:property value="user.errorMessage"/></span>
                                         <div class="input-group user-login">
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-user"></i>
@@ -55,7 +55,7 @@
                                                 <div class="col-md-12 signup-here">                                                         
                                                     <div id="displaysignup" tabindex="5" style="margin-left:-15px;">
                                                         <span>Bạn chưa có tài khoản!</span>
-                                                        <a href="registerIn">Nhấp để Đăng Kí</a>
+                                                        <a href="register.jsp">Nhấp để Đăng Kí</a>
                                                     </div>
                                                 </div>
                                             </div>

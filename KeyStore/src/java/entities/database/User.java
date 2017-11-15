@@ -2,6 +2,7 @@ package entities.database;
 // Generated Oct 21, 2017 10:21:01 PM by Hibernate Tools 4.3.1
 
 
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -36,6 +37,16 @@ public class User  implements java.io.Serializable {
        this.dateOfBirth = dateOfBirth;
        this.money = money;
        this.orders = orders;
+    }
+    
+    public User(String userName, String password, String email, String phoneNumber, String gender, String address, String dateOfBirth) {
+       this.userName = userName;
+       this.password = password;
+       this.email = email;
+       this.phoneNumber = phoneNumber;
+       this.gender = Byte.parseByte(gender);
+       this.address = address;
+       this.dateOfBirth = new Date(dateOfBirth);
     }
    
     public Integer getUserId() {

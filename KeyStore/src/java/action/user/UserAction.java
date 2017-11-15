@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import util.Constant;
+import util.Util;
 
 /**
  *
@@ -44,6 +45,42 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         } else {
             return ERROR;
         }
+    }
+    
+    public String normalRegister(){
+        String email = request.getParameter("email");
+        String userName = request.getParameter("userName");
+        String pwd = request.getParameter("pwd");
+        String cfmPwd = request.getParameter("cfmPwd");
+        String gender = request.getParameter("gender");
+        String dateOfBirth = request.getParameter("dateOfBirth");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String address = request.getParameter("address");
+        
+        user = new UserInfo();
+        String errorMessage = Util.validatePassword(pwd, cfmPwd);
+        if (!errorMessage.equals(Constant.ErrorMessage.NO_MESSAGE)){
+            user.setErrorMessage(errorMessage);
+            return ERROR;
+        }
+        user.setUser(new User());
+        errorMessage = Util.validateUser(user.getUser());
+        if (!errorMessage.equals(Constant.ErrorMessage.NO_MESSAGE)){
+            user.setErrorMessage(errorMessage);
+            return ERROR;
+        }
+        errorMessage = controller.isEmailExist(email);
+        if (!errorMessage.equals(Constant.ErrorMessage.NO_MESSAGE)){
+            user.setErrorMessage(errorMessage);
+            return ERROR;
+        }
+        
+        controller.register(user.getUser());
+        HttpSession session = request.getSession();
+        session.setAttribute("userId", user.getUser().getUserId());
+        session.setAttribute("userName", user.getUser().getUserName());
+        session.setAttribute("currentMoney", user.getUser().getMoney());
+        return SUCCESS;
     }
     
     public String logout(){
