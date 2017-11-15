@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 21, 2017 10:21:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="keystore" name="model.dbentities.PaymentMethod" optimistic-lock="version" table="payment_method">
+    <id name="methodId" type="java.lang.Integer">
+      <column name="method_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="methodName" type="string">
+      <column length="200" name="method_name"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="orders" table="order">
+      <key>
+        <column name="method_id"/>
+      </key>
+      <one-to-many class="model.dbentities.Order"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -5,7 +5,7 @@
  */
 package util;
 
-import entities.database.User;
+import model.dbentities.User;
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;

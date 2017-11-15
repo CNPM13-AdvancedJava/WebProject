@@ -40,7 +40,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="getListUser?userNameList=<%=session.getAttribute("userName")%>">
+                                                    <a href="userDetail?id=<%=session.getAttribute("userId")%>">
                                                         Quản lí thông tin
                                                     </a>
                                                 </li>

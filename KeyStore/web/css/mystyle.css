@@ -202,17 +202,18 @@
     margin-top:15px;
     margin-bottom: 15px;
 }
-.conten-tttk{
+.content-tttk{
     background-color:#222222;
+    padding: 22px;
 }
-.conten-tttk h2{
+.content-tttk h2{
     color:#FF0000;
 }
-.conten-tttk h4{
+.content-tttk h4{
     color:#FFCC33;
     float:left;
 }
-.conten-tttk span{
+.content-tttk span{
     color:#FFF;
     font-size: 16px;
     float:left;

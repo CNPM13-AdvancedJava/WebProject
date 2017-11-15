@@ -6,31 +6,35 @@
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
         <!-- User action -->
-        <action name="getProductPagination" class="action.user.ProductAction" method="getPagination">
+        <action name="getProductPagination" class="controller.action.user.ProductAction" method="getPagination">
             <result name="success">listProductPagination.jsp</result>
         </action>
-        <action name="getBanner" class="action.user.ProductAction" method="getBanner">
+        <action name="getBanner" class="controller.action.user.ProductAction" method="getBanner">
             <result name="success">banner.jsp</result>
         </action>
-        <action name="getTop5" class="action.user.ProductAction" method="getTop5">
+        <action name="getTop5" class="controller.action.user.ProductAction" method="getTop5">
             <result name="success">topgame.jsp</result>
         </action>
-        <action name="getMenu" class="action.user.ProductAction" method="getMenu">
+        <action name="getMenu" class="controller.action.user.ProductAction" method="getMenu">
             <result name="success">menu.jsp</result>
         </action> 
-        <action name="getProduct" class="action.user.ProductAction" method="getProductDetail">
+        <action name="getProduct" class="controller.action.user.ProductAction" method="getProductDetail">
             <result name="success">productDetail.jsp</result>
         </action> 
         
-        <action name="login" class="action.user.UserAction" method="normalLogin">
+        <action name="login" class="controller.action.user.UserAction" method="normalLogin">
             <result name="success">home.jsp</result>
             <result name="error">login.jsp</result>
         </action> 
-        <action name="register" class="action.user.UserAction" method="normalRegister">
+        <action name="register" class="controller.action.user.UserAction" method="normalRegister">
             <result name="success">home.jsp</result>
             <result name="error">register.jsp</result>
         </action> 
-        <action name="logout" class="action.user.UserAction" method="logout">
+        <action name="userDetail" class="controller.action.user.UserAction" method="getUserById">
+            <result name="success">userDetail.jsp</result>
+            <result name="error">home.jsp</result>
+        </action> 
+        <action name="logout" class="controller.action.user.UserAction" method="logout">
             <result name="success">home.jsp</result>
         </action>
         <!-- Admin action -->
