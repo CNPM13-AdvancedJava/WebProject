@@ -3,20 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/User.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/entities/Product.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/entities/UserDetail.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/js/popup.js</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/register.jsp</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/util/Util.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/struts.xml</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/ProductAction.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/dao/user/UserController.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/entities/UserInfo.java</file>
             <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/userDetail.jsp</file>
             <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/UserAction.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/js/npm.js</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/js/swapgametype.js</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/register.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/util/Util.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/util/Constant.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/struts.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/entities/UserInfo.java</file>
         </group>
     </open-files>
 </project-private>

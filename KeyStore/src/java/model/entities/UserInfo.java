@@ -16,10 +16,11 @@ public class UserInfo {
     
     private User user;
     private String errorMessage = Constant.ErrorMessage.NO_MESSAGE;
+    private String successMessage = Constant.ErrorMessage.NO_MESSAGE;
 
     public UserInfo() {
     }
-
+    
     public UserInfo(User user, String errorMessage) {
         this.user = user;
         this.errorMessage = errorMessage;
@@ -39,6 +40,14 @@ public class UserInfo {
 
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
+    }
+
+    public String getSuccessMessage() {
+        return successMessage;
+    }
+
+    public void setSuccessMessage(String successMessage) {
+        this.successMessage = successMessage;
     }
     
     

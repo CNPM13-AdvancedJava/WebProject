@@ -37,6 +37,10 @@
         <action name="logout" class="controller.action.user.UserAction" method="logout">
             <result name="success">home.jsp</result>
         </action>
+        <action name="changePassword" class="controller.action.user.UserAction" method="changePass">
+            <result name="success">userDetail.jsp</result>
+            <result name="error">userDetail.jsp</result>
+        </action>
         <!-- Admin action -->
     </package>
 </struts>

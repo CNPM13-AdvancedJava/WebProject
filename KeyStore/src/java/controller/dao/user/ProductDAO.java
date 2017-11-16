@@ -17,7 +17,7 @@ import org.hibernate.Session;
  *
  * @author Nguyen
  */
-public class ProductController {
+public class ProductDAO {
 
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     

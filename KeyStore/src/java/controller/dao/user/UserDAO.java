@@ -18,7 +18,7 @@ import util.Constant;
  *
  * @author Linh
  */
-public class UserController {
+public class UserDAO {
     
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     
@@ -86,6 +86,14 @@ public class UserController {
         }
         return user;
     
+    }
+
+    public void updateUser(User user) {
+        try {
+            session.update(user);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
     }
     
 }

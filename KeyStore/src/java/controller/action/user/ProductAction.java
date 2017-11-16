@@ -6,7 +6,7 @@
 package controller.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
-import controller.dao.user.ProductController;
+import controller.dao.user.ProductDAO;
 import model.entities.Page;
 import model.entities.Product;
 import model.dbentities.Catalog;
@@ -18,7 +18,7 @@ import util.Util;
 
 public class ProductAction extends ActionSupport implements ServletRequestAware {
 
-    private ProductController controller;
+    private ProductDAO dao;
     private HttpServletRequest request;
 
     private List<ProductDetail> lstProduct;
@@ -30,22 +30,22 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
     private List<Page> lstPage;
 
     public ProductAction() {
-        controller = new ProductController();
+        dao = new ProductDAO();
     }
 
     public String getBanner() {
-        controller.beginTransaction();
-        lstProduct = controller.get4NewestProduct();
-        controller.closeTransaction();
+        dao.beginTransaction();
+        lstProduct = dao.get4NewestProduct();
+        dao.closeTransaction();
         ProductDetail.getThumnailImage(lstProduct);
         lstProduct.get(0).setBannerStatus("active");
         return SUCCESS;
     }
 
     public String getTop5() {
-        controller.beginTransaction();
-        lstProduct = controller.get5MostViewProduct();
-        controller.closeTransaction();
+        dao.beginTransaction();
+        lstProduct = dao.get5MostViewProduct();
+        dao.closeTransaction();
         ProductDetail.getThumnailImage(lstProduct);
         return SUCCESS;
     }
@@ -58,9 +58,9 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         } catch (Exception e) {
 
         }
-        controller.beginTransaction();
-        lstProduct = controller.getAllProduct();
-        controller.closeTransaction();
+        dao.beginTransaction();
+        lstProduct = dao.getAllProduct();
+        dao.closeTransaction();
         totalPage = Util.getTotalPage(lstProduct.size(), pageSize);
         lstProduct = Util.getPagitation(lstProduct, curPage, pageSize);
         lstPage = Page.getPageList(totalPage, curPage);
@@ -69,9 +69,9 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
     }
 
     public String getMenu() {
-        controller.beginTransaction();
-        lstCatalog = controller.getAllCatalog();
-        controller.closeTransaction();
+        dao.beginTransaction();
+        lstCatalog = dao.getAllCatalog();
+        dao.closeTransaction();
         return SUCCESS;
     }
 
@@ -82,9 +82,9 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
             productId = Integer.parseInt(id);
         } catch (Exception e) {
         }
-        controller.beginTransaction();
-        ProductDetail detail = controller.getProductById(productId);
-        controller.closeTransaction();
+        dao.beginTransaction();
+        ProductDetail detail = dao.getProductById(productId);
+        dao.closeTransaction();
         ProductDetail.getThumnailImage(detail);
         product = new Product(detail);
         return SUCCESS;

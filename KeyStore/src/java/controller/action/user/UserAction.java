@@ -8,7 +8,7 @@ package controller.action.user;
 import static com.opensymphony.xwork2.Action.ERROR;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
-import controller.dao.user.UserController;
+import controller.dao.user.UserDAO;
 import model.entities.UserInfo;
 import model.dbentities.User;
 import javax.servlet.http.HttpServletRequest;
@@ -25,21 +25,21 @@ import util.Util;
 public class UserAction extends ActionSupport implements ServletRequestAware{
     
     private HttpServletRequest request;
-    private UserController controller;
+    private UserDAO dao;
     
     private UserInfo user;
     private UserDetail detail;
 
     public UserAction() {
-        controller = new UserController();
+        dao = new UserDAO();
     }
     
     public String normalLogin(){
         String email = request.getParameter("txt-email");
         String pwd = request.getParameter("txt-pass");
-        controller.beginTransaction();
-        user = controller.login(email, pwd);
-        controller.closeTransaction();
+        dao.beginTransaction();
+        user = dao.login(email, pwd);
+        dao.closeTransaction();
         if (user.getErrorMessage().equalsIgnoreCase(Constant.ErrorMessage.NO_MESSAGE)) {
             HttpSession session = request.getSession();
             session.setAttribute("userId", user.getUser().getUserId());
@@ -74,15 +74,15 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
             return ERROR;
         }
         
-        controller.beginTransaction();
-        errorMessage = controller.isEmailExist(email);
+        dao.beginTransaction();
+        errorMessage = dao.isEmailExist(email);
         if (!errorMessage.equals(Constant.ErrorMessage.NO_MESSAGE)){
             user.setErrorMessage(errorMessage);
             return ERROR;
         }
         
-        controller.register(user.getUser());
-        controller.closeTransaction();
+        dao.register(user.getUser());
+        dao.closeTransaction();
         
         HttpSession session = request.getSession();
         session.setAttribute("userId", user.getUser().getUserId());
@@ -97,10 +97,10 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         try {
             int uId = Integer.parseInt(id);
             if (userId.equals(uId)){
-                controller.beginTransaction();
-                User userDetail = controller.getUserDetailById(uId);
+                dao.beginTransaction();
+                User userDetail = dao.getUserDetailById(uId);
                 detail = new UserDetail(userDetail);
-                controller.closeTransaction();
+                dao.closeTransaction();
                 return SUCCESS;
             }
         }
@@ -108,6 +108,48 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
             System.err.println(e);
         }
         return ERROR;
+    }
+    
+    
+    public String changePass() {
+        String result = ERROR;
+        String id = request.getParameter("id");
+        String curPass = request.getParameter("curPass");
+        String newPass = request.getParameter("newPass");
+        String cfmPass = request.getParameter("cfmPass");
+        Integer sessionUID = (Integer) request.getSession().getAttribute("userId");
+        int userId = 0;
+        try {
+            userId = Integer.parseInt(id);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        dao.beginTransaction();
+        User userDetail = dao.getUserDetailById(userId);
+        user = new UserInfo();
+        detail = new UserDetail(userDetail);
+        if (userId != sessionUID){
+            dao.closeTransaction();
+            return result;
+        }
+        String errorMessage = Util.validatePassword(newPass, cfmPass);
+        if (!errorMessage.equals(Constant.ErrorMessage.NO_MESSAGE)){
+            user.setErrorMessage(errorMessage);
+            dao.closeTransaction();
+            return result;
+        }
+        
+        if (userDetail.getPassword() != null && userDetail.getPassword().equals(curPass)){
+            userDetail.setPassword(newPass);
+            dao.updateUser(userDetail);
+            user.setSuccessMessage(Constant.SuccessMessage.CHANGE_PASSWORD_SUCCESS);
+            result = SUCCESS;
+        }
+        else {
+            user.setErrorMessage(Constant.ErrorMessage.INVALID_PASSWORD);
+        }
+        dao.closeTransaction();
+        return result;
     }
     
     public String logout(){

@@ -32,25 +32,27 @@
                             <h4>Số điện thoại : </h4><span><s:property value="detail.phoneNumber"/></span></br></br>
                             <h4>Địa chỉ : </h4><span><s:property value="detail.address"/></span></br></br>
                             <h4>Số dư tài khoản : </h4><span><s:property value="detail.money"/> VNĐ</span></br></br>
+                            <span style="color: red"><s:property value="user.errorMessage"/></span>
+                            <span style="color: greenyellow"><s:property value="user.successMessage"/></span></br></br>
                             <h4><a href="changeUser?userChangeId=<s:property value="user.userId"/>" type="button" class="btn btn-danger">Sửa thông tin</a>&nbsp;&nbsp;</h4>						
                             <h4><a href="#" type="button" class="btn btn-danger">Nạp tiền</a>&nbsp;&nbsp;</h4>
                             <h4><a href = "javascript:void(0)" onclick="popup()" type="button" class="btn btn-danger">Đổi mật khẩu</a></h4>
                         </div>
                         <div id="light" class="white_content">
                             <div class="doimk">
-                                <form action="changePassword?userChangepassId=<s:property value="user.userId"/>" method="POST">
+                                <form action="changePassword?id=<%= session.getAttribute("userId")%>" method="POST">
                                     <table class="table table-default">
                                         <tr>
                                             <td class="label-changePass">Mật khẩu hiện tại : </td>
-                                            <td><input type="password" class="form-control" name="oldpass" value="" placeholder=""></td>
+                                            <td><input type="password" class="form-control" name="curPass" value="" placeholder=""></td>
                                         </tr>
                                         <tr>
                                             <td class="label-changePass">Mật khẩu : </td>
-                                            <td><input type="password" class="form-control" name="newpass" value="" placeholder=""></td>
+                                            <td><input type="password" class="form-control" name="newPass" value="" placeholder=""></td>
                                         </tr>
                                         <tr>
                                             <td class="label-changePass">Nhập lại Mật khẩu : </td>
-                                            <td><input type="password" class="form-control" name="renewpass" value="" placeholder=""></td>
+                                            <td><input type="password" class="form-control" name="cfmPass" value="" placeholder=""></td>
                                         </tr>
                                         <tr>
                                             <td>
