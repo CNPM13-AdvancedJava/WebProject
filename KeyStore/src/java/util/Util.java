@@ -5,6 +5,8 @@
  */
 package util;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import model.dbentities.User;
 import java.util.Calendar;
 import java.util.LinkedList;
@@ -15,6 +17,14 @@ import java.util.List;
  * @author Linh
  */
 public class Util {
+    
+    public static String formatPrice(double price){
+        NumberFormat formatter = new DecimalFormat("###,###");
+        String resp = formatter.format(price);
+        resp = resp.replaceAll(",", ".");
+        return resp;
+    }
+    
     public static int getTotalPage(int itemNumer, int pageSize){
         if ((itemNumer % pageSize) == 0){
             return itemNumer / pageSize;

@@ -25,12 +25,13 @@
                         </div>
                         <div class="col-lg-7 col-md-7 col-xs-12 content-tttk">
                             <h2>Thông tin tài khoản</h2>
-                            <h4>Tên tài khoản : </h4><span><s:property value="userDetail.userName"/></span></br></br>
-                            <h4>Giới tính : </h4><span><s:property value="user.userGender"/></span></br></br>
-                            <h4>Ngày sinh : </h4><span><s:property value="user.userDateofbirth"/></span></br></br>
-                            <h4>Số điện thoại : </h4><span><s:property value="user.userPhonenum"/></span></br></br>
-                            <h4>Địa chỉ : </h4><span><s:property value="user.userAddress"/></span></br></br>
-                            <h4>Số dư tài khoản : </h4><span><s:property value="user.money"/> đ</span></br></br>
+                            <h4>Tên tài khoản : </h4><span><s:property value="detail.userName"/></span></br></br>
+                            <h4>Email : </h4><span><s:property value="detail.email"/></span></br></br>
+                            <h4>Giới tính : </h4><span><s:property value="detail.gender"/></span></br></br>
+                            <h4>Ngày sinh : </h4><span><s:property value="detail.dateOfBirth"/></span></br></br>
+                            <h4>Số điện thoại : </h4><span><s:property value="detail.phoneNumber"/></span></br></br>
+                            <h4>Địa chỉ : </h4><span><s:property value="detail.address"/></span></br></br>
+                            <h4>Số dư tài khoản : </h4><span><s:property value="detail.money"/> VNĐ</span></br></br>
                             <h4><a href="changeUser?userChangeId=<s:property value="user.userId"/>" type="button" class="btn btn-danger">Sửa thông tin</a>&nbsp;&nbsp;</h4>						
                             <h4><a href="#" type="button" class="btn btn-danger">Nạp tiền</a>&nbsp;&nbsp;</h4>
                             <h4><a href = "javascript:void(0)" onclick="popup()" type="button" class="btn btn-danger">Đổi mật khẩu</a></h4>

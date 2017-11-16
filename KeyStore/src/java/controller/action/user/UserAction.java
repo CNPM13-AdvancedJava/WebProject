@@ -13,6 +13,7 @@ import model.entities.UserInfo;
 import model.dbentities.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import model.entities.UserDetail;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import util.Constant;
 import util.Util;
@@ -27,7 +28,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
     private UserController controller;
     
     private UserInfo user;
-    private User userDetail;
+    private UserDetail detail;
 
     public UserAction() {
         controller = new UserController();
@@ -97,7 +98,8 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
             int uId = Integer.parseInt(id);
             if (userId.equals(uId)){
                 controller.beginTransaction();
-                userDetail = controller.getUserDetailById(uId);
+                User userDetail = controller.getUserDetailById(uId);
+                detail = new UserDetail(userDetail);
                 controller.closeTransaction();
                 return SUCCESS;
             }
@@ -125,8 +127,8 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         return user;
     }
 
-    public User getUserDetail() {
-        return userDetail;
+    public UserDetail getDetail() {
+        return detail;
     }
 
 }

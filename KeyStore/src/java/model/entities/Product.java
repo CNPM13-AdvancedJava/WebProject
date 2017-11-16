@@ -12,6 +12,7 @@ import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import util.Util;
 
 /**
  *
@@ -51,17 +52,10 @@ public class Product {
         this.region = detail.getRegion();
         this.description = detail.getDescription();
         this.introduction = detail.getIntroduction();
-        this.price = formatPrice(detail.getPrice());
+        this.price = Util.formatPrice(detail.getPrice());
         this.thumbnailUrl = detail.getThumbnailUrl();
     }
     
-    public static String formatPrice(double price){
-        NumberFormat formatter = new DecimalFormat("###,###");
-        String resp = formatter.format(price);
-        resp = resp.replaceAll(",", ".");
-        return resp;
-    }
-
     public Integer getProductId() {
         return productId;
     }
