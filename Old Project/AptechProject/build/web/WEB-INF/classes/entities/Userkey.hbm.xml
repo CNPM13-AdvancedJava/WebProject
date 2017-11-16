@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2016 9:33:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.Userkey" table="userkey" schema="dbo" catalog="AptechProject" optimistic-lock="version">
+        <id name="userId" type="int">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="ranked" class="entities.Ranked" fetch="select">
+            <column name="rank_id" not-null="true" />
+        </many-to-one>
+        <property name="userName" type="string">
+            <column name="user_name" not-null="true" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="user_password" not-null="true" />
+        </property>
+        <property name="userImages" type="string">
+            <column name="user_images" />
+        </property>
+        <property name="userPhonenum" type="string">
+            <column name="user_phonenum" />
+        </property>
+        <property name="userGender" type="string">
+            <column name="user_gender" />
+        </property>
+        <property name="userAddress" type="string">
+            <column name="user_address" />
+        </property>
+        <property name="userDateofbirth" type="java.sql.Date">
+            <column name="user_dateofbirth" length="10" />
+        </property>
+        <property name="money" type="int">
+            <column name="money" not-null="true" />
+        </property>
+        <set name="allorders" table="allorder" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="entities.Allorder" />
+        </set>
+    </class>
+</hibernate-mapping>

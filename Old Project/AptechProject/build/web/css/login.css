@@ -1,0 +1,42 @@
+.fg-pass{
+    float:right;
+    position: relative;
+    top:-10px;
+    font-size:80%;
+}
+.panel-body label{
+    position: relative;
+    top:-2px;
+    left:4px;
+    font-weight: 400;
+}
+.user-login,.pass-login{
+    margin-bottom: 25px;
+}
+.signup-here{
+    padding-top:15px;
+    border-top:solid 1px #666;
+    font-size: 85%;
+    width: 90% !important;
+    margin-left:30px;
+}
+.panel-info
+{
+    border-color:#FF0000 !important;
+}
+.panel-heading{
+    background-color: #222222 !important;
+    border-color:#FF0000 !important;
+}
+.panel-title a,.panel-title a:hover{
+    text-decoration: none;
+}
+.bg-login{
+    margin-top:150px;
+}
+.ErrorLogin{
+    color:#FF0000;
+}
+.addSuccess{
+    color:#00CC00;
+}

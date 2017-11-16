@@ -1,0 +1,116 @@
+.images-content{
+	margin-top:15px;	
+}
+.content-title{
+	border-top:solid 1px #FF0000;
+	margin-top:15px;
+}
+.context-content{
+	background-color:#222222;
+	padding-bottom:10px;
+	margin-top:15px;
+}
+.buynow{
+    margin-top:15px;
+}
+.content-context{
+	border-top:solid 1px #FF0000;	
+	font-size:18px;
+}
+.pay-content{
+	border-top:solid 1px #FF0000;
+	margin-top:5px;
+}
+.prince{
+	border-top:solid 1px #FF0000;
+	margin-top:5px;
+}
+.dathang{
+	border-top:solid 1px #FF0000;
+}
+.dathang a{
+        margin-top:10px;
+        margin-bottom:10px;
+}
+.status{
+	border-top:solid 1px #FF0000;
+	border-bottom:solid 1px #FF0000;
+	margin-top:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.content-title{
+	color:#FF3300;
+}
+.label-context{
+	color:#FFCC33;
+}
+.number-prince{
+	margin-top:5px;
+	color:#FF0000;
+	font-size:28px;
+}
+.context-field{
+	color:#FFF;
+}
+.table-pay{
+	margin-top:5px;
+}
+.content-images{
+	width: 450px;
+        height:500px;
+}
+.images-involve{
+	height: 150px;
+	width:100px;
+}
+.involve ul{
+	list-style: none;	
+	margin-left:-40px;
+}
+.thumbnail{
+	background-color:#222222;
+	border-color:#FF0000;	
+}
+.caption{
+	text-align: center;
+}
+.caption p{
+	color:red;
+	font-weight: bold;
+}
+.caption h5{
+	color:#FFF;
+}
+.describe-comment{
+	margin-left:15px;
+}
+.describe-comment a{
+	color:#FF0000;
+}
+.tab-content{
+	margin-left:15px;
+	background-color:#222222;
+}
+.Warring{
+	color:#00CC00;
+	line-height: 2.0;
+	font-size:18px;
+}
+.tab-content table{
+	color:#FF0000;
+}
+.Detailed-description{
+	color:#FFF;
+}
+#comment{
+    background-color: #FFF;
+}
+.title-involve{
+	background-color:#222222;
+	color:#FF0000;
+	font-size:20px;
+	margin-left:15px;
+	margin-bottom:10px;
+	margin-top:10px;
+}

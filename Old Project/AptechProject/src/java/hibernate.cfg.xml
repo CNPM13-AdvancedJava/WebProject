@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://Localhost:1433;databaseName=AptechProject</property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.connection.password">linh1996</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.connection.pool_size">11</property>
+    <mapping resource="entities/Catalog.hbm.xml"/>
+    <mapping resource="entities/Method.hbm.xml"/>
+    <mapping resource="entities/Gametype.hbm.xml"/>
+    <mapping resource="entities/Ranked.hbm.xml"/>
+    <mapping resource="entities/Userkey.hbm.xml"/>
+    <mapping resource="entities/ProductKey.hbm.xml"/>
+    <mapping resource="entities/Saled.hbm.xml"/>
+    <mapping resource="entities/Allorder.hbm.xml"/>
+    <mapping resource="entities/Product.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,238 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="getBanner" class="action.ActionProduct" method="getBanner">
+            <result name="success">
+                banner.jsp
+            </result>
+        </action>
+        <action name="getTop5" class="action.ActionProduct" method="getTop5">
+            <result name="success">
+                topgame.jsp
+            </result>
+        </action>
+        <action name="getAllCatalog" class="action.ActionCatalog" method="getMenu">
+            <result name="success">
+                menu.jsp
+            </result>
+        </action> 
+        <action name="getPro" class="action.ActionProduct" method="getProbyid">
+            <result name="success">productcontent.jsp</result>
+        </action>               
+        <action name="findProduct" class="action.ActionSearch" method="getListFind">
+            <result name="input">header.jsp</result>
+            <result name="success">findcontent.jsp</result>
+            <result name="error">error.jsp</result>                
+        </action> 
+        <action name="LoginUser" class="action.ActionLogin" method="CheckLogin">            
+            <result name="input">login.jsp</result>
+            <result name="success">goheader.jsp</result>
+            <result name="error">loginfail.jsp</result>
+        </action>
+        <action name="headerGoMain" class="action.ActionLogin" method="goHeader" >
+            <result name="success">main.jsp</result>
+        </action> 
+        <action name="getLogOut" class="action.ActionLogin" method="getLogOut">
+            <result name="success">logout.jsp</result>
+        </action>
+        <action name="logOut" class="action.ActionLogin" method="logOut">
+            <result name="success">main.jsp</result>
+        </action>
+        <action name="loginFail" class="action.ActionLogin" method="loginFail">
+            <result name="success">login.jsp</result>
+        </action> 
+        <action name="loginIn" class="action.ActionLogin" method="loginIn">
+            <result name="success">login.jsp</result>
+        </action>        
+        <action name="addUser" class="action.ActionLogin" method="addUser">
+            <result name="success">addSuccess.jsp</result>
+        </action> 
+        <action name="goRegister" class="action.ActionLogin" method="goRegister">
+            <result name="success">formRegister.jsp</result>
+        </action>        
+        <action name="getAllProPagi" class="action.ActionPagination" method="lstProShop">
+            <result name="success">listproductpagination.jsp</result>
+        </action>
+        <action name="shoppage" class="action.ActionPagination" method="getListProduct">			
+            <result name="success">
+                listproductclick.jsp    
+            </result>
+        </action> 
+        <action name="LoginUserAdmin" class="action.ActionLogin" method="CheckLoginAdmin">            
+            <result name="input">loginAdmin.jsp</result>
+            <result name="success">loginAdminSuccess.jsp</result>
+            <result name="error">loginAdminfail.jsp</result>
+        </action>
+        <action name="loginAdminSuccess" class="action.ActionLogin" method="successAdmin" >
+            <result name="success">getAllProduct.jsp</result>
+        </action> 
+        <action name="getLogOutAdmin" class="action.ActionLogin" method="getLogOutAdmin">
+            <result name="success">logOutAdmin.jsp</result>
+        </action>
+        <action name="logOutAdmin" class="action.ActionLogin" method="logOutAdmin">
+            <result name="success">loginAdminIn.jsp</result>
+        </action>
+        <action name="loginAdminFail" class="action.ActionLogin" method="loginFailAdmin">
+            <result name="success">loginAdmin.jsp</result>
+        </action> 
+        <action name="loginAdminIn" class="action.ActionLogin" method="loginInAdmin">
+            <result name="success">loginAdmin.jsp</result>
+        </action>
+        <action name="goAdminifnoNull" class="action.ActionLogin" method="goAdminnoNull">
+            <result name="success">getAllProduct.jsp</result>
+        </action>
+        <action name="findProductbyGametype" class="action.ActionSearch" method="getListFindbyGametype">        
+            <result name="success">findcontent.jsp</result>
+            <result name="error">error.jsp</result>                
+        </action>
+        <action name="goGioHang" class="action.ActionGioHang" method="addCart">
+            <result name="success">productcontent.jsp</result>           
+        </action>
+        <action name="getGiohang" class="action.ActionGioHang" method="getOrderbyName">
+            <result name="success">goOrder.jsp</result>           
+        </action>  
+        <action name="goAllOrder" class="action.ActionGioHang" method="getCartbyName">
+            <result name="success">giohang.jsp</result>           
+        </action>
+        <action name="deleteGH" class="action.ActionGioHang" method="deleteOrder">
+            <result name="success">giohang.jsp</result>
+        </action>
+        <action name="getListUser" class="action.ActionUser" method="getAllUser">
+            <result name="success">thongtinUser.jsp</result>
+        </action>  
+        <action name="changeUser" class="action.ActionUser" method="getUserbyId">
+            <result name="success">suathongtinUser.jsp</result>
+        </action>
+        <action name="userUpdatebyId" class="action.ActionUser" method="updatebyIdUser">
+            <result name="success">updateUserSuccess.jsp</result>
+            <result name="error">errorChangeThogtin.jsp</result>
+        </action>
+        <action name="updateUserSuccess" class="action.ActionUser" method="getUseroldUpdate">
+            <result name="success">thongtinUser.jsp</result>
+        </action>
+        <action name="changePassword" class="action.ActionUser" method="changePassword">
+            <result name="input">thongtinUser.jsp</result>
+            <result name="success">thongtinUser.jsp</result>
+            <result name="error">errorChangePass.jsp</result>
+        </action>
+        <action name="goThanhToanoneChamp" class="action.ActionThanhToan" method="getMoneyforThanhtoan">
+            <result name="success">thanhtoan.jsp</result>
+        </action>
+        <action name="thanhToanSP" class="action.ActionThanhToan" method="thanhToan1Sp">
+            <result name="success">thanhtoanThanhCong.jsp</result>
+            <result name="error">thanhtoanThatBai.jsp</result>
+        </action>
+        <action name="thanhToanGH" class="action.ActionThanhToan" method="thanhToanGH">
+            <result name="success">thanhtoanThanhCong.jsp</result>
+            <result name="error">thanhtoanThatBai.jsp</result>
+        </action>
+        <action name="thanhtoanSpPay" class="action.ActionThanhToan" method="ThanhtoaninPay">
+            <result name="success">thanhtoanThanhCong.jsp</result>
+            <result name="error">thanhtoanPayFail.jsp</result>
+        </action>
+        <action name="thanhtoanPayGH" class="action.ActionThanhToan" method="thanhToanbyinGH">
+            <result name="success">thanhtoanThanhCong.jsp</result>
+            <result name="error">thanhtoanPayFail.jsp</result>
+        </action>
+        <action name="getAllUser" class="action.UserAction" method="getAllUser">
+            <result name="success">listUser.jsp</result>
+        </action>
+        <action name="getAll" class="action.ProductAction" method="getAll">
+            <result name="success">addProduct.jsp</result>
+        </action>
+        <action name="getAllProductInfo" class="action.ProductAction" method="getAll">
+            <result name="success">listProduct.jsp</result>
+        </action>
+        <action name="getAllOrderInfo" class="action.OrderAction" method="getAllOrderInfo">
+            <result name="success">listOrder.jsp</result>
+        </action>
+        <action name="addProduct" class="action.ProductAction" method="checkProductName">
+            <result name="success">listProduct.jsp</result>
+            <result name="error">productExist.jsp</result>
+        </action>
+        <action name="delete" class="action.ProductAction" method="deleteProduct">
+            <result name="success">listProduct.jsp</result>
+            <result name="error">deleteFail.jsp</result>
+        </action>
+        <action name="deleteProductAndKey" class="action.ProductAction" method="deleteProductAndKey">
+            <result name="success">listProduct.jsp</result>
+        </action>
+        <action name="initProduct" class="action.ProductAction" method="initUpdate">
+            <result name="success">updateProduct.jsp</result>
+        </action>
+        <action name="getKeyByID" class="action.ProductAction" method="getKeyByID">
+            <result name="success">listKey.jsp</result>
+        </action>
+        <action name="updateProduct" class="action.ProductAction" method="updateProduct">
+            <result name="success">listProduct.jsp</result>
+        </action>
+        <action name="getUserInfo" class="action.UserAction" method="getUserInfo">
+            <result name="success">userInfo.jsp</result>
+        </action>
+        <action name="addkey" class="action.ProductAction" method="findProductID">
+            <result name="success">addKey.jsp</result>
+        </action>
+        <action name="add" class="action.ProductAction" method="insertKey">
+            <result name="success">insertKeySuccess.jsp</result>
+            <result name="error">insertKeyFail.jsp</result>
+        </action>
+        <action name="checkUserName" class="action.UserAction" method="checkUserName">
+            <result name="success">checkPassword.jsp</result>
+            <result name="error">userExist.jsp</result>
+        </action>
+        <action name="checkPassword" class="action.UserAction" method="checkPassword">
+            <result name="success">checkDOB.jsp</result>
+            <result name="error">errorPassword.jsp</result>
+        </action>
+        <action name="checkDOB" class="action.UserAction" method="checkDOB">
+            <result name="success">register.jsp</result>
+            <result name="error">errorDOB.jsp</result>
+        </action>
+        <action name="register" class="action.UserAction" method="register">
+            <result name="success">loginIn.jsp</result>
+        </action>
+        <action name="insertFail" class="action.ProductAction" method="fail">
+            <result name="error">addProduct.jsp</result>
+        </action>
+        <action name="registerFail" class="action.UserAction" method="fail">
+            <result name="error">formRegister.jsp</result>
+        </action>
+        <action name="errorPassword" class="action.UserAction" method="fail">
+            <result name="error">formRegister.jsp</result>
+        </action>
+        <action name="errorDOB" class="action.UserAction" method="fail">
+            <result name="error">formRegister.jsp</result>
+        </action>
+        <action name="insertKeySuccess" class="action.ProductAction" method="success">
+            <result name="success">listProduct.jsp</result>
+        </action>
+        <action name="insertKeyFail" class="action.ProductAction" method="fail">
+            <result name="error">listProduct.jsp</result>
+        </action>
+        <action name="deleteKey" class="action.ProductAction" method="deleteKey">
+            <result name="success">listProduct.jsp</result>
+        </action>
+        <action name="registerIn" class="action.ActionLogin" method="removeSSRegister">
+            <result name="success">goRegister.jsp</result>
+        </action>              
+        <action name="gotoRegister" class="action.ActionLogin" method="goRegister">
+            <result name="success">formRegister.jsp</result>
+        </action>           
+        <action name="registerIn" class="action.ActionLogin" method="removeSSRegister">
+            <result name="success">goRegister.jsp</result>
+        </action>              
+        <action name="gotoRegister" class="action.ActionLogin" method="goRegister">
+            <result name="success">formRegister.jsp</result>
+        </action>    
+        <action name="addProductIn" class="action.ProductAction" method="goInsert">
+            <result name="success">addProductIn.jsp</result>
+        </action>
+        <action name="insertIn" class="action.ProductAction" method="goInsert">
+            <result name="success">getAll.jsp</result>
+        </action>
+    </package>
+</struts>

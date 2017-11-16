@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="AptechProject" match-schema="dbo"/>
+  <table-filter match-name="gametype"/>
+  <table-filter match-name="saled"/>
+  <table-filter match-name="allorder"/>
+  <table-filter match-name="ranked"/>
+  <table-filter match-name="product"/>
+  <table-filter match-name="method"/>
+  <table-filter match-name="catalog"/>
+  <table-filter match-name="userkey"/>
+  <table-filter match-name="productKey"/>
+</hibernate-reverse-engineering>
