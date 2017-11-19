@@ -34,8 +34,8 @@
                             <h4>Số dư tài khoản : </h4><span><s:property value="detail.money"/> VNĐ</span></br></br>
                             <span style="color: red"><s:property value="user.errorMessage"/></span>
                             <span style="color: greenyellow"><s:property value="user.successMessage"/></span></br></br>
-                            <h4><a href="changeUser?userChangeId=<s:property value="user.userId"/>" type="button" class="btn btn-danger">Sửa thông tin</a>&nbsp;&nbsp;</h4>						
-                            <h4><a href="#" type="button" class="btn btn-danger">Nạp tiền</a>&nbsp;&nbsp;</h4>
+                            <h4><a href="userDetail?id=<%=session.getAttribute("userId")%>&isChange=1" type="button" class="btn btn-danger">Sửa thông tin</a>&nbsp;&nbsp;</h4>						
+                            <h4><a href="javascript:void(0)" onclick="cardChargingPopup()" type="button" class="btn btn-danger">Nạp tiền</a>&nbsp;&nbsp;</h4>
                             <h4><a href = "javascript:void(0)" onclick="popup()" type="button" class="btn btn-danger">Đổi mật khẩu</a></h4>
                         </div>
                         <div id="light" class="white_content">
@@ -59,6 +59,40 @@
                                                 <button type="submit" class="btn btn-danger form-control">Xác nhận</button>																						
                                             </td>
                                             <td><a href="#" class="btn btn-danger form-control" onclick = "endpopup()">Huỷ bỏ</a> </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                                    
+                        <div id="charging" class="white_content">
+                            <div class="doimk">
+                                <form action="cardCharging?id=<%= session.getAttribute("userId")%>" method="POST">
+                                    <table class="table table-default">
+                                        <tr>
+                                            <td class="label-changePass">Loại thẻ cào : </td>
+                                            <td>
+                                                <select name="cardType" class="form-control" required>
+                                                    <option value="VT">Viettel</option> 
+                                                    <option value="MBP">Mobiphone</option> 
+                                                    <option value="VNP">Vinaphone</option> 
+                                                    <option value="VNM">VietnamMobile</option> 
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-changePass">Serial : </td>
+                                            <td><input type="text" class="form-control" name="serial" value="" placeholder="" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-changePass">PIN : </td>
+                                            <td><input type="text" class="form-control" name="pin" value="" placeholder="" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button type="submit" class="btn btn-danger form-control">Nạp</button>																						
+                                            </td>
+                                            <td><a href="#" class="btn btn-danger form-control" onclick = "closeCardChargingPopup()">Huỷ bỏ</a> </td>
                                         </tr>
                                     </table>
                                 </form>

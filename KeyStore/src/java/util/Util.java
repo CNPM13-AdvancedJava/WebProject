@@ -9,6 +9,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import model.dbentities.User;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -67,7 +68,7 @@ public class Util {
     
     public static String validateUser(User user){
         String errorMessage = Constant.ErrorMessage.NO_MESSAGE;
-        if (user.getGender() > 1 || user.getGender() < 0){
+        if (user.getGender() != null && (user.getGender() > 1 || user.getGender() < 0)){
             errorMessage = Constant.ErrorMessage.INVALID_GENDER;
         }
         if (user.getEmail().length() > 50){
@@ -90,5 +91,10 @@ public class Util {
             errorMessage = Constant.ErrorMessage.INVALID_ADDRESS_LENGTH;
         }
         return errorMessage;
+    }
+    
+    public static Date format(String dateOfBirth){
+        String[] date = dateOfBirth.split("-");
+        return new Date(Integer.parseInt(date[0]) - 1901, Integer.parseInt(date[1]), Integer.parseInt(date[1]));
     }
 }

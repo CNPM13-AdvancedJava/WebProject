@@ -8,6 +8,7 @@
         <!-- User action -->
         <action name="getProductPagination" class="controller.action.user.ProductAction" method="getPagination">
             <result name="success">listProductPagination.jsp</result>
+            <result name="page">product.jsp</result>
         </action>
         <action name="getBanner" class="controller.action.user.ProductAction" method="getBanner">
             <result name="success">banner.jsp</result>
@@ -33,11 +34,20 @@
         <action name="userDetail" class="controller.action.user.UserAction" method="getUserById">
             <result name="success">userDetail.jsp</result>
             <result name="error">home.jsp</result>
+            <result name="input">updateUserInfo.jsp</result>
         </action> 
         <action name="logout" class="controller.action.user.UserAction" method="logout">
             <result name="success">home.jsp</result>
         </action>
         <action name="changePassword" class="controller.action.user.UserAction" method="changePass">
+            <result name="success">userDetail.jsp</result>
+            <result name="error">userDetail.jsp</result>
+        </action>
+        <action name="updateUserInfo" class="controller.action.user.UserAction" method="updateUserInfo">
+            <result name="success">userDetail.jsp</result>
+            <result name="error">updateUserInfo.jsp</result>
+        </action>
+        <action name="cardCharging" class="controller.action.user.UserAction" method="cardCharging">
             <result name="success">userDetail.jsp</result>
             <result name="error">userDetail.jsp</result>
         </action>

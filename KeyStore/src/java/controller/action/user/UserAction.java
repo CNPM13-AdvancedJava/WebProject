@@ -34,6 +34,35 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         dao = new UserDAO();
     }
     
+    public String cardCharging(){
+        String id = request.getParameter("id");
+        String cardType = request.getParameter("cardType");
+        String serial = request.getParameter("serial");
+        String pin = request.getParameter("pin");
+        Double money = 500000.0;
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
+        try {
+            int uId = Integer.parseInt(id);
+            if (userId.equals(uId)){
+                dao.beginTransaction();
+                User userDetail = dao.getUserDetailById(uId);
+                userDetail.setMoney(money + userDetail.getMoney());
+                detail = new UserDetail(userDetail);
+                dao.update(userDetail);
+                dao.closeTransaction();
+                HttpSession session = request.getSession();
+                session.setAttribute("userId", userDetail.getUserId());
+                session.setAttribute("userName", userDetail.getUserName());
+                session.setAttribute("currentMoney", userDetail.getMoney());
+                return SUCCESS;
+            }
+        }
+        catch (Exception e) {
+            System.err.println(e);
+        }
+        return ERROR;
+    }
+    
     public String normalLogin(){
         String email = request.getParameter("txt-email");
         String pwd = request.getParameter("txt-pass");
@@ -93,6 +122,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
     
     public String getUserById(){
         String id = request.getParameter("id");
+        String isChange = request.getParameter("isChange");
         Integer userId = (Integer) request.getSession().getAttribute("userId");
         try {
             int uId = Integer.parseInt(id);
@@ -101,6 +131,13 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
                 User userDetail = dao.getUserDetailById(uId);
                 detail = new UserDetail(userDetail);
                 dao.closeTransaction();
+                if (isChange != null && isChange.equals("1")){
+                    return INPUT;
+                }
+                HttpSession session = request.getSession();
+                session.setAttribute("userId", userDetail.getUserId());
+                session.setAttribute("userName", userDetail.getUserName());
+                session.setAttribute("currentMoney", userDetail.getMoney());
                 return SUCCESS;
             }
         }
@@ -150,6 +187,42 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         }
         dao.closeTransaction();
         return result;
+    }
+    
+    public String updateUserInfo(){
+        String userId = request.getParameter("userId");
+        String email = request.getParameter("email");
+        String userName = request.getParameter("userName");
+        String gender = request.getParameter("gender");
+        String dateOfBirth = request.getParameter("dateOfBirth");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String address = request.getParameter("address");
+        
+        detail = new UserDetail(userId, email, userName, dateOfBirth, phoneNumber, address);
+        user = new UserInfo();
+        user.setUser(new User(userId, userName, email, phoneNumber, address, dateOfBirth));
+        String errorMessage = Util.validateUser(user.getUser());
+        if (!errorMessage.equals(Constant.ErrorMessage.NO_MESSAGE)){
+            user.setErrorMessage(errorMessage);
+            return ERROR;
+        }
+        
+        dao.beginTransaction();
+        User u = dao.getUserDetailById(Integer.parseInt(userId));
+        u.setUserName(userName);
+        u.setDateOfBirth(Util.format(dateOfBirth));
+        u.setPhoneNumber(phoneNumber);
+        u.setAddress(address);
+        dao.update(u);
+        detail = new UserDetail(u);
+        user.setSuccessMessage(Constant.SuccessMessage.UPDATE_INFO_SUCCESS);
+        dao.closeTransaction();
+        
+        HttpSession session = request.getSession();
+        session.setAttribute("userId", u.getUserId());
+        session.setAttribute("userName", u.getUserName());
+        session.setAttribute("currentMoney", u.getMoney());
+        return SUCCESS;
     }
     
     public String logout(){

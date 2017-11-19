@@ -28,5 +28,6 @@ public class Constant {
     
     public class SuccessMessage {
         public static final String CHANGE_PASSWORD_SUCCESS = "Thay đổi mật khẩu thành công";
+        public static final String UPDATE_INFO_SUCCESS = "Thay đổi thông tin cá nhân thành công";
     }
 }

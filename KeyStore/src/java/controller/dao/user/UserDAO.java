@@ -77,6 +77,14 @@ public class UserDAO {
         }
     }
 
+    public void update(User user) {
+        try {
+            session.update(user);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+
     public User getUserDetailById(int id) {
         User user = null;
         try {

@@ -43,6 +43,15 @@ public class UserDetail {
         this.money = Util.formatPrice(user.getMoney());
     }
 
+    public UserDetail(String userId, String email, String userName, String dateOfBirth, String phoneNumber, String address) {
+        this.userId = userId;
+        this.email = email;
+        this.userName = userName;
+        this.dateOfBirth = dateOfBirth;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
     public String getUserId() {
         return userId;
     }
