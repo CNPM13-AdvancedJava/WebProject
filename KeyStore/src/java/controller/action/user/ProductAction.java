@@ -65,7 +65,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         lstProduct = Util.getPagitation(lstProduct, curPage, pageSize);
         lstPage = Page.getPageList(totalPage, curPage);
         ProductDetail.getThumnailImage(lstProduct);
-        if (curPage != 1){
+        if (curPageStr != null){
             return "page";
         }
         return SUCCESS;

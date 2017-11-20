@@ -15,7 +15,7 @@
     </head>
     <body>
         <div class="bgbody">
-            <%@include file="header.jsp" %>
+            <%@include file="Header.jsp" %>
             <div class="content-updatetttk">
                 <div class="container">
                     <div class="row">					
@@ -26,7 +26,7 @@
                             <div class="col-lg-7 col-md-7 col-xs-12 content-tttk">
                                 <h2>Sửa thông tin tài khoản</h2>
                                 <span style="color: red"><s:property value="user.errorMessage"/></span>
-                                <form action="updateUserInfo?userId=<s:property value="detail.userId"/>" method="POST">
+                                <form action="UpdateUserInfo?userId=<s:property value="detail.userId"/>" method="POST">
                                     <table class="table table-default">
                                         <tr>
                                             <td><h4>Email : </h4></td>
@@ -67,7 +67,7 @@
                                         <tr>
                                             <td>
                                                 <button class="btn btn-danger">Xác nhận</button>&nbsp;&nbsp;
-                                                <a href="userDetail?id=<%=session.getAttribute("userId")%>" type="button" class="btn btn-danger">Huỷ bỏ</a>
+                                                <a href="UserDetail?id=<%=session.getAttribute("userId")%>" type="button" class="btn btn-danger">Huỷ bỏ</a>
                                             </td>
                                             <td>
                                                 &nbsp;
@@ -80,7 +80,7 @@
                     </div>	
                 </div>
             </div>
-            <%@include file="footer.jsp" %>
+            <%@include file="Footer.jsp" %>
         </div>       
     </body>
 </html>

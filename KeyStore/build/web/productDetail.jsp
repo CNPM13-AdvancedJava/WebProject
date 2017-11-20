@@ -37,7 +37,7 @@
             }(document, 'script', 'facebook-jssdk'));
         </script>         
         <div class="bgbody">
-            <%@include file="header.jsp" %>
+            <%@include file="Header.jsp" %>
             <div class="content">
                 <div class="container">	
 
@@ -62,14 +62,14 @@
                             <div class="prince">
                                 <div class="number-prince">
                                     <span >Giá : <s:property value="product.price"/> VNĐ </span>
-                                    <input type="text" id="price" value="<s:property value="productbyId.pricce"/>" style="display:none;"/>
+                                    <input type="text" id="price" value="<s:property value="product.price"/>" style="display:none;"/>
                                 </div>											
                             </div>            
                             <div class="pay-content">
                                 <div class="table-pay">
-                                    <form action="goGioHang?productId=<s:property value="productbyId.productId"/>&userNameDH=<%=session.getAttribute("userName")%>" method="POST" class="form-group">                                            
+                                    <form action="AddToCart?productId=<s:property value="product.productId"/>&userId=<%=session.getAttribute("userId")%>" method="POST" class="form-group">                                            
                                         <span class="label-context">Số lượng :</span>                                     
-                                        <input id="number" class="form-control" type="text" onkeyup="getNum()" name="number-pay" value="1">   
+                                        <input id="number" class="form-control" type="text" onkeyup="getNum()" name="number" value="1">   
                                         </br>
                                         <button class="btn btn-danger form-control" onclick="checkText()" name="btn-pay">Đặt Vào Giỏ Hàng</button>
                                         </br>
@@ -122,7 +122,7 @@
                                                 <td><s:property value="product.language"/></td>
                                             </tr>
                                             <tr>
-                                                <td>Region</td>
+                                                <td>Khu vực</td>
                                                 <td><s:property value="product.region"/></td>
                                             </tr>
                                             <tr>
@@ -177,7 +177,7 @@
                 </div>
             </div>
 
-            <%@include file="footer.jsp" %>
+            <%@include file="Footer.jsp" %>
         </div>
         <script type="text/javascript">
             function getNum() {

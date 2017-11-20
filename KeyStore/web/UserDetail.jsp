@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="bgbody">
-            <%@include file="header.jsp" %>
+            <%@include file="Header.jsp" %>
             <div class="content-thongtintaikhoan">
                 <div class="container">
                     <div class="row">
@@ -34,13 +34,13 @@
                             <h4>Số dư tài khoản : </h4><span><s:property value="detail.money"/> VNĐ</span></br></br>
                             <span style="color: red"><s:property value="user.errorMessage"/></span>
                             <span style="color: greenyellow"><s:property value="user.successMessage"/></span></br></br>
-                            <h4><a href="userDetail?id=<%=session.getAttribute("userId")%>&isChange=1" type="button" class="btn btn-danger">Sửa thông tin</a>&nbsp;&nbsp;</h4>						
+                            <h4><a href="UserDetail?id=<%=session.getAttribute("userId")%>&isChange=1" type="button" class="btn btn-danger">Sửa thông tin</a>&nbsp;&nbsp;</h4>						
                             <h4><a href="javascript:void(0)" onclick="cardChargingPopup()" type="button" class="btn btn-danger">Nạp tiền</a>&nbsp;&nbsp;</h4>
                             <h4><a href = "javascript:void(0)" onclick="popup()" type="button" class="btn btn-danger">Đổi mật khẩu</a></h4>
                         </div>
                         <div id="light" class="white_content">
                             <div class="doimk">
-                                <form action="changePassword?id=<%= session.getAttribute("userId")%>" method="POST">
+                                <form action="ChangePassword?id=<%= session.getAttribute("userId")%>" method="POST">
                                     <table class="table table-default">
                                         <tr>
                                             <td class="label-changePass">Mật khẩu hiện tại : </td>
@@ -67,7 +67,7 @@
                                     
                         <div id="charging" class="white_content">
                             <div class="doimk">
-                                <form action="cardCharging?id=<%= session.getAttribute("userId")%>" method="POST">
+                                <form action="CardCharging?id=<%= session.getAttribute("userId")%>" method="POST">
                                     <table class="table table-default">
                                         <tr>
                                             <td class="label-changePass">Loại thẻ cào : </td>
@@ -102,7 +102,7 @@
                     </div>	
                 </div>
             </div>
-            <%@include file="footer.jsp" %>
+            <%@include file="Footer.jsp" %>
         </div>       
     </body>
 </html>

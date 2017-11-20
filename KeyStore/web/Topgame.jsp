@@ -9,7 +9,7 @@
             <ul class="list-group">
                 <s:iterator value="lstProduct">
                 <li>
-                    <a href="getProduct?productId=<s:property value="productId"/>">
+                    <a href="GetProduct?productId=<s:property value="productId"/>">
                         <div class="select-topgame">
                             <div class="images-topgame">
                                 <img class="topgame-image" src="<s:property value="thumbnailUrl"/>" alt="">

@@ -3,13 +3,33 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/userDetail.jsp</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/UserAction.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/register.jsp</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/util/Util.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/util/Constant.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/js/popup.js</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/dao/user/ProductDAO.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Topgame.jsp</file>
             <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/struts.xml</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/entities/UserInfo.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/ProductAction.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Home.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Product.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Menu.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/css/mystyle.css</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/UpdateUserInfo.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Login.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/OrderAction.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Banner.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Header.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Introduction.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/css/bootstrap.min.css</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Provision.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Tutorial.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/UserAction.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/ProductDetail.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/entities/ProductInCart.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/ListProductPagination.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Register.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Footer.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/UserDetail.jsp</file>
         </group>
     </open-files>
 </project-private>

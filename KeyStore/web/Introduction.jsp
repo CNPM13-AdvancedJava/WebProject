@@ -15,23 +15,23 @@
     </head>
     <body>
         <div class="bgbody">
-            <%@include file="header.jsp" %>
+            <%@include file="Header.jsp" %>
             <div class="content-gioithieu">   
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 banner">
                             <div class="col-md-8 col-sm-7 col-xs-12 col-lg-9 banner-content">
-                                <s:action name="getBanner" executeResult="true"/>
+                                <s:action name="GetBanner" executeResult="true"/>
                             </div>
                             <div class="col-md-4 col-sm-5 col-xs-12 col-lg-3 top-game">
-                                <s:action name="getTop5" executeResult="true"/>
+                                <s:action name="GetTop5" executeResult="true"/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="product-content">
                             <div class="product-menu">
-                                <s:action name="getAllCatalog" executeResult="true"/> 
+                                <s:action name="GetAllCatalog" executeResult="true"/> 
                             </div>
                             <div class="wrapper">
                                 <h3 class="label">Giới Thiệu</h3>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <%@include file="footer.jsp" %>
+            <%@include file="Footer.jsp" %>
         </div>
     </body>
 </html>

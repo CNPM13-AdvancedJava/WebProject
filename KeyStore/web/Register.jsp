@@ -20,11 +20,11 @@
                                 <div class="panel-heading">
                                     <div class="panel-title">Register</div>
                                     <div class="fg-pass">
-                                        <a href="login.jsp">Login</a>
+                                        <a href="Login.jsp">Login</a>
                                     </div>
                                 </div>
                                 <div class="panel-body" style="padding-top:30px;">
-                                    <form action="register" id="form-register" method="Post">
+                                    <form action="Register" id="form-register" method="Post">
                                         <span style="color: red"><s:property value="user.errorMessage"/></span>
                                         <div class="form-group">
                                             <input class="form-control" type="email" name="email" placeholder="Email Andress" maxlength="50" required/>
@@ -53,7 +53,7 @@
                                             <input class="form-control" type="text" name="address" placeholder="Address" maxlength="100"/>
                                         </div>
                                         <button class="btn btn-danger">Đăng Kí</button>
-                                        <a href="login.jsp" type="button" class="btn btn-danger">Huỷ bỏ</a>
+                                        <a href="Login.jsp" type="button" class="btn btn-danger">Huỷ bỏ</a>
                                     </form>
                                 </div>
                             </div>

@@ -19,7 +19,7 @@
                 <s:iterator value="lstProduct">                
                     <li class="item <s:property value="bannerStatus"/>">
                     <div class="images-item">
-                        <a href="getProduct?productId=<s:property value="productId"/>"><img class="item-images img-responsive" src="images/banner/banner1.jpg"/></a>
+                        <a href="GetProduct?productId=<s:property value="productId"/>"><img class="item-images img-responsive" src="images/banner/banner1.jpg"/></a>
                     </div>				
                 </li>
                 </s:iterator>

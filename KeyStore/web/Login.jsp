@@ -18,13 +18,13 @@
                         <div id="login-box">
                             <div class="panel panel-info">
                                 <div class="panel-heading">                           
-                                    <div class="panel-title"><a href="home.jsp">Trang Chủ</a></div>
+                                    <div class="panel-title"><a href="Home.jsp">Trang Chủ</a></div>
                                     <div class="fg-pass">
                                         <a class="forgot-password" href="#">Forgot Password?</a>
                                     </div>
                                 </div>
                                 <div class="panel-body" style="padding-top:30px;">
-                                    <form action="login" method="POST" class="form-horizontal" id="form-login" role="form" enctype="multipart/form-data">
+                                    <form action="Login" method="POST" class="form-horizontal" id="form-login" role="form" enctype="multipart/form-data">
                                         <span style="color: red"><s:property value="user.errorMessage"/></span>
                                         <div class="input-group user-login">
                                             <span class="input-group-addon">
@@ -55,7 +55,7 @@
                                                 <div class="col-md-12 signup-here">                                                         
                                                     <div id="displaysignup" tabindex="5" style="margin-left:-15px;">
                                                         <span>Bạn chưa có tài khoản!</span>
-                                                        <a href="register.jsp">Nhấp để Đăng Kí</a>
+                                                        <a href="Register.jsp">Nhấp để Đăng Kí</a>
                                                     </div>
                                                 </div>
                                             </div>

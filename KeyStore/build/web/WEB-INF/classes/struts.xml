@@ -6,50 +6,54 @@
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
         <!-- User action -->
-        <action name="getProductPagination" class="controller.action.user.ProductAction" method="getPagination">
-            <result name="success">listProductPagination.jsp</result>
-            <result name="page">product.jsp</result>
+        <action name="GetProductPagination" class="controller.action.user.ProductAction" method="getPagination">
+            <result name="success">ListProductPagination.jsp</result>
+            <result name="page">Product.jsp</result>
         </action>
-        <action name="getBanner" class="controller.action.user.ProductAction" method="getBanner">
-            <result name="success">banner.jsp</result>
+        <action name="GetBanner" class="controller.action.user.ProductAction" method="getBanner">
+            <result name="success">Banner.jsp</result>
         </action>
-        <action name="getTop5" class="controller.action.user.ProductAction" method="getTop5">
-            <result name="success">topgame.jsp</result>
+        <action name="GetTop5" class="controller.action.user.ProductAction" method="getTop5">
+            <result name="success">Topgame.jsp</result>
         </action>
-        <action name="getMenu" class="controller.action.user.ProductAction" method="getMenu">
-            <result name="success">menu.jsp</result>
+        <action name="GetMenu" class="controller.action.user.ProductAction" method="getMenu">
+            <result name="success">Menu.jsp</result>
         </action> 
-        <action name="getProduct" class="controller.action.user.ProductAction" method="getProductDetail">
-            <result name="success">productDetail.jsp</result>
+        <action name="GetProduct" class="controller.action.user.ProductAction" method="getProductDetail">
+            <result name="success">ProductDetail.jsp</result>
         </action> 
         
-        <action name="login" class="controller.action.user.UserAction" method="normalLogin">
-            <result name="success">home.jsp</result>
-            <result name="error">login.jsp</result>
+        <action name="Login" class="controller.action.user.UserAction" method="normalLogin">
+            <result name="success">Home.jsp</result>
+            <result name="error">Login.jsp</result>
         </action> 
-        <action name="register" class="controller.action.user.UserAction" method="normalRegister">
-            <result name="success">home.jsp</result>
-            <result name="error">register.jsp</result>
+        <action name="Register" class="controller.action.user.UserAction" method="normalRegister">
+            <result name="success">Home.jsp</result>
+            <result name="error">Register.jsp</result>
         </action> 
-        <action name="userDetail" class="controller.action.user.UserAction" method="getUserById">
-            <result name="success">userDetail.jsp</result>
-            <result name="error">home.jsp</result>
-            <result name="input">updateUserInfo.jsp</result>
+        <action name="UserDetail" class="controller.action.user.UserAction" method="getUserById">
+            <result name="success">UserDetail.jsp</result>
+            <result name="error">Home.jsp</result>
+            <result name="input">UpdateUserInfo.jsp</result>
         </action> 
-        <action name="logout" class="controller.action.user.UserAction" method="logout">
-            <result name="success">home.jsp</result>
+        <action name="Logout" class="controller.action.user.UserAction" method="logout">
+            <result name="success">Home.jsp</result>
         </action>
-        <action name="changePassword" class="controller.action.user.UserAction" method="changePass">
-            <result name="success">userDetail.jsp</result>
-            <result name="error">userDetail.jsp</result>
+        <action name="ChangePassword" class="controller.action.user.UserAction" method="changePass">
+            <result name="success">UserDetail.jsp</result>
+            <result name="error">UserDetail.jsp</result>
         </action>
-        <action name="updateUserInfo" class="controller.action.user.UserAction" method="updateUserInfo">
-            <result name="success">userDetail.jsp</result>
-            <result name="error">updateUserInfo.jsp</result>
+        <action name="UpdateUserInfo" class="controller.action.user.UserAction" method="updateUserInfo">
+            <result name="success">UserDetail.jsp</result>
+            <result name="error">UpdateUserInfo.jsp</result>
         </action>
-        <action name="cardCharging" class="controller.action.user.UserAction" method="cardCharging">
-            <result name="success">userDetail.jsp</result>
-            <result name="error">userDetail.jsp</result>
+        <action name="CardCharging" class="controller.action.user.UserAction" method="cardCharging">
+            <result name="success">UserDetail.jsp</result>
+            <result name="error">UserDetail.jsp</result>
+        </action>
+        
+        <action name="AddToCart" class="controller.action.user.OrderAction" method="addToCart">
+            <result name="success" type="redirect">${backUrl}</result>
         </action>
         <!-- Admin action -->
     </package>

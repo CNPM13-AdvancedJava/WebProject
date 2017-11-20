@@ -9,7 +9,7 @@
                         <s:iterator value="lstProduct">
                             <li>
                                 <div class="col-xs-12 col-lg-2 col-md-4 col-sm-6 my-thumnail">
-                                    <a href="getProduct?productId=<s:property value="productId"/>" class="thumbnail">
+                                    <a href="GetProduct?productId=<s:property value="productId"/>" class="thumbnail">
                                         <img class="images-product" src="<s:property value="thumbnailUrl"/>" alt="...">
                                         <div class="caption">
                                             <h5 class=""><s:property value="productName"/></h5>
@@ -29,7 +29,7 @@
                     <ul class="pagination">
                         <li>
                             <s:iterator value="lstPage">                       
-                                <a href="getProductPagination?page=<s:property value="pageNumber"/>"><s:property value="pageNumber"/></a>                                            
+                                <a href="GetProductPagination?page=<s:property value="pageNumber"/>"><s:property value="pageNumber"/></a>                                            
                             </s:iterator>
                         </li>
                     </ul>

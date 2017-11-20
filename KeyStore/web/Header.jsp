@@ -16,17 +16,23 @@
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                                    <a class="navbar-brand selected" href="home.jsp">Trang Chủ</a>
+                                    <a class="navbar-brand selected" href="Home.jsp">Trang Chủ</a>
                                 </div>				
                                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                                     <ul class="nav navbar-nav">
-                                        <li><a href="introduction.jsp">Giới Thiệu</a></li>	
-                                        <li><a href="provision.jsp">Điều khoản và dịch vụ</a></li>	
-                                        <li><a href="tutorial.jsp">Hướng dẫn thanh toán</a></li>	
+                                        <li><a href="Introduction.jsp">Giới Thiệu</a></li>	
+                                        <li><a href="Provision.jsp">Điều khoản và dịch vụ</a></li>	
+                                        <li><a href="Tutorial.jsp">Hướng dẫn thanh toán</a></li>	
                                         <li><a href="#">Hỗ trợ</a></li>	
-                                    </ul>								
+                                    </ul>
+                                    <%
+                                        Integer amount = (Integer) session.getAttribute("amount");
+                                        if (amount == null){
+                                            amount = 0;
+                                        }
+                                    %>
                                     <ul class="nav navbar-nav navbar-right">
-                                        
+                                        <li><a href="Login.jsp">Giỏ hàng của bạn (<%=amount%> sản phẩm)</a></li>
                                         <% if((session.getAttribute("userName"))!=null){ %>                             
                                         <li role="presentation" class="dropdown" id="name-header-content">
                                             <span class="span-header-login">Xin Chào</span>
@@ -35,24 +41,19 @@
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li>
-                                                    <a href="getGiohang?userNameGH=<%=session.getAttribute("userName")%>">
-                                                        Giỏ Hàng
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="userDetail?id=<%=session.getAttribute("userId")%>">
+                                                    <a href="UserDetail?id=<%=session.getAttribute("userId")%>">
                                                         Quản lí thông tin
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="logout">
+                                                    <a href="Logout">
                                                         Đăng Xuất
                                                     </a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <% } else {%>
-                                        <li><a class="selected" href="login.jsp">Đăng Nhập</a></li>
+                                        <li><a class="selected" href="Login.jsp">Đăng Nhập</a></li>
                                         <%}%>
                                     </ul>
                                 </div>
