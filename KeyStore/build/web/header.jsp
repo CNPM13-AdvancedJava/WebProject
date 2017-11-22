@@ -32,7 +32,7 @@
                                         }
                                     %>
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="Login.jsp">Giỏ hàng của bạn (<%=amount%> sản phẩm)</a></li>
+                                        <li><a href="MyCart">Giỏ hàng của bạn (<%=amount%> sản phẩm)</a></li>
                                         <% if((session.getAttribute("userName"))!=null){ %>                             
                                         <li role="presentation" class="dropdown" id="name-header-content">
                                             <span class="span-header-login">Xin Chào</span>

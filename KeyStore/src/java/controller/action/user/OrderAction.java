@@ -6,14 +6,26 @@
 package controller.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
+import controller.dao.user.OrderDAO;
+import controller.dao.user.OrderDetailDAO;
+import controller.dao.user.PaymentMethodDAO;
 import controller.dao.user.ProductDAO;
 import controller.dao.user.UserDAO;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import model.dbentities.Order;
+import model.dbentities.OrderDetail;
+import model.dbentities.OrderDetailId;
+import model.dbentities.PaymentMethod;
 import model.dbentities.ProductDetail;
+import model.dbentities.User;
 import model.entities.ProductInCart;
+import model.entities.UserDetail;
 import org.apache.struts2.interceptor.ServletRequestAware;
+import util.Util;
 
 /**
  *
@@ -23,12 +35,20 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
     HttpServletRequest request;
     ProductDAO productDAO;
     UserDAO userDAO;
+    PaymentMethodDAO paymentMethodDAO;
+    OrderDAO orderDAO;
+    OrderDetailDAO orderDetailDAO;
     
     private String backUrl;
+    private List<ProductInCart> lstProductInCart;
+    private String totalPrice;
             
     public OrderAction() {
         productDAO = new ProductDAO();
         userDAO = new UserDAO();
+        paymentMethodDAO = new PaymentMethodDAO();
+        orderDAO = new OrderDAO();
+        orderDetailDAO = new OrderDetailDAO();
     }
     
     public String addToCart(){
@@ -60,7 +80,56 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
         backUrl = request.getHeader("referer");
         return SUCCESS;
     }
+    
+    public String getCart(){
+        HttpSession session = request.getSession();
+        lstProductInCart = (ArrayList) session.getAttribute("cart");
+        if (lstProductInCart == null){
+            lstProductInCart = new ArrayList<>();
+        }
+        if (!lstProductInCart.isEmpty()){
+            Double total = 0.0;
+            productDAO.beginTransaction();
+            for (ProductInCart item : lstProductInCart){
+                ProductDetail product = productDAO.getProductById(item.getProductId());
+                ProductDetail.getThumnailImage(product);
+                item.setProductName(product.getProductName());
+                item.setProductImage(product.getThumbnailUrl());
+                item.setTotalPrice(product.getPrice() * item.getNumber());
+                item.setPriceStr(Util.formatPrice(item.getPrice()));
+                item.setTotalPriceStr(Util.formatPrice(item.getTotalPrice()));
+                total += item.getTotalPrice();
+            }
+            totalPrice = Util.formatPrice(total);
+            productDAO.closeTransaction();
+        }
+        return SUCCESS;
+    }
 
+    public String directPayment(){
+        
+        HttpSession session = request.getSession();
+        Integer userId = (Integer) session.getAttribute("userId");
+        lstProductInCart = (ArrayList) session.getAttribute("cart");
+        if (userId == null || lstProductInCart == null || lstProductInCart.isEmpty()){
+            return ERROR;
+        }
+        orderDAO.beginTransaction();
+        User user = userDAO.getUserDetailById(userId);
+        PaymentMethod method = paymentMethodDAO.getMethodById(1);
+        Double totalPayment = ProductInCart.getTotalPayment(lstProductInCart);
+        Order order = new Order(method, user, 1, totalPayment, new HashSet());
+        Integer orderId = orderDAO.createOrder(order);
+        List<OrderDetail> lstOrderedItem = new ArrayList<>();
+        for (ProductInCart item : lstProductInCart){
+            OrderDetailId ODI = new OrderDetailId(orderId, item.getProductId(), item.getNumber());
+            ProductDetail productDetail = productDAO.getProductById(item.getProductId());
+            lstOrderedItem.add(new OrderDetail(ODI, order, productDetail));
+        }
+        orderDetailDAO.addOrderDetail(lstOrderedItem);
+        return SUCCESS;
+    }
+    
     @Override
     public void setServletRequest(HttpServletRequest hsr) {
         this.request = hsr;
@@ -68,6 +137,14 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
 
     public String getBackUrl() {
         return backUrl;
+    }
+
+    public List<ProductInCart> getLstProductInCart() {
+        return lstProductInCart;
+    }
+
+    public String getTotalPrice() {
+        return totalPrice;
     }
    
 }

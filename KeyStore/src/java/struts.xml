@@ -55,6 +55,12 @@
         <action name="AddToCart" class="controller.action.user.OrderAction" method="addToCart">
             <result name="success" type="redirect">${backUrl}</result>
         </action>
+        <action name="MyCart" class="controller.action.user.OrderAction" method="getCart">
+            <result name="success">Cart.jsp</result>
+        </action>
+        <action name="DirectPayment" class="controller.action.user.OrderAction" method="directPayment">
+            <result name="success">Cart.jsp</result>
+        </action>
         <!-- Admin action -->
     </package>
 </struts>

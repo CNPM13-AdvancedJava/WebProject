@@ -14,14 +14,14 @@ public class Order  implements java.io.Serializable {
      private Integer orderId;
      private PaymentMethod paymentMethod;
      private User user;
-     private Byte status;
+     private Integer status;
      private Double totalPrice;
      private Set orderDetails = new HashSet(0);
 
     public Order() {
     }
 
-    public Order(PaymentMethod paymentMethod, User user, Byte status, Double totalPrice, Set orderDetails) {
+    public Order(PaymentMethod paymentMethod, User user, Integer status, Double totalPrice, Set orderDetails) {
        this.paymentMethod = paymentMethod;
        this.user = user;
        this.status = status;
@@ -50,11 +50,11 @@ public class Order  implements java.io.Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-    public Byte getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
     public Double getTotalPrice() {
