@@ -1,26 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 21, 2017 10:21:02 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 25, 2017 12:14:20 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="keystore" name="model.dbentities.ProductImage" optimistic-lock="version" table="product_image">
-    <id name="imageId" type="int">
-      <column name="image_id"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="model.dbentities.ProductDetail" fetch="select" name="productDetail">
-      <column name="product_id"/>
-    </many-to-one>
-    <property name="imageLink" type="string">
-      <column length="200" name="image_link"/>
-    </property>
-    <property name="isAva" type="java.lang.Byte">
-      <column name="is_ava"/>
-    </property>
-    <property name="flag" type="java.lang.Byte">
-      <column name="flag"/>
-    </property>
-    <property name="imageType" type="java.lang.Byte">
-      <column name="image_type"/>
-    </property>
-  </class>
+    <class name="model.dbentities.ProductImage" table="product_image" catalog="keystore" optimistic-lock="version">
+        <id name="imageId" type="int">
+            <column name="image_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="productDetail" class="model.dbentities.ProductDetail" fetch="select">
+            <column name="product_id" />
+        </many-to-one>
+        <property name="imageLink" type="string">
+            <column name="image_link" length="200" />
+        </property>
+        <property name="isAva" type="java.lang.Integer">
+            <column name="is_ava" />
+        </property>
+        <property name="flag" type="java.lang.Integer">
+            <column name="flag" />
+        </property>
+        <property name="imageType" type="java.lang.Integer">
+            <column name="image_type" />
+        </property>
+    </class>
 </hibernate-mapping>

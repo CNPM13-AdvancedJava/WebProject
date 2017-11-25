@@ -1,5 +1,5 @@
 package model.dbentities;
-// Generated Oct 21, 2017 10:21:01 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 12:14:20 PM by Hibernate Tools 4.3.1
 
 
 
@@ -12,9 +12,9 @@ public class ProductImage  implements java.io.Serializable {
      private int imageId;
      private ProductDetail productDetail;
      private String imageLink;
-     private Byte isAva;
-     private Byte flag;
-     private Byte imageType;
+     private Integer isAva;
+     private Integer flag;
+     private Integer imageType;
 
     public ProductImage() {
     }
@@ -23,21 +23,13 @@ public class ProductImage  implements java.io.Serializable {
     public ProductImage(int imageId) {
         this.imageId = imageId;
     }
-    public ProductImage(int imageId, ProductDetail productDetail, String imageLink, Byte isAva, Byte flag) {
+    public ProductImage(int imageId, ProductDetail productDetail, String imageLink, Integer isAva, Integer flag, Integer imageType) {
        this.imageId = imageId;
        this.productDetail = productDetail;
        this.imageLink = imageLink;
        this.isAva = isAva;
        this.flag = flag;
-    }
-
-    public ProductImage(int imageId, ProductDetail productDetail, String imageLink, Byte isAva, Byte flag, Byte imageType) {
-        this.imageId = imageId;
-        this.productDetail = productDetail;
-        this.imageLink = imageLink;
-        this.isAva = isAva;
-        this.flag = flag;
-        this.imageType = imageType;
+       this.imageType = imageType;
     }
    
     public int getImageId() {
@@ -61,26 +53,25 @@ public class ProductImage  implements java.io.Serializable {
     public void setImageLink(String imageLink) {
         this.imageLink = imageLink;
     }
-    public Byte getIsAva() {
+    public Integer getIsAva() {
         return this.isAva;
     }
     
-    public void setIsAva(Byte isAva) {
+    public void setIsAva(Integer isAva) {
         this.isAva = isAva;
     }
-    public Byte getFlag() {
+    public Integer getFlag() {
         return this.flag;
     }
     
-    public void setFlag(Byte flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
-
-    public Byte getImageType() {
-        return imageType;
+    public Integer getImageType() {
+        return this.imageType;
     }
-
-    public void setImageType(Byte imageType) {
+    
+    public void setImageType(Integer imageType) {
         this.imageType = imageType;
     }
 

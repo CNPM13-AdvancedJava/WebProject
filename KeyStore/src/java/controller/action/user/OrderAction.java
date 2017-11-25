@@ -121,12 +121,12 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
         Order order = new Order(method, user, 1, totalPayment, new HashSet());
         Integer orderId = orderDAO.createOrder(order);
         List<OrderDetail> lstOrderedItem = new ArrayList<>();
-        for (ProductInCart item : lstProductInCart){
-            OrderDetailId ODI = new OrderDetailId(orderId, item.getProductId(), item.getNumber());
-            ProductDetail productDetail = productDAO.getProductById(item.getProductId());
-            lstOrderedItem.add(new OrderDetail(ODI, order, productDetail));
-        }
-        orderDetailDAO.addOrderDetail(lstOrderedItem);
+//        for (ProductInCart item : lstProductInCart){
+//            OrderDetailId ODI = new OrderDetailId(orderId, item.getProductId(), item.getNumber());
+//            ProductDetail productDetail = productDAO.getProductById(item.getProductId());
+//            lstOrderedItem.add(new OrderDetail(ODI, order, productDetail));
+//        }
+//        orderDetailDAO.addOrderDetail(lstOrderedItem);
         return SUCCESS;
     }
     

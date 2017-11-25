@@ -3,14 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Cart.jsp</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/OrderAction.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/dao/user/PaymentMethodDAO.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/dao/user/OrderDAO.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/struts.xml</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/dao/user/OrderDetailDAO.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/dao/user/UserDAO.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/HibernateUtil.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/User.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Manufacturer.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductKey.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductDetail.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Type.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Admin.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Manufacturer.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/OrderDetailId.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductImage.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductDetail.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Catalog.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/OrderDetail.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductImage.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/PaymentMethod.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/OrderDetail.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Order.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Catalog.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Admin.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Order.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductKey.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/User.hbm.xml</file>
         </group>
     </open-files>
 </project-private>

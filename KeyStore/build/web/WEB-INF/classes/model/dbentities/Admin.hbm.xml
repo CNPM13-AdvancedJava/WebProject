@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 21, 2017 10:21:02 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 25, 2017 12:14:20 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="keystore" name="model.dbentities.Admin" optimistic-lock="version" table="admin">
-    <id name="adminId" type="int">
-      <column name="admin_id"/>
-      <generator class="assigned"/>
-    </id>
-    <property name="adminName" type="string">
-      <column length="200" name="admin_name" unique="true"/>
-    </property>
-    <property name="email" type="string">
-      <column length="200" name="email" unique="true"/>
-    </property>
-    <property name="password" type="string">
-      <column length="45" name="password"/>
-    </property>
-    <property name="ranked" type="byte">
-      <column name="ranked" not-null="true"/>
-    </property>
-  </class>
+    <class name="model.dbentities.Admin" table="admin" catalog="keystore" optimistic-lock="version">
+        <id name="adminId" type="int">
+            <column name="admin_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="adminName" type="string">
+            <column name="admin_name" length="200" unique="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="200" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <property name="ranked" type="int">
+            <column name="ranked" not-null="true" />
+        </property>
+    </class>
 </hibernate-mapping>

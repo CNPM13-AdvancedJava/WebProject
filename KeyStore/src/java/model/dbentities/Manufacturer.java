@@ -1,5 +1,5 @@
 package model.dbentities;
-// Generated Oct 21, 2017 10:21:01 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 12:14:20 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

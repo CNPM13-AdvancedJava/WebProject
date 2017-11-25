@@ -1,5 +1,5 @@
 package model.dbentities;
-// Generated Oct 21, 2017 10:21:01 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 12:14:20 PM by Hibernate Tools 4.3.1
 
 
 
@@ -10,16 +10,14 @@ public class OrderDetailId  implements java.io.Serializable {
 
 
      private int orderId;
-     private int productId;
-     private int number;
+     private String keyId;
 
     public OrderDetailId() {
     }
 
-    public OrderDetailId(int orderId, int productId, int number) {
+    public OrderDetailId(int orderId, String keyId) {
        this.orderId = orderId;
-       this.productId = productId;
-       this.number = number;
+       this.keyId = keyId;
     }
    
     public int getOrderId() {
@@ -29,19 +27,12 @@ public class OrderDetailId  implements java.io.Serializable {
     public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
-    public int getProductId() {
-        return this.productId;
+    public String getKeyId() {
+        return this.keyId;
     }
     
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-    public int getNumber() {
-        return this.number;
-    }
-    
-    public void setNumber(int number) {
-        this.number = number;
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
     }
 
 
@@ -52,16 +43,14 @@ public class OrderDetailId  implements java.io.Serializable {
 		 OrderDetailId castOther = ( OrderDetailId ) other; 
          
 		 return (this.getOrderId()==castOther.getOrderId())
- && (this.getProductId()==castOther.getProductId())
- && (this.getNumber()==castOther.getNumber());
+ && ( (this.getKeyId()==castOther.getKeyId()) || ( this.getKeyId()!=null && castOther.getKeyId()!=null && this.getKeyId().equals(castOther.getKeyId()) ) );
    }
    
    public int hashCode() {
          int result = 17;
          
          result = 37 * result + this.getOrderId();
-         result = 37 * result + this.getProductId();
-         result = 37 * result + this.getNumber();
+         result = 37 * result + ( getKeyId() == null ? 0 : this.getKeyId().hashCode() );
          return result;
    }   
 

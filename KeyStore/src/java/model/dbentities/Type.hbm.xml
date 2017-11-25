@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 21, 2017 10:21:02 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 25, 2017 12:14:20 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="keystore" name="model.dbentities.Type" optimistic-lock="version" table="type">
-    <id name="typeId" type="java.lang.Integer">
-      <column name="type_id"/>
-      <generator class="identity"/>
-    </id>
-    <many-to-one class="model.dbentities.Catalog" fetch="select" name="catalog">
-      <column name="catalog_id"/>
-    </many-to-one>
-    <property name="typeName" type="string">
-      <column length="200" name="type_name"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="productDetails" table="product_detail">
-      <key>
-        <column name="type_id"/>
-      </key>
-      <one-to-many class="model.dbentities.ProductDetail"/>
-    </set>
-  </class>
+    <class name="model.dbentities.Type" table="type" catalog="keystore" optimistic-lock="version">
+        <id name="typeId" type="java.lang.Integer">
+            <column name="type_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="catalog" class="model.dbentities.Catalog" fetch="select">
+            <column name="catalog_id" />
+        </many-to-one>
+        <property name="typeName" type="string">
+            <column name="type_name" length="200" />
+        </property>
+        <set name="productDetails" table="product_detail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="type_id" />
+            </key>
+            <one-to-many class="model.dbentities.ProductDetail" />
+        </set>
+    </class>
 </hibernate-mapping>

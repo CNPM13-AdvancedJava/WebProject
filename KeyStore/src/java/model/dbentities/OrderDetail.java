@@ -1,5 +1,5 @@
 package model.dbentities;
-// Generated Oct 21, 2017 10:21:01 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 12:14:20 PM by Hibernate Tools 4.3.1
 
 
 
@@ -11,15 +11,23 @@ public class OrderDetail  implements java.io.Serializable {
 
      private OrderDetailId id;
      private Order order;
-     private ProductDetail productDetail;
+     private ProductKey productKey;
+     private Integer status;
 
     public OrderDetail() {
     }
 
-    public OrderDetail(OrderDetailId id, Order order, ProductDetail productDetail) {
+	
+    public OrderDetail(OrderDetailId id, Order order, ProductKey productKey) {
+        this.id = id;
+        this.order = order;
+        this.productKey = productKey;
+    }
+    public OrderDetail(OrderDetailId id, Order order, ProductKey productKey, Integer status) {
        this.id = id;
        this.order = order;
-       this.productDetail = productDetail;
+       this.productKey = productKey;
+       this.status = status;
     }
    
     public OrderDetailId getId() {
@@ -36,12 +44,19 @@ public class OrderDetail  implements java.io.Serializable {
     public void setOrder(Order order) {
         this.order = order;
     }
-    public ProductDetail getProductDetail() {
-        return this.productDetail;
+    public ProductKey getProductKey() {
+        return this.productKey;
     }
     
-    public void setProductDetail(ProductDetail productDetail) {
-        this.productDetail = productDetail;
+    public void setProductKey(ProductKey productKey) {
+        this.productKey = productKey;
+    }
+    public Integer getStatus() {
+        return this.status;
+    }
+    
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
 

@@ -1,5 +1,5 @@
 package model.dbentities;
-// Generated Oct 21, 2017 10:21:01 PM by Hibernate Tools 4.3.1
+// Generated Nov 25, 2017 12:14:20 PM by Hibernate Tools 4.3.1
 
 
 
@@ -13,17 +13,17 @@ public class Admin  implements java.io.Serializable {
      private String adminName;
      private String email;
      private String password;
-     private byte ranked;
+     private int ranked;
 
     public Admin() {
     }
 
 	
-    public Admin(int adminId, byte ranked) {
+    public Admin(int adminId, int ranked) {
         this.adminId = adminId;
         this.ranked = ranked;
     }
-    public Admin(int adminId, String adminName, String email, String password, byte ranked) {
+    public Admin(int adminId, String adminName, String email, String password, int ranked) {
        this.adminId = adminId;
        this.adminName = adminName;
        this.email = email;
@@ -59,11 +59,11 @@ public class Admin  implements java.io.Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    public byte getRanked() {
+    public int getRanked() {
         return this.ranked;
     }
     
-    public void setRanked(byte ranked) {
+    public void setRanked(int ranked) {
         this.ranked = ranked;
     }
 

@@ -1,17 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 21, 2017 10:21:02 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 25, 2017 12:14:20 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="keystore" name="model.dbentities.ProductKey" optimistic-lock="version" table="product_key">
-    <id name="keyId" type="string">
-      <column length="50" name="key_id"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="model.dbentities.ProductDetail" fetch="select" name="productDetail">
-      <column name="product_id"/>
-    </many-to-one>
-    <property name="status" type="java.lang.Byte">
-      <column name="status"/>
-    </property>
-  </class>
+    <class name="model.dbentities.ProductKey" table="product_key" catalog="keystore" optimistic-lock="version">
+        <id name="keyId" type="string">
+            <column name="key_id" length="50" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="productDetail" class="model.dbentities.ProductDetail" fetch="select">
+            <column name="product_id" />
+        </many-to-one>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <set name="orderDetails" table="order_detail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="key_id" length="50" not-null="true" />
+            </key>
+            <one-to-many class="model.dbentities.OrderDetail" />
+        </set>
+    </class>
 </hibernate-mapping>

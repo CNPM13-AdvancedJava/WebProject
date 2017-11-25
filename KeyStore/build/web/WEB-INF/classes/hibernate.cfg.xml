@@ -9,16 +9,16 @@
     <property name="hibernate.connection.password">linh1996</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.connection.pool_size">10</property>
-    <mapping resource="model/dbentities/Catalog.hbm.xml"/>
-    <mapping resource="model/dbentities/Manufacturer.hbm.xml"/>
-    <mapping resource="model/dbentities/User.hbm.xml"/>
-    <mapping resource="model/dbentities/ProductDetail.hbm.xml"/>
-    <mapping resource="model/dbentities/Type.hbm.xml"/>
     <mapping resource="model/dbentities/PaymentMethod.hbm.xml"/>
-    <mapping resource="model/dbentities/ProductKey.hbm.xml"/>
-    <mapping resource="model/dbentities/Order.hbm.xml"/>
-    <mapping resource="model/dbentities/Admin.hbm.xml"/>
+    <mapping resource="model/dbentities/User.hbm.xml"/>
+    <mapping resource="model/dbentities/Manufacturer.hbm.xml"/>
     <mapping resource="model/dbentities/ProductImage.hbm.xml"/>
+    <mapping resource="model/dbentities/ProductKey.hbm.xml"/>
+    <mapping resource="model/dbentities/Type.hbm.xml"/>
+    <mapping resource="model/dbentities/Admin.hbm.xml"/>
+    <mapping resource="model/dbentities/Catalog.hbm.xml"/>
+    <mapping resource="model/dbentities/ProductDetail.hbm.xml"/>
+    <mapping resource="model/dbentities/Order.hbm.xml"/>
     <mapping resource="model/dbentities/OrderDetail.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
