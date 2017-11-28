@@ -5,7 +5,7 @@
  */
 package controller.dao.user;
 
-import model.HibernateUtil;
+import hibernate.util.HibernateUtil;
 import model.dbentities.Order;
 import org.hibernate.Session;
 
@@ -16,11 +16,15 @@ import org.hibernate.Session;
 public class OrderDAO {
 
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-    
-    public void beginTransaction(){
+
+    public void beginTransaction() {
         session.beginTransaction();
     }
-    
+
+    public void closeTransaction() {
+        session.getTransaction().commit();
+    }
+
     public Integer createOrder(Order order) {
         try {
             session.save(order);
@@ -29,5 +33,5 @@ public class OrderDAO {
         }
         return order.getOrderId();
     }
-    
+
 }

@@ -110,7 +110,7 @@ CREATE TABLE `order` (
   KEY `method_id_idx` (`method_id`),
   CONSTRAINT `method_id` FOREIGN KEY (`method_id`) REFERENCES `payment_method` (`method_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,12 +132,12 @@ DROP TABLE IF EXISTS `order_detail`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `order_detail` (
   `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `number` int(11) NOT NULL,
-  PRIMARY KEY (`order_id`,`product_id`,`number`),
-  KEY `product_id_idx` (`product_id`),
-  CONSTRAINT `order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `product_detail` (`product_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `key_id` varchar(50) NOT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`order_id`,`key_id`),
+  KEY `key_id_idx2` (`key_id`),
+  CONSTRAINT `keyId` FOREIGN KEY (`key_id`) REFERENCES `product_key` (`key_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -147,7 +147,6 @@ CREATE TABLE `order_detail` (
 
 LOCK TABLES `order_detail` WRITE;
 /*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
-INSERT INTO `order_detail` VALUES (1,1,1),(2,5,1);
 /*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,7 +199,7 @@ CREATE TABLE `product_detail` (
   KEY `type_id_idx` (`type_id`),
   CONSTRAINT `manufacturer_id` FOREIGN KEY (`manufacturer_id`) REFERENCES `manufacturer` (`manufacturer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `type` (`type_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,7 +208,7 @@ CREATE TABLE `product_detail` (
 
 LOCK TABLES `product_detail` WRITE;
 /*!40000 ALTER TABLE `product_detail` DISABLE KEYS */;
-INSERT INTO `product_detail` VALUES (1,'DARK SOULS 3 III (Global)','2013-10-29',1,'All','All','	Bắn súng - Hành động','Battlefield 4™ is the genre-defining action blockbuster made from moments that blur the line between game and glory. Fueled by the next-generation power and fidelity of Frostbite™ 3, Battlefield 4™ provides a visceral, dramatic experience unlike any other. Only in Battlefield can you demolish the buildings shielding your enemy. Only in Battlefield will you lead an assault from the back of a gun boat. Battlefield grants you the freedom to do more and be more while playing to your strengths and carving your own path to victory. In addition to its hallmark multiplayer, Battlefield 4™ features an intense, dramatic character-driven campaign that starts with the evacuation of American VIPs from Shanghai and follows your squad\'s struggle to find its way home. There is no comparison. Immerse yourself in the glorious chaos of all-out war, found only in Battlefield. Key Features: • Only in Battlefield can you change the landscape in real-time with interactive environments that react to your every move. • Only in Battlefield will you find the awe-inspiring power of the next generation Frostbite™ 3 engine, with unrivaled audio and visual fidelity making your game more human, dramatic, and believable. • Only in Battlefield can you experience an unmatched level of all-out war that grants you the freedom to play to your strengths and carve your own path to victory. • Only in Battlefield do you have the power to dominate land, air and sea with all-new, intense water-based vehicular combat.Battlefield 4™ is the genre-defining action blockbuster made from moments that blur the line between game and glory. Fueled by the next-generation power and fidelity of Frostbite™ 3, Battlefield 4™ provides a visceral, dramatic experience unlike any other. Only in Battlefield can you demolish the buildings shielding your enemy. Only in Battlefield will you lead an assault from the back of a gun boat. Battlefield grants you the freedom to do more and be more while playing to your strengths and carving your own path to victory. In addition to its hallmark multiplayer, Battlefield 4™ features an intense, dramatic character-driven campaign that starts with the evacuation of American VIPs from Shanghai and follows your squad\'s struggle to find its way home. There is no comparison. Immerse yourself in the glorious chaos of all-out war, found only in Battlefield. Key Features: • Only in Battlefield can you change the landscape in real-time with interactive environments that react to your every move. • Only in Battlefield will you find the awe-inspiring power of the next generation Frostbite™ 3 engine, with unrivaled audio and visual fidelity making your game more human, dramatic, and believable. • Only in Battlefield can you experience an unmatched level of all-out war that grants you the freedom to play to your strengths and carve your own path to victory. • Only in Battlefield do you have the power to dominate land, air and sea with all-new, intense water-based vehicular combat.',1000000,2,3,1),(2,'Battlefield 4 ( Global /Mutilanguage )','2013-10-29',1,'All','All','	Bắn súng - Hành động','This is dummy data, never mind about this',1000000,1,3,3),(3,'Dummy Data','2013-10-29',1,'All','All','	Bắn súng - Hành động','This is dummy data, never mind about this',1000000,1,3,12),(4,'Dummy Data','2013-10-29',1,'All','All','	Bắn súng - Hành động','This is dummy data, never mind about this',1,2,3,11),(5,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,15),(6,'Huhuhu','2013-10-29',1,'All','All','No thing to say','Hihihihi',12,2,1,111);
+INSERT INTO `product_detail` VALUES (1,'DARK SOULS 3 III (Global)','2013-10-29',1,'All','All','	Bắn súng - Hành động','Battlefield 4™ is the genre-defining action blockbuster made from moments that blur the line between game and glory. Fueled by the next-generation power and fidelity of Frostbite™ 3, Battlefield 4™ provides a visceral, dramatic experience unlike any other. Only in Battlefield can you demolish the buildings shielding your enemy. Only in Battlefield will you lead an assault from the back of a gun boat. Battlefield grants you the freedom to do more and be more while playing to your strengths and carving your own path to victory. In addition to its hallmark multiplayer, Battlefield 4™ features an intense, dramatic character-driven campaign that starts with the evacuation of American VIPs from Shanghai and follows your squad\'s struggle to find its way home. There is no comparison. Immerse yourself in the glorious chaos of all-out war, found only in Battlefield. Key Features: • Only in Battlefield can you change the landscape in real-time with interactive environments that react to your every move. • Only in Battlefield will you find the awe-inspiring power of the next generation Frostbite™ 3 engine, with unrivaled audio and visual fidelity making your game more human, dramatic, and believable. • Only in Battlefield can you experience an unmatched level of all-out war that grants you the freedom to play to your strengths and carve your own path to victory. • Only in Battlefield do you have the power to dominate land, air and sea with all-new, intense water-based vehicular combat.Battlefield 4™ is the genre-defining action blockbuster made from moments that blur the line between game and glory. Fueled by the next-generation power and fidelity of Frostbite™ 3, Battlefield 4™ provides a visceral, dramatic experience unlike any other. Only in Battlefield can you demolish the buildings shielding your enemy. Only in Battlefield will you lead an assault from the back of a gun boat. Battlefield grants you the freedom to do more and be more while playing to your strengths and carving your own path to victory. In addition to its hallmark multiplayer, Battlefield 4™ features an intense, dramatic character-driven campaign that starts with the evacuation of American VIPs from Shanghai and follows your squad\'s struggle to find its way home. There is no comparison. Immerse yourself in the glorious chaos of all-out war, found only in Battlefield. Key Features: • Only in Battlefield can you change the landscape in real-time with interactive environments that react to your every move. • Only in Battlefield will you find the awe-inspiring power of the next generation Frostbite™ 3 engine, with unrivaled audio and visual fidelity making your game more human, dramatic, and believable. • Only in Battlefield can you experience an unmatched level of all-out war that grants you the freedom to play to your strengths and carve your own path to victory. • Only in Battlefield do you have the power to dominate land, air and sea with all-new, intense water-based vehicular combat.',1000000,2,3,1),(2,'Battlefield 4 ( Global /Mutilanguage )','2013-10-29',1,'All','All','	Bắn súng - Hành động','This is dummy data, never mind about this',1000000,1,3,3),(3,'Dummy Data number 1 abccbcbcbcb','2013-10-29',1,'All','All','	Bắn súng - Hành động','This is dummy data, never mind about this',1000000,1,3,12),(4,'Dummy Data ','2013-10-29',1,'All','All','	Bắn súng - Hành động','This is dummy data, never mind about this',1,2,3,11),(5,'Dummy Data number 3','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,15),(6,'Dummy Data ','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(7,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(8,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(9,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(10,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(11,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(12,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(13,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(14,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(15,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(16,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(17,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(18,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(19,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,0),(20,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,1),(21,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,1),(22,'Dummy Data','2013-10-29',1,'All','All','No thing to say','This is dummy data, never mind about this',1,1,3,1);
 /*!40000 ALTER TABLE `product_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -313,10 +312,10 @@ CREATE TABLE `user` (
   `gender` tinyint(4) DEFAULT NULL,
   `address` varchar(500) DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,
-  `money` double DEFAULT NULL,
+  `money` double DEFAULT '0',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -325,7 +324,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Linh','123456','dcmclgt@gmail.com','0123456789',1,'TK','1996-12-10',1);
+INSERT INTO `user` VALUES (1,'Hứa Hoàng Linh','123123123','dcmclgt@gmail.com','01654988696',1,'Thụy Khuê, Hà Nội','1993-04-03',3000000),(2,'dhgghdfgh','123123123','hehe@gmail.com','',1,'','1996-01-12',0),(3,'dfghdfg','123123123','erin@gmail.com','0912345678',1,'Thuy Khue','1998-12-11',0),(4,'Đậu','12345678','abcd1234@gmail.com','123456789',1,'','1999-03-02',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -338,4 +337,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-01 19:44:21
+-- Dump completed on 2017-11-26 14:45:20

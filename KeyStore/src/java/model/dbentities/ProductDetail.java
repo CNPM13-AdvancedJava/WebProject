@@ -77,6 +77,20 @@ public class ProductDetail  implements java.io.Serializable {
             }
         }
     }
+    
+    public static List getRandomProductFromList(List<ProductDetail> lstProduct, int take){
+        int size = lstProduct.size();
+        Random rd = new Random();
+        List<ProductDetail> lst = new ArrayList<>();
+        while (lst.size() < take){
+            int index = rd.nextInt(size);
+            ProductDetail product = lstProduct.get(index);
+            if (!lst.contains(product)){
+                lst.add(product);
+            }
+        }
+        return lst;
+    }
    
     public Integer getProductId() {
         return this.productId;

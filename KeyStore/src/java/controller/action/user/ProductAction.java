@@ -27,6 +27,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 
     private final int pageSize = 18;
     private int totalPage;
+    private int totalProduct;
     private List<Page> lstPage;
 
     public ProductAction() {
@@ -60,6 +61,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         }
         dao.beginTransaction();
         lstProduct = dao.getAllProduct();
+        totalProduct = lstProduct.size();
         dao.closeTransaction();
         totalPage = Util.getTotalPage(lstProduct.size(), pageSize);
         lstProduct = Util.getPagitation(lstProduct, curPage, pageSize);
@@ -87,9 +89,23 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         }
         dao.beginTransaction();
         ProductDetail detail = dao.getProductById(productId);
-        dao.closeTransaction();
         ProductDetail.getThumnailImage(detail);
         product = new Product(detail);
+        List lstRefProduct = dao.getProductWithType(detail.getType().getTypeId());
+        dao.closeTransaction();
+        lstRefProduct = ProductDetail.getRandomProductFromList(lstRefProduct, 6);
+        ProductDetail.getThumnailImage(lstRefProduct);
+        product.setLstProduct(lstRefProduct);
+        return SUCCESS;
+    }
+    
+    public String findProduct(){
+        String name = request.getParameter("name");
+        dao.beginTransaction();
+        lstProduct = dao.getProductByName(name);
+        dao.closeTransaction();
+        totalProduct = lstProduct.size();
+        ProductDetail.getThumnailImage(lstProduct);
         return SUCCESS;
     }
 
@@ -120,6 +136,14 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 
     public Product getProduct() {
         return product;
+    }
+
+    public int getTotalProduct() {
+        return totalProduct;
+    }
+
+    public void setTotalProduct(int totalProduct) {
+        this.totalProduct = totalProduct;
     }
 
 }

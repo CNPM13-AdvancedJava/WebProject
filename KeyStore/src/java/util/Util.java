@@ -7,11 +7,14 @@ package util;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import model.dbentities.User;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
+import model.dbentities.ProductDetail;
 
 /**
  *

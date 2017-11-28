@@ -18,9 +18,9 @@
                         </ul>
                     </li>	
                 </s:iterator>
-                <form action="findProduct" method="POST" class="navbar-form navbar-left searchBar" role="search">
+                <form action="FindProduct" method="POST" class="navbar-form navbar-left searchBar" role="search">
                     <div class="form-group">										
-                        <input type="search" name="txt-searchValue" class="form-control" placeholder="Tìm kiếm">	
+                        <input type="search" name="name" class="form-control" placeholder="Tìm kiếm">	
                         <button type="submit" class="btn btn-default form-control"><span class="glyphicon glyphicon-search"></span></button>
                     </div>
                 </form>

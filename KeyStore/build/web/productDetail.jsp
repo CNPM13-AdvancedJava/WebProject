@@ -99,11 +99,11 @@
                         </div>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="describe">
-                                <span class="Warring">
+<!--                                <span class="Warring">
                                     - THỜI GIAN NHẬN KEY GAME : 5 ĐẾN 15 PHÚT. 
                                     </br>
                                     - KEY GAME ĐƯỢC CHUYỂN ĐẾN ĐỊA CHỈ EMAIL CỦA BẠN.      
-                                </span>
+                                </span>-->
                                 <div class="table-key">
                                     <table class="table table-hover">
                                         <thead>
@@ -158,14 +158,14 @@
                                 <span>Sản Phẩm Liên Quan</span>
                             </div>                           
                             <ul>
-                                <s:iterator value="listProductref">
+                                <s:iterator value="product.lstProduct">
                                     <li>
                                         <div class="col-xs-12 col-sm-6 col-lg-2 col-md-4">
-                                            <a href="getPro?productId=<s:property value="productId"/>" class="thumbnail">
-                                                <img class="images-involve" src="<s:property value="images"/>" alt="...">
+                                            <a href="GetProduct?productId=<s:property value="productId"/>" class="thumbnail">
+                                                <img class="images-involve" src="<s:property value="thumbnailUrl"/>" alt="...">
                                                 <div class="caption">
                                                     <h5><s:property value="productName"/></h5>
-                                                    <p class="prince-product"> <s:property value="prince"/> đ</p>						      
+                                                    <p class="prince-product"> <s:property value="price"/> đ</p>						      
                                                 </div>
                                             </a>
                                         </div>

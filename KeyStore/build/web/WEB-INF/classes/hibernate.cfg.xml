@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/keystore?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">linh1996</property>
+    <property name="hibernate.connection.password">gvn123456</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.connection.pool_size">10</property>
     <mapping resource="model/dbentities/PaymentMethod.hbm.xml"/>

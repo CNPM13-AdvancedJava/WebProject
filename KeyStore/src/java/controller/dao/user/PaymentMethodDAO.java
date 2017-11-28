@@ -5,7 +5,7 @@
  */
 package controller.dao.user;
 
-import model.HibernateUtil;
+import hibernate.util.HibernateUtil;
 import model.dbentities.PaymentMethod;
 import org.hibernate.Session;
 

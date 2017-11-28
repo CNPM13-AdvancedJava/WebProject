@@ -6,7 +6,7 @@
 package controller.dao.user;
 
 import java.util.List;
-import model.HibernateUtil;
+import hibernate.util.HibernateUtil;
 import model.dbentities.OrderDetail;
 import model.dbentities.OrderDetailId;
 import org.hibernate.Session;
@@ -19,13 +19,11 @@ public class OrderDetailDAO {
 
     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
-    public void addOrderDetail(List<OrderDetail> lstOrderedItem) {
-        for (OrderDetail item : lstOrderedItem) {
-            try {
-                session.save(item);
-            } catch (Exception e) {
-                System.err.println(e);
-            }
+    public void addOrderDetail(OrderDetail orderedItem) {
+        try {
+            session.save(orderedItem);
+        } catch (Exception e) {
+            System.err.println(e);
         }
     }
 }

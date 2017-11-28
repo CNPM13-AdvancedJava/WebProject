@@ -9,7 +9,7 @@ import model.dbentities.Catalog;
 import model.dbentities.ProductDetail;
 import java.util.ArrayList;
 import java.util.List;
-import model.HibernateUtil;
+import hibernate.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -83,4 +83,30 @@ public class ProductDAO {
         return product;
     }
 
+    public List<ProductDetail> getProductWithType(int typeId){
+        List<ProductDetail> lstProduct = new ArrayList<>();
+        try {
+            String sql = "from ProductDetail where type.typeId = :type";
+            Query query = session.createQuery(sql);
+            query.setParameter("type", typeId);
+            lstProduct = query.list();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return lstProduct;
+    }
+
+    public List<ProductDetail> getProductByName(String name) {
+        List<ProductDetail> lstProduct = new ArrayList<>();
+        try {
+            String sql = "from ProductDetail where productName like :name";
+            Query query = session.createQuery(sql);
+            name = "%"+name+"%";
+            query.setParameter("name", name);
+            lstProduct = query.list();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return lstProduct;
+    }
 }

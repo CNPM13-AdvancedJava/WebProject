@@ -10,10 +10,14 @@ import controller.dao.user.OrderDAO;
 import controller.dao.user.OrderDetailDAO;
 import controller.dao.user.PaymentMethodDAO;
 import controller.dao.user.ProductDAO;
+import controller.dao.user.ProductKeyDAO;
 import controller.dao.user.UserDAO;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import model.dbentities.Order;
@@ -21,10 +25,11 @@ import model.dbentities.OrderDetail;
 import model.dbentities.OrderDetailId;
 import model.dbentities.PaymentMethod;
 import model.dbentities.ProductDetail;
+import model.dbentities.ProductKey;
 import model.dbentities.User;
 import model.entities.ProductInCart;
-import model.entities.UserDetail;
 import org.apache.struts2.interceptor.ServletRequestAware;
+import util.EmailSender;
 import util.Util;
 
 /**
@@ -33,7 +38,9 @@ import util.Util;
  */
 public class OrderAction extends ActionSupport implements ServletRequestAware {
     HttpServletRequest request;
+    
     ProductDAO productDAO;
+    ProductKeyDAO productKeyDAO;
     UserDAO userDAO;
     PaymentMethodDAO paymentMethodDAO;
     OrderDAO orderDAO;
@@ -45,6 +52,7 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
             
     public OrderAction() {
         productDAO = new ProductDAO();
+        productKeyDAO = new ProductKeyDAO();
         userDAO = new UserDAO();
         paymentMethodDAO = new PaymentMethodDAO();
         orderDAO = new OrderDAO();
@@ -74,6 +82,27 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
         }
         if (!isAdd)
             cart.add(new ProductInCart(product.getProductId(), product.getPrice(), number));
+        session.setAttribute("cart", cart);
+        session.setAttribute("amount", cart.size());
+        
+        backUrl = request.getHeader("referer");
+        return SUCCESS;
+    }
+    
+    public String removeFromCart(){
+        Integer productId = Integer.parseInt((String) request.getParameter("productId"));
+        HttpSession session = request.getSession();
+        ArrayList<ProductInCart> cart = (ArrayList) session.getAttribute("cart");
+        if (cart == null){
+            cart = new ArrayList<>();
+        }
+        for (ProductInCart item : cart){
+            if (item.getProductId().equals(productId)){
+                cart.remove(item);
+                break;
+            }
+        }
+        
         session.setAttribute("cart", cart);
         session.setAttribute("amount", cart.size());
         
@@ -112,21 +141,32 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
         Integer userId = (Integer) session.getAttribute("userId");
         lstProductInCart = (ArrayList) session.getAttribute("cart");
         if (userId == null || lstProductInCart == null || lstProductInCart.isEmpty()){
-            return ERROR;
+            return "login";
         }
         orderDAO.beginTransaction();
         User user = userDAO.getUserDetailById(userId);
         PaymentMethod method = paymentMethodDAO.getMethodById(1);
         Double totalPayment = ProductInCart.getTotalPayment(lstProductInCart);
-        Order order = new Order(method, user, 1, totalPayment, new HashSet());
+        if (totalPayment > user.getMoney()){
+            orderDAO.closeTransaction();
+            return ERROR;
+        }
+        Map<String, ProductDetail> keyMap = new HashMap<>();
+        Order order = new Order(method, user, 1, totalPayment, new Date(), new HashSet());
         Integer orderId = orderDAO.createOrder(order);
         List<OrderDetail> lstOrderedItem = new ArrayList<>();
-//        for (ProductInCart item : lstProductInCart){
-//            OrderDetailId ODI = new OrderDetailId(orderId, item.getProductId(), item.getNumber());
-//            ProductDetail productDetail = productDAO.getProductById(item.getProductId());
-//            lstOrderedItem.add(new OrderDetail(ODI, order, productDetail));
-//        }
-//        orderDetailDAO.addOrderDetail(lstOrderedItem);
+        for (ProductInCart item : lstProductInCart){
+            ProductDetail productDetail = productDAO.getProductById(item.getProductId());
+            List<ProductKey> lstKey = productKeyDAO.getAvailableKey(item.getProductId(), item.getNumber());
+            for (ProductKey key : lstKey){
+                OrderDetailId ODI = new OrderDetailId(orderId, key.getKeyId());
+                OrderDetail OD = new OrderDetail(ODI, order, key, 1);
+                orderDetailDAO.addOrderDetail(OD);
+                keyMap.put(key.getKeyId(), productDetail);
+            }
+        }
+        orderDAO.closeTransaction();
+        EmailSender.sendProductKey(user, keyMap);
         return SUCCESS;
     }
     
