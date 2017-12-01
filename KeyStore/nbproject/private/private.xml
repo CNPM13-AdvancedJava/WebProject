@@ -3,7 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/OrderAction.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/dao/user/ProductDAO.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductDetail.hbm.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/struts.xml</file>
             <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/ProductAction.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductDetail.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/hibernate/util/HibernateUtil.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Catalog.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Home.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Menu.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/util/EmailSender.java</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/ListProductPagination.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/hibernate.cfg.xml</file>
         </group>
     </open-files>
 </project-private>

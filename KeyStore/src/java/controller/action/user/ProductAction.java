@@ -108,6 +108,25 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         ProductDetail.getThumnailImage(lstProduct);
         return SUCCESS;
     }
+    
+    public String getProductByType(){
+        Integer type = null;
+        try {
+            type = Integer.parseInt(request.getParameter("type"));
+        } 
+        catch (Exception e){
+        }
+        dao.beginTransaction();
+        if (type == null){
+            lstProduct = dao.getAllProduct();
+        }
+        else {
+            lstProduct = dao.getProductWithType(type);
+        }
+        ProductDetail.getThumnailImage(lstProduct);
+        dao.closeTransaction();
+        return SUCCESS;
+    }
 
     @Override
     public void setServletRequest(HttpServletRequest hsr) {

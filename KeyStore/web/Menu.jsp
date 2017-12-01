@@ -12,7 +12,7 @@
                         <ul class="dropdown-menu">
                             <s:iterator value="types">
                                 <li>
-                                    <a href="findProductbyGametype?gameId=1"><s:property value="typeName"/></a>
+                                    <a href="Product?type=<s:property value="typeId"/>"><s:property value="typeName"/></a>
                                 </li>
                             </s:iterator>
                         </ul>

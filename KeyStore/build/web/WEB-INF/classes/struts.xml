@@ -25,6 +25,9 @@
         <action name="FindProduct" class="controller.action.user.ProductAction" method="findProduct">
             <result name="success">Product.jsp</result>
         </action> 
+        <action name="Product" class="controller.action.user.ProductAction" method="getProductByType">
+            <result name="success">Product.jsp</result>
+        </action> 
         
         <action name="Login" class="controller.action.user.UserAction" method="normalLogin">
             <result name="success">Home.jsp</result>
