@@ -6,12 +6,13 @@
 package controller.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
-import controller.dao.user.OrderDAO;
-import controller.dao.user.OrderDetailDAO;
-import controller.dao.user.PaymentMethodDAO;
-import controller.dao.user.ProductDAO;
-import controller.dao.user.ProductKeyDAO;
-import controller.dao.user.UserDAO;
+import controller.dao.OrderDAO;
+import controller.dao.OrderDetailDAO;
+import controller.dao.PaymentMethodDAO;
+import controller.dao.ProductDAO;
+import controller.dao.ProductKeyDAO;
+import controller.dao.UserDAO;
+import hibernate.util.HibernateTransaction;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -39,6 +40,7 @@ import util.Util;
 public class OrderAction extends ActionSupport implements ServletRequestAware {
     HttpServletRequest request;
     
+    HibernateTransaction transaction;
     ProductDAO productDAO;
     ProductKeyDAO productKeyDAO;
     UserDAO userDAO;
@@ -51,6 +53,7 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
     private String totalPrice;
             
     public OrderAction() {
+        transaction = new HibernateTransaction();
         productDAO = new ProductDAO();
         productKeyDAO = new ProductKeyDAO();
         userDAO = new UserDAO();
@@ -69,9 +72,9 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
         if (cart == null){
             cart = new ArrayList<>();
         }
-        productDAO.beginTransaction();
+        transaction.beginTransaction();
         ProductDetail product = productDAO.getProductById(productId);
-        productDAO.closeTransaction();
+        transaction.closeTransaction();
         boolean isAdd = false;
         for (ProductInCart item : cart){
             if (item.getProductId().equals(product.getProductId())){
@@ -118,7 +121,7 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
         }
         if (!lstProductInCart.isEmpty()){
             Double total = 0.0;
-            productDAO.beginTransaction();
+            transaction.beginTransaction();
             for (ProductInCart item : lstProductInCart){
                 ProductDetail product = productDAO.getProductById(item.getProductId());
                 ProductDetail.getThumnailImage(product);
@@ -130,7 +133,7 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
                 total += item.getTotalPrice();
             }
             totalPrice = Util.formatPrice(total);
-            productDAO.closeTransaction();
+            transaction.closeTransaction();
         }
         return SUCCESS;
     }
@@ -143,12 +146,12 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
         if (userId == null || lstProductInCart == null || lstProductInCart.isEmpty()){
             return "login";
         }
-        orderDAO.beginTransaction();
+        transaction.beginTransaction();
         User user = userDAO.getUserDetailById(userId);
         PaymentMethod method = paymentMethodDAO.getMethodById(1);
         Double totalPayment = ProductInCart.getTotalPayment(lstProductInCart);
         if (totalPayment > user.getMoney()){
-            orderDAO.closeTransaction();
+            transaction.closeTransaction();
             return ERROR;
         }
         Map<String, ProductDetail> keyMap = new HashMap<>();
@@ -165,7 +168,7 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
                 keyMap.put(key.getKeyId(), productDetail);
             }
         }
-        orderDAO.closeTransaction();
+        transaction.closeTransaction();
         EmailSender.sendProductKey(user, keyMap);
         return SUCCESS;
     }

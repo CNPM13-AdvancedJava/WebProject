@@ -8,10 +8,10 @@
             <column name="product_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="manufacturer" class="model.dbentities.Manufacturer" fetch="join">
+        <many-to-one name="manufacturer" class="model.dbentities.Manufacturer" fetch="join" lazy="false">
             <column name="manufacturer_id" />
         </many-to-one>
-        <many-to-one name="type" class="model.dbentities.Type" fetch="join">
+        <many-to-one name="type" class="model.dbentities.Type" fetch="join" lazy="false">
             <column name="type_id" />
         </many-to-one>
         <property name="productName" type="string">

@@ -72,6 +72,21 @@
             <result name="success">PaymentSuccess.jsp</result>
             <result name="error">PaymentFail.jsp</result>
         </action>
+        
+        
         <!-- Admin action -->
+        <action name="CheckAdminPermission" class="controller.action.admin.AdminAction" method="checkPermission">
+            <result name="error">Login.jsp</result>
+            <result name="success">HeaderBar.jsp</result>
+        </action>
+        <action name="LoginAdmin" class="controller.action.admin.AdminAction" method="login">
+            <result name="error">Login.jsp</result>
+            <result name="success">Index.jsp</result>
+        </action>
+        <action name="ProductManagerment" class="controller.action.admin.ProductAction" method="getAllProduct">
+            <result name="error">Login.jsp</result>
+            <result name="success">ListProduct.jsp</result>
+        </action>
+        
     </package>
 </struts>

@@ -8,7 +8,7 @@
             <column name="type_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="catalog" class="model.dbentities.Catalog" fetch="select">
+        <many-to-one name="catalog" class="model.dbentities.Catalog" fetch="select" lazy="false">
             <column name="catalog_id" />
         </many-to-one>
         <property name="typeName" type="string">

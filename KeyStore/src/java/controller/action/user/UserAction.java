@@ -5,10 +5,9 @@
  */
 package controller.action.user;
 
-import static com.opensymphony.xwork2.Action.ERROR;
-import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
-import controller.dao.user.UserDAO;
+import controller.dao.UserDAO;
+import hibernate.util.HibernateTransaction;
 import model.entities.UserInfo;
 import model.dbentities.User;
 import javax.servlet.http.HttpServletRequest;
@@ -25,12 +24,15 @@ import util.Util;
 public class UserAction extends ActionSupport implements ServletRequestAware{
     
     private HttpServletRequest request;
+    
+    private HibernateTransaction transaction;
     private UserDAO dao;
     
     private UserInfo user;
     private UserDetail detail;
 
     public UserAction() {
+        transaction = new HibernateTransaction();
         dao = new UserDAO();
     }
     
@@ -44,12 +46,12 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         try {
             int uId = Integer.parseInt(id);
             if (userId.equals(uId)){
-                dao.beginTransaction();
+                transaction.beginTransaction();
                 User userDetail = dao.getUserDetailById(uId);
                 userDetail.setMoney(money + userDetail.getMoney());
                 detail = new UserDetail(userDetail);
                 dao.update(userDetail);
-                dao.closeTransaction();
+                transaction.closeTransaction();
                 HttpSession session = request.getSession();
                 session.setAttribute("userId", userDetail.getUserId());
                 session.setAttribute("userName", userDetail.getUserName());
@@ -66,9 +68,9 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
     public String normalLogin(){
         String email = request.getParameter("txt-email");
         String pwd = request.getParameter("txt-pass");
-        dao.beginTransaction();
+        transaction.beginTransaction();
         user = dao.login(email, pwd);
-        dao.closeTransaction();
+        transaction.closeTransaction();
         if (user.getErrorMessage().equalsIgnoreCase(Constant.ErrorMessage.NO_MESSAGE)) {
             HttpSession session = request.getSession();
             session.setAttribute("userId", user.getUser().getUserId());
@@ -103,7 +105,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
             return ERROR;
         }
         
-        dao.beginTransaction();
+        transaction.beginTransaction();
         errorMessage = dao.isEmailExist(email);
         if (!errorMessage.equals(Constant.ErrorMessage.NO_MESSAGE)){
             user.setErrorMessage(errorMessage);
@@ -111,7 +113,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         }
         
         dao.register(user.getUser());
-        dao.closeTransaction();
+        transaction.closeTransaction();
         
         HttpSession session = request.getSession();
         session.setAttribute("userId", user.getUser().getUserId());
@@ -127,10 +129,10 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         try {
             int uId = Integer.parseInt(id);
             if (userId.equals(uId)){
-                dao.beginTransaction();
+                transaction.beginTransaction();
                 User userDetail = dao.getUserDetailById(uId);
                 detail = new UserDetail(userDetail);
-                dao.closeTransaction();
+                transaction.closeTransaction();
                 if (isChange != null && isChange.equals("1")){
                     return INPUT;
                 }
@@ -161,18 +163,18 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         } catch (Exception e) {
             System.err.println(e);
         }
-        dao.beginTransaction();
+        transaction.beginTransaction();
         User userDetail = dao.getUserDetailById(userId);
         user = new UserInfo();
         detail = new UserDetail(userDetail);
         if (userId != sessionUID){
-            dao.closeTransaction();
+            transaction.closeTransaction();
             return result;
         }
         String errorMessage = Util.validatePassword(newPass, cfmPass);
         if (!errorMessage.equals(Constant.ErrorMessage.NO_MESSAGE)){
             user.setErrorMessage(errorMessage);
-            dao.closeTransaction();
+            transaction.closeTransaction();
             return result;
         }
         
@@ -185,7 +187,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         else {
             user.setErrorMessage(Constant.ErrorMessage.INVALID_PASSWORD);
         }
-        dao.closeTransaction();
+        transaction.closeTransaction();
         return result;
     }
     
@@ -207,7 +209,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
             return ERROR;
         }
         
-        dao.beginTransaction();
+        transaction.beginTransaction();
         User u = dao.getUserDetailById(Integer.parseInt(userId));
         u.setUserName(userName);
         u.setDateOfBirth(Util.format(dateOfBirth));
@@ -216,7 +218,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         dao.update(u);
         detail = new UserDetail(u);
         user.setSuccessMessage(Constant.SuccessMessage.UPDATE_INFO_SUCCESS);
-        dao.closeTransaction();
+        transaction.closeTransaction();
         
         HttpSession session = request.getSession();
         session.setAttribute("userId", u.getUserId());
