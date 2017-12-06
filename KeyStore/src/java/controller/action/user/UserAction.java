@@ -180,7 +180,7 @@ public class UserAction extends ActionSupport implements ServletRequestAware{
         
         if (userDetail.getPassword() != null && userDetail.getPassword().equals(curPass)){
             userDetail.setPassword(newPass);
-            dao.updateUser(userDetail);
+            dao.update(userDetail);
             user.setSuccessMessage(Constant.SuccessMessage.CHANGE_PASSWORD_SUCCESS);
             result = SUCCESS;
         }

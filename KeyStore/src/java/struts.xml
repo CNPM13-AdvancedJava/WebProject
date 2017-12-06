@@ -39,7 +39,7 @@
         </action> 
         <action name="UserDetail" class="controller.action.user.UserAction" method="getUserById">
             <result name="success">UserDetail.jsp</result>
-            <result name="error">Home.jsp</result>
+            <result name="error">Login.jsp</result>
             <result name="input">UpdateUserInfo.jsp</result>
         </action> 
         <action name="Logout" class="controller.action.user.UserAction" method="logout">
@@ -86,6 +86,14 @@
         <action name="ProductManagerment" class="controller.action.admin.ProductAction" method="getAllProduct">
             <result name="error">Login.jsp</result>
             <result name="success">ListProduct.jsp</result>
+        </action>
+        <action name="AddProduct" class="controller.action.admin.ProductAction" method="prepareData">
+            <result name="error">Login.jsp</result>
+            <result name="success">AddProduct.jsp</result>
+        </action>
+        <action name="UserManagerment" class="controller.action.admin.UserAction" method="getAllUser">
+            <result name="error">Login.jsp</result>
+            <result name="success">ListUser.jsp</result>
         </action>
         
     </package>

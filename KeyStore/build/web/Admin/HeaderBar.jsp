@@ -15,7 +15,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="Index.jsp">Quản lý</a>
+                <a class="navbar-brand" href="Index.jsp">Trang quản lý KeyStore</a>
             </div>
             <!-- /.navbar-header -->
 

@@ -111,7 +111,8 @@
                                                 <a href="Home.jsp" style="color: white" type="button" class="btn btn-danger">Huỷ bỏ</a>
                                             </div>
                                             <div id="pay-nganhang" style="display:none;">
-                                                <form action="thanhtoanPayGH?sotienTT=<s:property value="tongsotien"/>&userNamettPay=<%=session.getAttribute("userName")%>" method="POST">
+                                                <!--<form action="thanhtoanPayGH?sotienTT=<s:property value="tongsotien"/>&userNamettPay=<%=session.getAttribute("userName")%>" method="POST">-->
+                                                <form>    
                                                     <table class="table table-default" style="max-width:600px;">
                                                         <tr>
                                                             <td><span class="label-taikhoan">Tài khoản ngân hàng </span></td>

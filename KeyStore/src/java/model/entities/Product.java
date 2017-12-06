@@ -31,6 +31,7 @@ public class Product {
     private String introduction;
     private String price;
     private String thumbnailUrl;
+    private Double originalPrice;
     
     private List<ProductDetail> lstProduct;
     private List<String> imageUrl;
@@ -53,6 +54,7 @@ public class Product {
         this.description = detail.getDescription();
         this.introduction = detail.getIntroduction();
         this.price = Util.formatPrice(detail.getPrice());
+        this.originalPrice = detail.getPrice();
         this.thumbnailUrl = detail.getThumbnailUrl();
     }
     
@@ -166,6 +168,14 @@ public class Product {
 
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
+    }
+
+    public Double getOriginalPrice() {
+        return originalPrice;
+    }
+
+    public void setOriginalPrice(Double originalPrice) {
+        this.originalPrice = originalPrice;
     }
     
     

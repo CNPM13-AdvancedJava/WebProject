@@ -6,9 +6,11 @@
 package controller.dao;
 
 import hibernate.util.HibernateTransaction;
+import java.util.ArrayList;
 import model.entities.UserInfo;
 import model.dbentities.User;
 import java.util.List;
+import model.entities.UserDetail;
 import org.hibernate.Query;
 import util.Constant;
 
@@ -84,12 +86,19 @@ public class UserDAO extends HibernateTransaction {
     
     }
 
-    public void updateUser(User user) {
+    public List<User> getAllUser() {
+        List<User> lstUser = new ArrayList<>();
         try {
-            session.update(user);
+            String sql = "from User Order by userName DESC";
+            Query query = session.createQuery(sql);
+            List lst = query.list();
+            if (lst != null && !lst.isEmpty()){
+                lstUser.addAll(lst);
+            }
         } catch (Exception e) {
             System.err.println(e);
         }
+        return lstUser;
     }
     
 }

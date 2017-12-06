@@ -22,4 +22,8 @@ public class HibernateTransaction {
     public void closeTransaction(){
         session.getTransaction().commit();
     }
+    
+    public void rollback(){
+        session.getTransaction().rollback();
+    }
 }

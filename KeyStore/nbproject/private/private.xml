@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductDetail.hbm.xml</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/Type.hbm.xml</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/dao/ProductDAO.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Admin/Index.jsp</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/model/dbentities/ProductDetail.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/user/ProductAction.java</file>
-            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/css/sb-admin.css</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Admin/AddProduct.jsp</file>
+            <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/struts.xml</file>
             <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/src/java/controller/action/admin/ProductAction.java</file>
             <file>file:/C:/Users/Linh/Documents/WebProject/KeyStore/web/Admin/ListProduct.jsp</file>
         </group>

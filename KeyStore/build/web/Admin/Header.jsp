@@ -27,10 +27,23 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="ProductManagerment"><i class="fa fa-dashboard fa-fw"></i> Danh mục sản phẩm</a>
+                            <a href="ProductManagerment"><i class="fa fa-table fa-fw"></i> Quản lý sản phẩm</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html"> Nhà sản xuất</a>
+                                    <a href="flot.html"> Dòng máy</a>
+                                    <a href="flot.html"> Thể loại</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <a href="UserManagerment"><i class="fa fa-table fa-fw"></i> Quản lý người dùng</a>
+                        </li>
+                        <li>
+                            <a href="UserManagerment"><i class="fa fa-table fa-fw"></i> Quản lý đơn đặt hàng</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Thống kê<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="flot.html">Flot Charts</a>

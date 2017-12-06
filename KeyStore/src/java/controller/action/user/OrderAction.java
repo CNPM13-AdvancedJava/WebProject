@@ -154,22 +154,27 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
             transaction.closeTransaction();
             return ERROR;
         }
-        Map<String, ProductDetail> keyMap = new HashMap<>();
-        Order order = new Order(method, user, 1, totalPayment, new Date(), new HashSet());
+        user.setMoney(user.getMoney() - totalPayment);
+        userDAO.update(user);
+//        Map<String, ProductDetail> keyMap = new HashMap<>();
+        Order order = new Order(method, user, 0, totalPayment, new Date(), new HashSet());
         Integer orderId = orderDAO.createOrder(order);
-        List<OrderDetail> lstOrderedItem = new ArrayList<>();
+//        List<OrderDetail> lstOrderedItem = new ArrayList<>();
         for (ProductInCart item : lstProductInCart){
-            ProductDetail productDetail = productDAO.getProductById(item.getProductId());
+//            ProductDetail productDetail = productDAO.getProductById(item.getProductId());
             List<ProductKey> lstKey = productKeyDAO.getAvailableKey(item.getProductId(), item.getNumber());
             for (ProductKey key : lstKey){
                 OrderDetailId ODI = new OrderDetailId(orderId, key.getKeyId());
                 OrderDetail OD = new OrderDetail(ODI, order, key, 1);
                 orderDetailDAO.addOrderDetail(OD);
-                keyMap.put(key.getKeyId(), productDetail);
+//                keyMap.put(key.getKeyId(), productDetail);
             }
         }
         transaction.closeTransaction();
-        EmailSender.sendProductKey(user, keyMap);
+        session.removeAttribute("cart");
+        session.removeAttribute("amount");
+        
+//        EmailSender.sendProductKey(user, keyMap);
         return SUCCESS;
     }
     

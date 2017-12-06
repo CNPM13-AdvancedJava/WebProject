@@ -31,10 +31,10 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
     private List<Catalog> lstCatalog;
     private Product product;
 
-    private final int pageSize = 18;
-    private int totalPage;
-    private int totalProduct;
-    private List<Page> lstPage;
+//    private final int pageSize = 18;
+//    private int totalPage;
+//    private int totalProduct;
+//    private List<Page> lstPage;
 
     public ProductAction() {
         transaction = new HibernateTransaction();
@@ -42,24 +42,14 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
     }
     
     public String getAllProduct(){
-        int curPage = 1;
-        String curPageStr = request.getParameter("page");
-        try {
-            curPage = Integer.parseInt(curPageStr);
-        } catch (Exception e) {
-
-        }
         transaction.beginTransaction();
         lstProduct = dao.getAllProduct();
-        totalProduct = lstProduct.size();
         transaction.closeTransaction();
-        totalPage = Util.getTotalPage(lstProduct.size(), pageSize);
-        lstProduct = Util.getPagitation(lstProduct, curPage, pageSize);
-        lstPage = Page.getPageList(totalPage, curPage);
         ProductDetail.getThumnailImage(lstProduct);
-        if (curPageStr != null){
-            return "page";
-        }
+        return SUCCESS;
+    }
+    
+    public String prepareData(){
         return SUCCESS;
     }
     
@@ -80,20 +70,4 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         return product;
     }
 
-    public int getPageSize() {
-        return pageSize;
-    }
-
-    public int getTotalPage() {
-        return totalPage;
-    }
-
-    public int getTotalProduct() {
-        return totalProduct;
-    }
-
-    public List<Page> getLstPage() {
-        return lstPage;
-    }
-    
 }
