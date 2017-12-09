@@ -29,6 +29,8 @@
             <div id="page-wrapper">     
                 <div class="container-fluid">
                     <div class="row">
+                        <h2>Thêm sản phẩm</h2>
+                        <br><br>
                         <%if (session.getAttribute("ErrorInsert") != null) {%>
                         <span class="ErrorLogin"><%=session.getAttribute("ErrorInsert")%></span>
                         <%} else { %>
@@ -40,50 +42,17 @@
                                 <input class="form-control" name="product.productName" required="required">
                             </div> 
                             <label>Dòng máy : </label>
-                            <select id="box1" class="form-group" name="catalog">
-                                <option>----- Chọn Dòng Máy -----</option>
-                                <s:iterator value="listCatalog">                                   
+                            <select id="catalogBox" class="form-group" name="catalog" onchange="loadGameType()">
+                                <option>----- Chọn Dòng Game -----</option>
+                                <s:iterator value="lstCatalog">                                   
                                     <option value="<s:property value="catalogId"/>"><s:property value="catalogName"/></option>                                    
                                 </s:iterator>
                             </select>
                             <div class="form-group">
-                            <label>Thể loại Game : </label>
-                            <select id="box2" class="boxGametype" style="display:none;" name="product.gametype.gametypeId">
-                                <option value="1">Battlefield (series)</option> 
-                                <option value="3">Call of Duty (series)</option> 
-                                <option value="4">GUILD WARS (series)</option> 
-                                <option value="5">STARCARFT (series)</option> 
-                                <option value="6">Action/Adventure</option> 
-                                <option value="7">Sports</option> 
-                                <option value="8">Shooter</option> 
-                                <option value="9">Racing</option> 
-                                <option value="10">MMO GAMES</option> 
-                                <option value="11">Strategy</option> 
-                                <option value="12">EA-ORIGIN GAMES</option> 
-                                <option value="13">Steam Games</option> 
-                                <option value="14">Ubisoft - Uplay games</option> 
-                                <option value="15">Kaspesky CD Key</option> 
-                                <option value="16">Blizzard Game</option> 
-                                <option value="17">PRE-ORDER</option> 
-                            </select>
-                            <select id="box3" class="boxGametype" style="display:none;" name="product.Gametype.gametypeId">
-                                <option value="19">Chery Credits Cards</option> 
-                                <option value="21">Go Cashs</option> 
-                                <option value="22">Steam Wallet Card</option> 
-                                <option value="23">Code giảm ping</option> 
-                                <option value="24">Rixty Cards</option> 
-                            </select>
-                            <select id="box4" class="boxGametype" style="display:none;" name="product.Gametype.gametypeId">
-                                <option value="25">Play Station Network US Card</option> 
-                                <option value="26">Play Station Network UK Card</option>
-                            </select>
-                            <select id="box5" class="boxGametype" style="display:none;" name="product.Gametype.gametypeId">
-                                <option value="27">XBOX LIVE Cards</option> 
-                            </select>
-                            <select id="box6" class="boxGametype" style="display:none;" name="product.Gametype.gametypeId">
-                                <option value="28">Itunes USA Cards</option> 
-                                <option value="29">Google Play USA Cards</option>
-                            </select>
+                                <label>Thể loại Game : </label>
+                                <select id="gameTypeBox" class="boxGametype" name="product.gametype.gametypeId">
+                                    <option>----- Chọn Thể loại -----</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Ngày ra mắt</label>
@@ -139,5 +108,27 @@
                 </div>           
             </div>
         </div>
+        <script type="text/javascript">
+            function loadGameType() {
+                var e = document.getElementById("catalogBox");
+                var catalogId = e.options[e.selectedIndex].value;
+                var box = document.getElementById("gameTypeBox");
+                box.options.length = 0;
+                var initOpt = document.createElement('option');
+                initOpt.innerHTML = "----- Chọn Thể loại -----";
+                box.appendChild(initOpt);
+            <s:iterator value="lstType">
+                var itemId = <s:property value="catalog.catalogId"/>;
+                if (parseInt(catalogId) === parseInt(itemId)) {
+                    var typeid = <s:property value="typeId"/>;
+                    var typename = '<s:property value="typeName"/>';
+                    var opt = document.createElement('option');
+                    opt.value = typeid;
+                    opt.innerHTML = typename;
+                    box.appendChild(opt);
+                }
+            </s:iterator>
+            }
+        </script>
     </body>
 </html>

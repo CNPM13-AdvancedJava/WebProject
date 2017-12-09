@@ -6,6 +6,7 @@
 package controller.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
+import controller.dao.CatalogDAO;
 import controller.dao.ProductDAO;
 import hibernate.util.HibernateTransaction;
 import model.entities.Page;
@@ -19,7 +20,8 @@ import util.Util;
 
 public class ProductAction extends ActionSupport implements ServletRequestAware {
 
-    private ProductDAO dao;
+    private ProductDAO productDAO;
+    private CatalogDAO catalogDAO;
     private HttpServletRequest request;
     private HibernateTransaction transaction;
 
@@ -33,13 +35,13 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
     private List<Page> lstPage;
 
     public ProductAction() {
-        dao = new ProductDAO();
+        productDAO = new ProductDAO();
         transaction = new HibernateTransaction();
     }
 
     public String getBanner() {
         transaction.beginTransaction();
-        lstProduct = dao.get4NewestProduct();
+        lstProduct = productDAO.get4NewestProduct();
         transaction.closeTransaction();
         ProductDetail.getThumnailImage(lstProduct);
         lstProduct.get(0).setBannerStatus("active");
@@ -48,7 +50,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 
     public String getTop5() {
         transaction.beginTransaction();
-        lstProduct = dao.get5MostViewProduct();
+        lstProduct = productDAO.get5MostViewProduct();
         transaction.closeTransaction();
         ProductDetail.getThumnailImage(lstProduct);
         return SUCCESS;
@@ -63,7 +65,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 
         }
         transaction.beginTransaction();
-        lstProduct = dao.getAllProduct();
+        lstProduct = productDAO.getAllProduct();
         totalProduct = lstProduct.size();
         transaction.closeTransaction();
         totalPage = Util.getTotalPage(lstProduct.size(), pageSize);
@@ -78,7 +80,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 
     public String getMenu() {
         transaction.beginTransaction();
-        lstCatalog = dao.getAllCatalog();
+        lstCatalog = catalogDAO.get5Catalog();
         transaction.closeTransaction();
         return SUCCESS;
     }
@@ -91,10 +93,10 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         } catch (Exception e) {
         }
         transaction.beginTransaction();
-        ProductDetail detail = dao.getProductById(productId);
+        ProductDetail detail = productDAO.getProductById(productId);
         ProductDetail.getThumnailImage(detail);
         product = new Product(detail);
-        List lstRefProduct = dao.getProductWithType(detail.getType().getTypeId());
+        List lstRefProduct = productDAO.getProductWithType(detail.getType().getTypeId());
         transaction.closeTransaction();
         lstRefProduct = ProductDetail.getRandomProductFromList(lstRefProduct, 6);
         ProductDetail.getThumnailImage(lstRefProduct);
@@ -105,7 +107,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
     public String findProduct(){
         String name = request.getParameter("name");
         transaction.beginTransaction();
-        lstProduct = dao.getProductByName(name);
+        lstProduct = productDAO.getProductByName(name);
         transaction.closeTransaction();
         totalProduct = lstProduct.size();
         ProductDetail.getThumnailImage(lstProduct);
@@ -121,10 +123,10 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         }
         transaction.beginTransaction();
         if (type == null){
-            lstProduct = dao.getAllProduct();
+            lstProduct = productDAO.getAllProduct();
         }
         else {
-            lstProduct = dao.getProductWithType(type);
+            lstProduct = productDAO.getProductWithType(type);
         }
         ProductDetail.getThumnailImage(lstProduct);
         transaction.closeTransaction();

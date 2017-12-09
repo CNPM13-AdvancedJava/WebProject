@@ -6,12 +6,15 @@
 package controller.action.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
+import controller.dao.CatalogDAO;
 import controller.dao.ProductDAO;
+import controller.dao.TypeDAO;
 import hibernate.util.HibernateTransaction;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import model.dbentities.Catalog;
 import model.dbentities.ProductDetail;
+import model.dbentities.Type;
 import model.entities.Page;
 import model.entities.Product;
 import org.apache.struts2.interceptor.ServletRequestAware;
@@ -25,31 +28,35 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 
     private HttpServletRequest request;
     private HibernateTransaction transaction;
-    private ProductDAO dao;
+    private ProductDAO productDAO;
+    private CatalogDAO catalogDAO;
+    private TypeDAO typeDAO;
     
     private List<ProductDetail> lstProduct;
     private List<Catalog> lstCatalog;
+    private List<Type> lstType;
     private Product product;
-
-//    private final int pageSize = 18;
-//    private int totalPage;
-//    private int totalProduct;
-//    private List<Page> lstPage;
 
     public ProductAction() {
         transaction = new HibernateTransaction();
-        dao = new ProductDAO();
+        productDAO = new ProductDAO();
+        catalogDAO = new CatalogDAO();
+        typeDAO = new TypeDAO();
     }
     
     public String getAllProduct(){
         transaction.beginTransaction();
-        lstProduct = dao.getAllProduct();
+        lstProduct = productDAO.getAllProduct();
         transaction.closeTransaction();
         ProductDetail.getThumnailImage(lstProduct);
         return SUCCESS;
     }
     
     public String prepareData(){
+        transaction.beginTransaction();
+        lstCatalog = catalogDAO.getAllCatalog();
+        lstType = typeDAO.getAllType();
+        transaction.closeTransaction();
         return SUCCESS;
     }
     
@@ -68,6 +75,10 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 
     public Product getProduct() {
         return product;
+    }
+
+    public List<Type> getLstType() {
+        return lstType;
     }
 
 }

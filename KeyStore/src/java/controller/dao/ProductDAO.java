@@ -51,17 +51,6 @@ public class ProductDAO extends HibernateTransaction {
         return lstProduct;
     }
 
-    public List<Catalog> getAllCatalog() {
-        List<Catalog> lstCatalog = new ArrayList<>();
-        try {
-            Query query = session.createQuery("from Catalog").setMaxResults(5);
-            lstCatalog = query.list();
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-        return lstCatalog;
-    }
-
     public ProductDetail getProductById(int id) {
         ProductDetail product = null;
         try {
