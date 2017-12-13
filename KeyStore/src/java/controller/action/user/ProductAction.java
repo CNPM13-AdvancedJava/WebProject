@@ -36,6 +36,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 
     public ProductAction() {
         productDAO = new ProductDAO();
+        catalogDAO=new CatalogDAO();
         transaction = new HibernateTransaction();
     }
 
