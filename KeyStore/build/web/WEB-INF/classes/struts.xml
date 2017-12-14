@@ -91,6 +91,18 @@
             <result name="error">Login.jsp</result>
             <result name="success">AddProduct.jsp</result>
         </action>
+        <action name="DeleteProduct" class="controller.action.admin.ProductAction" method="deleteProduct">
+            <result name="error">Login.jsp</result>
+            <result name="success" type="chain">ProductManagerment</result>
+        </action>
+        <action name="AddProductKey" class="controller.action.admin.ProductAction" method="getProductDetail">
+            <result name="error">Login.jsp</result>
+            <result name="success">AddProductKey.jsp</result>
+        </action>
+        <action name="InsertProductKey" class="controller.action.admin.ProductAction" method="insertProductKey">
+            <result name="error">Login.jsp</result>
+            <result name="success">AddProductKey.jsp</result>
+        </action>
         <action name="UserManagerment" class="controller.action.admin.UserAction" method="getAllUser">
             <result name="error">Login.jsp</result>
             <result name="success">ListUser.jsp</result>

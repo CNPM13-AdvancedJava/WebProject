@@ -87,4 +87,9 @@ public class ProductDAO extends HibernateTransaction {
         }
         return lstProduct;
     }
+
+    public void deleteProduct(int id) {
+        ProductDetail product = (ProductDetail) session.get(ProductDetail.class, id);
+        session.delete(product);
+    }
 }

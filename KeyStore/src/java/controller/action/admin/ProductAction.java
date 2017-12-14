@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import model.dbentities.Catalog;
 import model.dbentities.ProductDetail;
 import model.dbentities.Type;
-import model.entities.Page;
-import model.entities.Product;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import util.Util;
 
@@ -35,7 +33,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
     private List<ProductDetail> lstProduct;
     private List<Catalog> lstCatalog;
     private List<Type> lstType;
-    private Product product;
+    private ProductDetail product;
 
     public ProductAction() {
         transaction = new HibernateTransaction();
@@ -60,6 +58,40 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         return SUCCESS;
     }
     
+    public String deleteProduct(){
+        String productId = request.getParameter("productId");
+        try {
+            transaction.beginTransaction();
+            int id = Integer.parseInt(productId);
+            productDAO.deleteProduct(id);
+        }
+        catch (Exception e){
+            transaction.rollback();
+            System.err.println(e);
+        }
+        finally {
+            transaction.closeTransaction();
+        }
+        return SUCCESS;
+    }
+    
+    public String getProductDetail(){
+        String productId = request.getParameter("productId");
+        try {
+            transaction.beginTransaction();
+            int id = Integer.parseInt(productId);
+            product = productDAO.getProductById(id);
+        }
+        catch (Exception e){
+            transaction.rollback();
+            System.err.println(e);
+        }
+        finally {
+            transaction.closeTransaction();
+        }
+        return SUCCESS;
+    }
+    
     @Override
     public void setServletRequest(HttpServletRequest hsr) {
         request = hsr;
@@ -73,7 +105,7 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
         return lstCatalog;
     }
 
-    public Product getProduct() {
+    public ProductDetail getProduct() {
         return product;
     }
 

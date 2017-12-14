@@ -36,13 +36,13 @@
                         <%} else { %>
                         <span></span>
                         <%}%>
-                        <s:form action="addProduct" enctype="multipart/form-data" method="Post">
+                        <s:form action="InsertProduct" enctype="multipart/form-data" method="Post">
                             <div class="form-group">
                                 <label>Tên Sản Phẩm<span>*</span></label>
-                                <input class="form-control" name="product.productName" required="required">
+                                <input class="form-control" name="productName" required="required">
                             </div> 
-                            <label>Dòng máy : </label>
-                            <select id="catalogBox" class="form-group" name="catalog" onchange="loadGameType()">
+                            <label>Dòng máy : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <select id="catalogBox" class="form-group" name="catalogId" onchange="loadGameType()">
                                 <option>----- Chọn Dòng Game -----</option>
                                 <s:iterator value="lstCatalog">                                   
                                     <option value="<s:property value="catalogId"/>"><s:property value="catalogName"/></option>                                    
@@ -50,58 +50,50 @@
                             </select>
                             <div class="form-group">
                                 <label>Thể loại Game : </label>
-                                <select id="gameTypeBox" class="boxGametype" name="product.gametype.gametypeId">
-                                    <option>----- Chọn Thể loại -----</option>
+                                <select id="gameTypeBox" class="boxGametype" name="typeId">
+                                    <option>----- Chọn Thể Loại -----</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Nhà sản xuất : &nbsp;</label>
+                                <select id="catalogBox" class="form-group" name="manufacturerId" onchange="loadGameType()">
+                                    <option>----- Chọn Nhà Sản Xuất -----</option>
+                                    <s:iterator value="lstManufacturer">                                   
+                                        <option value="<s:property value="manufacturerId"/>"><s:property value="manufacturerName"/></option>                                    
+                                    </s:iterator>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Ngày ra mắt</label>
-                                <input class="form-control" name="timeRelease" type="date">
-                            </div>
-                            <div class="form-group">
-                                <label>Nhà sản xuất</label>
-                                <input class="form-control" name="product.manufacturer">
-                            </div>
-                            <div class="form-group">
-                                <label>Mô tả</label>
-                                <textarea class="form-control" name="product.context" rows="15" required="required"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Tiêu đề</label>
-                                <input class="form-control" name="product.typetext">
-                            </div>
-                            <div class="form-group">
-                                <label>Nội dung</label>
-                                <textarea class="form-control" name="product.headcontext"></textarea>
+                                <input class="form-control" name="releaseTime" type="date">
                             </div>
                             <div class="form-group">
                                 <label>Ngôn ngữ</label>
-                                <input class="form-control" name="product.language">
-                            </div>
-                            <div class="form-group">
-                                <label>Chế độ</label>
-                                <input class="form-control" name="product.regime">
+                                <input class="form-control" name="language">
                             </div>
                             <div class="form-group">
                                 <label>Khu vực</label>
-                                <input class="form-control" name="product.region">
+                                <input class="form-control" name="region">
                             </div>
                             <div class="form-group">
                                 <label>Giá<span>*</span></label>
                                 <input class="form-control" name="product.prince" required="required" type="number">
                             </div>
-                            <label>Giảm giá : </label>
-                            <select name="product.saled.salesId">
-                                <s:iterator value="listSale">
-                                    <label>Giảm Giá</label>
-                                    <option value="<s:property value="salesId"/>"><s:property value="sale"/></option>
-                                </s:iterator>
-                            </select>
+                            <div class="form-group">
+                                <label>Mô tả<span>*</span></label>
+                                <textarea class="form-control" name="description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Giới thiệu<span>*</span></label>
+                                <textarea class="form-control" name="introduction" rows="10" required="required"></textarea>
+                            </div>
                             <div class="form-group">
                                 <label>Thêm ảnh</label>
-                                <s:file name="productImage"/>
+                                <input type="file" name="productImage">
                             </div>
-                            <s:submit value="Thêm"/>
+                            <div>
+                                <button type="submit" class="btn btn-primary addnew"><span class="glyphicon glyphicon-plus"></span> Thêm sản phẩm</button>                     
+                            </div>
                         </s:form>
                     </div>
 
