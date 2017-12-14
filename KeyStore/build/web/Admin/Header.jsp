@@ -19,22 +19,24 @@
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
                             <!-- /input-group -->
                         </li>
                         <li>
                             <a href="ProductManagerment"><i class="fa fa-table fa-fw"></i> Quản lý sản phẩm</a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html"> Nhà sản xuất</a>
-                                    <a href="flot.html"> Dòng máy</a>
-                                    <a href="flot.html"> Thể loại</a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nhà sản xuất</a>
+                        </li>
+                        <li>
+                            <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dòng máy</a>
+                        </li>
+                        <li>
+                            <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thể loại</a>
                         </li>
                         <li>
                             <a href="UserManagerment"><i class="fa fa-table fa-fw"></i> Quản lý người dùng</a>
