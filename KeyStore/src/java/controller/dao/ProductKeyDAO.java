@@ -29,4 +29,23 @@ public class ProductKeyDAO extends HibernateTransaction {
         }
         return lstKey;
     }
+
+    public void addKey(ProductKey key) {
+        session.save(key);
+    }
+
+    public boolean isKeyExist(String productKey) {
+        try {
+            String sql = "from ProductKey where keyId = :keyId";
+            Query query = session.createQuery(sql);
+            query.setParameter("keyId", productKey);
+            List lstKey = query.list();
+            if (lstKey != null && !lstKey.isEmpty()){
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return false;
+    }
 }

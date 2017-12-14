@@ -24,10 +24,12 @@ public class Constant {
         public static final String INVALID_DATE_OF_BIRTH = "Bạn phải trên 16 tuổi mới được phép đăng ký";
         public static final String INVALID_PHONE_NUMBER_LENGTH = "Số điện thoại không được phép vượt quá 14 chữ số";
         public static final String INVALID_ADDRESS_LENGTH = "Địa chỉ không được vượt quá 100 ký tự";
+        public static final String ADD_KEY_FAILED = "Mã kích hoạt đã tồn tại";
     }
     
     public class SuccessMessage {
         public static final String CHANGE_PASSWORD_SUCCESS = "Thay đổi mật khẩu thành công";
         public static final String UPDATE_INFO_SUCCESS = "Thay đổi thông tin cá nhân thành công";
+        public static final String ADD_KEY_SUCCESS = "Thêm mã kích hoạt thành công";
     }
 }

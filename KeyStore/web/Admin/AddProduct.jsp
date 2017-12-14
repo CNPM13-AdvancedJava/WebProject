@@ -31,11 +31,6 @@
                     <div class="row">
                         <h2>Thêm sản phẩm</h2>
                         <br><br>
-                        <%if (session.getAttribute("ErrorInsert") != null) {%>
-                        <span class="ErrorLogin"><%=session.getAttribute("ErrorInsert")%></span>
-                        <%} else { %>
-                        <span></span>
-                        <%}%>
                         <s:form action="InsertProduct" enctype="multipart/form-data" method="Post">
                             <div class="form-group">
                                 <label>Tên Sản Phẩm<span>*</span></label>

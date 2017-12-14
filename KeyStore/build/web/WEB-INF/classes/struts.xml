@@ -99,8 +99,9 @@
             <result name="error">Login.jsp</result>
             <result name="success">AddProductKey.jsp</result>
         </action>
-        <action name="InsertProductKey" class="controller.action.admin.ProductAction" method="insertProductKey">
+        <action name="InsertProductKey" class="controller.action.admin.ProductKeyAction" method="insertProductKey">
             <result name="error">Login.jsp</result>
+            <result name="invalidKey">AddProductKey.jsp</result>
             <result name="success">AddProductKey.jsp</result>
         </action>
         <action name="UserManagerment" class="controller.action.admin.UserAction" method="getAllUser">

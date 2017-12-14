@@ -29,15 +29,17 @@
             <div id="page-wrapper">     
                 <div class="container-fluid">
                     <div class="row">
-                        
+                        <h2>Thêm mã kích hoạt</h2><br>
+                        <span style="color: red"><s:property value="MESSAGE"/></span>
+                        <br>
                         <form action="InsertProductKey" method="Post">
                             <div class="form-group">
                                 <label>Mã sản phẩm</label>
-                                <input class="form-control" name="productId" type="text" placeholder="<s:property value="product.productId"/>" disabled>
+                                <input class="form-control" name="productId" type="text" value="<s:property value="product.productId"/>" readonly="true">
                             </div>
                             <div class="form-group">
                                 <label>Tên sản phẩm</label>
-                                <input class="form-control" name="productName" type="text" placeholder="<s:property value="product.productName"/>" disabled>
+                                <input class="form-control" name="productName" type="text" value="<s:property value="product.productName"/>" readonly="true">
                             </div>
                             <div class="form-group">
                                 <label>Mã kích hoạt</label>
