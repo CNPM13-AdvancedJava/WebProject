@@ -6,20 +6,11 @@
 package controller.action.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
-import controller.dao.CatalogDAO;
 import controller.dao.ManufacturerDAO;
-import controller.dao.ProductDAO;
-import controller.dao.TypeDAO;
 import hibernate.util.HibernateTransaction;
-import java.util.ArrayList;
 import java.util.List;
-import javax.resource.spi.work.HintsContext;
 import javax.servlet.http.HttpServletRequest;
-import model.dbentities.Catalog;
 import model.dbentities.Manufacturer;
-import model.dbentities.ProductDetail;
-import model.dbentities.Type;
-import model.entities.Product;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 /**
@@ -82,20 +73,37 @@ public class ManufacturerAction extends ActionSupport implements ServletRequestA
         manufacturerName = request.getParameter("manufacturerName");
         return SUCCESS;
     }
+    
+    public String prepareToUpdateAgain() {
+        manufacturerId = Integer.parseInt(request.getParameter("manufacturerId"));
+        manufacturerName = request.getParameter("manufacturerName");
+        error = "Tên NSX này không hợp lệ đã tồn tại";
+        return SUCCESS;
+    }
 
     public String updateManufacturer() {
         try {
-            int id = Integer.parseInt(request.getParameter("manufacturerId"));
-            String name = request.getParameter("manufacturerName");
             transaction.beginTransaction();
-            Manufacturer manufacturer = new Manufacturer();
-            manufacturer.setManufacturerId(id);
-            manufacturer.setManufacturerName(name);
-            manufacturerDAO.update(manufacturer);
+            int id = Integer.parseInt(request.getParameter("manufacturerId"));
+            String oldName = manufacturerDAO.getManufacturer(id).getManufacturerName();
+            String name = request.getParameter("manufacturerName");
+            
+            if (oldName != null && oldName.equals(name)) {
+                error = null;
+            } else if (name == null || name.isEmpty() || manufacturerDAO.isDuplicate(name)) {
+                error = "Tên NSX này không hợp lệ đã tồn tại";
+                manufacturerId = id;
+                manufacturerName = oldName;
+            } else {
+                Manufacturer manufacturer = manufacturerDAO.getManufacturer(id);
+                manufacturer.setManufacturerName(name);
+                manufacturerDAO.update(manufacturer);
+                error = null;
+            }
         } finally {
             transaction.closeTransaction();
         }
-        return SUCCESS;
+        return error == null ? SUCCESS : ERROR;
     }
 
     public String deleteManufacturer() {
@@ -121,11 +129,11 @@ public class ManufacturerAction extends ActionSupport implements ServletRequestA
         return error;
     }
 
-    public void setManufacturerString(String manufacturerString) {
-        this.manufacturerName = manufacturerString;
+    public int getManufacturerId() {
+        return manufacturerId;
     }
 
-    public void setManufacturerId(int manufacturerId) {
-        this.manufacturerId = manufacturerId;
+    public String getManufacturerName() {
+        return manufacturerName;
     }
 }

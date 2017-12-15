@@ -16,7 +16,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Product Managerment</title>
+        <title>Product Management</title>
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
         <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
@@ -59,7 +59,6 @@
                                         <td><s:property value="amount"/></td>
                                         <td><a href="AddProductKey?productId=<s:property value="productId"/>"><span class="glyphicon glyphicon-plus"></span></a>
                                             <a href="ProductDetail?productId=<s:property value="productId"/>"><span class="glyphicon glyphicon-pencil"></span></a>
-                                            <a href="#" onclick="deleteProduct(<s:property value="productId"/>)"><span class="glyphicon glyphicon-trash"></span></a></td>
                                     </tr>
                                 </s:iterator>
                             </tbody>

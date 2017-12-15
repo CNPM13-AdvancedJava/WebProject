@@ -27,22 +27,22 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="ProductManagerment"><i class="fa fa-table fa-fw"></i> Quản lý sản phẩm</a>
+                            <a href="ProductManagement"><i class="fa fa-table fa-fw"></i> Quản lý sản phẩm</a>
                         </li>
                         <li>
                             <a href="ManufacturerManagement">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nhà sản xuất</a>
                         </li>
                         <li>
-                            <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dòng máy</a>
+                            <a href="CatalogManagement">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dòng máy</a>
                         </li>
                         <li>
-                            <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thể loại</a>
+                            <a href="TypeManagement">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thể loại</a>
                         </li>
                         <li>
-                            <a href="UserManagerment"><i class="fa fa-table fa-fw"></i> Quản lý người dùng</a>
+                            <a href="UserManagement"><i class="fa fa-table fa-fw"></i> Quản lý người dùng</a>
                         </li>
                         <li>
-                            <a href="OrderManagerment"><i class="fa fa-table fa-fw"></i> Quản lý đơn đặt hàng</a>
+                            <a href="OrderManagement"><i class="fa fa-table fa-fw"></i> Quản lý đơn đặt hàng</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Thống kê<span class="fa arrow"></span></a>

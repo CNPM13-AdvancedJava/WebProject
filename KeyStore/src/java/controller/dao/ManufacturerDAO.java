@@ -29,7 +29,7 @@ public class ManufacturerDAO extends HibernateTransaction {
     }
 
     public Manufacturer getManufacturer(int id) {
-        if (id < 0) {
+        if (id <= 0) {
             return null;
         }
 

@@ -10,6 +10,8 @@ import model.dbentities.Catalog;
 import model.dbentities.ProductDetail;
 import java.util.ArrayList;
 import java.util.List;
+import model.dbentities.ProductImage;
+import model.dbentities.ProductKey;
 import org.hibernate.Query;
 
 /**
@@ -61,7 +63,7 @@ public class ProductDAO extends HibernateTransaction {
         return product;
     }
 
-    public List<ProductDetail> getProductWithType(int typeId){
+    public List<ProductDetail> getProductWithType(int typeId) {
         List<ProductDetail> lstProduct = new ArrayList<>();
         try {
             String sql = "from ProductDetail where type.typeId = :type";
@@ -79,7 +81,7 @@ public class ProductDAO extends HibernateTransaction {
         try {
             String sql = "from ProductDetail where productName like :name";
             Query query = session.createQuery(sql);
-            name = "%"+name+"%";
+            name = "%" + name + "%";
             query.setParameter("name", name);
             lstProduct = query.list();
         } catch (Exception e) {
@@ -90,6 +92,26 @@ public class ProductDAO extends HibernateTransaction {
 
     public void deleteProduct(int id) {
         ProductDetail product = (ProductDetail) session.get(ProductDetail.class, id);
+        Query query = session.createQuery("from ProductKey where productDetail.productId = :id");
+        query.setParameter("id", id);
+
+        ProductKeyDAO productKeyDAO = new ProductKeyDAO();
+        ProductImageDAO productImageDAO = new ProductImageDAO();
+        
+        for (Object key : query.list()) {
+            productKeyDAO.deleteKey((ProductKey) key);
+        }
+
+        Query query1 = session.createQuery("from ProductImage where productDetail.productId = :id");
+        query1.setParameter("id", id);
+        for (Object img : query1.list()) {
+            productImageDAO.deleteImage((ProductImage) img);
+        }
+
         session.delete(product);
+    }
+
+    public void saveOrUpdateProduct(ProductDetail product) {
+        session.saveOrUpdate(product);
     }
 }

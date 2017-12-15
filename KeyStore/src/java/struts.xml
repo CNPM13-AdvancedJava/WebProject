@@ -88,7 +88,7 @@
             <result name="error">Login.jsp</result>
             <result name="success">Index.jsp</result>
         </action>
-        <action name="ProductManagerment" class="controller.action.admin.ProductAction" method="getAllProduct">
+        <action name="ProductManagement" class="controller.action.admin.ProductAction" method="getAllProduct">
             <result name="error">Login.jsp</result>
             <result name="success">ListProduct.jsp</result>
         </action>
@@ -98,7 +98,7 @@
         </action>
         <action name="DeleteProduct" class="controller.action.admin.ProductAction" method="deleteProduct">
             <result name="error">Login.jsp</result>
-            <result name="success" type="chain">ProductManagerment</result>
+            <result name="success" type="chain">ProductManagement</result>
         </action>
         <action name="AddProductKey" class="controller.action.admin.ProductAction" method="getProductDetail">
             <result name="error">Login.jsp</result>
@@ -150,7 +150,7 @@
         <action name="UpdateManufacturer"
                 class="controller.action.admin.ManufacturerAction"
                 method="updateManufacturer">
-            <result name="error" type="chain">ManufacturerManagement</result>
+            <result name="error">UpdateManufacturer.jsp</result>
             <result name="success" type="chain">ManufacturerManagement</result>
         </action>
         <action name="DeleteManufacturer"
@@ -158,6 +158,90 @@
                 method="deleteManufacturer">
             <result name="error" type="chain">ManufacturerManagement</result>
             <result name="success" type="chain">ManufacturerManagement</result>
+        </action>
+        
+        <!-- CuongCV: Cac action quan ly catalog-->
+        <action name="CatalogManagement"
+                class="controller.action.admin.CatalogAction"
+                method="getAllCatalog">
+            <result name="error">Login.jsp</result>
+            <result name="success">ListCatalog.jsp</result>
+        </action>
+        <action name="ShowAddCatalogForm"
+                class="controller.action.admin.CatalogAction"
+                method="prepareToAdd">
+            <result name="error">ListCatalog.jsp</result>
+            <result name="success">AddCatalog.jsp</result>
+        </action>
+        <action name="AddNewCatalog"
+                class="controller.action.admin.CatalogAction"
+                method="addCatalog">
+            <result name="error">AddCatalog.jsp</result>
+            <result name="success" type="chain">CatalogManagement</result>
+        </action>
+        <action name="ShowUpdateCatalogForm"
+                class="controller.action.admin.CatalogAction"
+                method="prepareToUpdate">
+            <result name="error" type="chain">CatalogManagement</result>
+            <result name="success">UpdateCatalog.jsp</result>
+        </action>
+        <action name="UpdateCatalog"
+                class="controller.action.admin.CatalogAction"
+                method="updateCatalog">
+            <result name="error">UpdateCatalog.jsp</result>
+            <result name="success" type="chain">CatalogManagement</result>
+        </action>
+        <action name="DeleteCatalog"
+                class="controller.action.admin.CatalogAction"
+                method="deleteCatalog">
+            <result name="error" type="chain">CatalogManagement</result>
+            <result name="success" type="chain">CatalogManagement</result>
+        </action>
+        
+        <!-- CuongCV: Cac action quan ly The loai-->
+        <action name="TypeManagement"
+                class="controller.action.admin.TypeAction"
+                method="getAllType">
+            <result name="error">Login.jsp</result>
+            <result name="success">ListType.jsp</result>
+        </action>
+        <action name="ShowAddTypeForm"
+                class="controller.action.admin.TypeAction"
+                method="prepareToAdd">
+            <result name="error">ListType.jsp</result>
+            <result name="success">AddType.jsp</result>
+        </action>
+        <action name="AddNewType"
+                class="controller.action.admin.TypeAction"
+                method="addType">
+            <result name="error">AddType.jsp</result>
+            <result name="success" type="chain">TypeManagement</result>
+        </action>
+        <action name="ShowUpdateTypeForm"
+                class="controller.action.admin.TypeAction"
+                method="prepareToUpdate">
+            <result name="error" type="chain">TypeManagement</result>
+            <result name="success">UpdateType.jsp</result>
+        </action>
+        <action name="UpdateType"
+                class="controller.action.admin.TypeAction"
+                method="updateType">
+            <result name="error">UpdateType.jsp</result>
+            <result name="success" type="chain">TypeManagement</result>
+        </action>
+        <action name="DeleteType"
+                class="controller.action.admin.TypeAction"
+                method="deleteType">
+            <result name="error" type="chain">TypeManagement</result>
+            <result name="success" type="chain">TypeManagement</result>
+        </action>
+        
+        <!--CuongCV: cac action quan ly san pham -->
+        <action name="AddNewProduct"
+                class="controller.action.admin.ProductAction"
+                method="addNewProduct">
+            <result name="error">AddProduct.jsp</result>
+            <result name="success" type="chain">ProductManagement</result>
         </action>
     </package>
 </struts>

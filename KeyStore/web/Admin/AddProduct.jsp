@@ -16,7 +16,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Product Managerment</title>
+        <title>Product Management</title>
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
         <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
@@ -31,14 +31,14 @@
                     <div class="row">
                         <h2>Thêm sản phẩm</h2>
                         <br><br>
-                        <s:form action="InsertProduct" enctype="multipart/form-data" method="Post">
+                        <s:form action="AddNewProduct" enctype="multipart/form-data" method="Post">
                             <div class="form-group">
                                 <label>Tên Sản Phẩm<span>*</span></label>
                                 <input class="form-control" name="productName" required="required">
                             </div> 
                             <label>Dòng máy : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <select id="catalogBox" class="form-group" name="catalogId" onchange="loadGameType()">
-                                <option>----- Chọn Dòng Game -----</option>
+                                <option value="-1">----- Chọn Dòng Game -----</option>
                                 <s:iterator value="lstCatalog">                                   
                                     <option value="<s:property value="catalogId"/>"><s:property value="catalogName"/></option>                                    
                                 </s:iterator>
@@ -46,15 +46,17 @@
                             <div class="form-group">
                                 <label>Thể loại Game : </label>
                                 <select id="gameTypeBox" class="boxGametype" name="typeId">
-                                    <option>----- Chọn Thể Loại -----</option>
+                                    <option value="-1">----- Chọn Thể Loại -----</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Nhà sản xuất : &nbsp;</label>
-                                <select id="catalogBox" class="form-group" name="manufacturerId" onchange="loadGameType()">
-                                    <option>----- Chọn Nhà Sản Xuất -----</option>
-                                    <s:iterator value="lstManufacturer">                                   
-                                        <option value="<s:property value="manufacturerId"/>"><s:property value="manufacturerName"/></option>                                    
+                                <select id="manufacturerBox" class="form-group" name="manufacturerId">
+                                    <option value="-1">----- Chọn Nhà sản xuất -----</option>
+                                    <s:iterator value="manufacturers">                                   
+                                        <option value="<s:property value="manufacturerId"/>">
+                                            <s:property value="manufacturerName"/>
+                                        </option>                                    
                                     </s:iterator>
                                 </select>
                             </div>
@@ -64,7 +66,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Ngôn ngữ</label>
-                                <input class="form-control" name="language">
+                                <input class="form-control" name="language" type>
                             </div>
                             <div class="form-group">
                                 <label>Khu vực</label>
@@ -72,7 +74,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Giá<span>*</span></label>
-                                <input class="form-control" name="product.prince" required="required" type="number">
+                                <input class="form-control" name="price" required="required" type="number">
                             </div>
                             <div class="form-group">
                                 <label>Mô tả<span>*</span></label>
@@ -84,7 +86,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Thêm ảnh</label>
-                                <input type="file" name="productImage">
+                                <input type="file" name="uploadImages" accept="image/*" multiple="true">
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-primary addnew"><span class="glyphicon glyphicon-plus"></span> Thêm sản phẩm</button>                     

@@ -33,6 +33,10 @@ public class ProductKeyDAO extends HibernateTransaction {
     public void addKey(ProductKey key) {
         session.save(key);
     }
+    
+    public void deleteKey(ProductKey key) {
+        session.delete(key);
+    }
 
     public boolean isKeyExist(String productKey) {
         try {

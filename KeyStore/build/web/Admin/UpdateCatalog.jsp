@@ -1,6 +1,6 @@
 <%-- 
-    Document   : UpdateManufacturer
-    Created on : Dec 15, 2017, 10:38:36 PM
+    Document   : UpdateCatalog
+    Created on : Dec 16, 2017, 6:14:55 AM
     Author     : Bumble Bee
 --%>
 
@@ -17,7 +17,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Product Managerment</title>
+        <title>Catalog</title>
         <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
         <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
@@ -30,22 +30,22 @@
             <div id="page-wrapper">     
                 <div class="container-fluid">
                     <div class="row">
-                        <h2>Cập nhật NSX</h2><br>
+                        <h2>Cập nhật catalog</h2><br>
                         <span style="color: red"><s:property value="error"/></span>
                         <br>
-                        <form action="UpdateManufacturer" method="Post">
+                        <form action="UpdateCatalog" method="Post">
                             <div class="form-group">
-                                <label>Mã NSX</label>
-                                <input class="form-control" name="manufacturerId"
+                                <label>Mã catalog</label>
+                                <input class="form-control" name="catalogId"
                                        type="text"
-                                       value="<s:property value="manufacturerId"/>"
+                                       value="<s:property value="catalogId"/>"
                                        readonly="true">
                             </div>
                             <div class="form-group">
-                                <label>Tên NSX</label>
-                                <input class="form-control" name="manufacturerName"
+                                <label>Tên catalog</label>
+                                <input class="form-control" name="catalogName"
                                        type="text"
-                                       value="<s:property value="manufacturerName"/>"
+                                       value="<s:property value="catalogName"/>"
                                        required="true">
                             </div>
                             <s:submit value="Lưu"/>
