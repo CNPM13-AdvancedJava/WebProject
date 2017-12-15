@@ -8,7 +8,7 @@
             <column name="key_id" length="50" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="productDetail" class="model.dbentities.ProductDetail" fetch="select">
+        <many-to-one name="productDetail" class="model.dbentities.ProductDetail" fetch="select" lazy="false">
             <column name="product_id" />
         </many-to-one>
         <property name="status" type="java.lang.Integer">

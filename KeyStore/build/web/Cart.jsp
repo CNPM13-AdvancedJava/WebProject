@@ -87,7 +87,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="div-a-delete-giohang">
-                                                        <a class="a-delete-giohang" href="RemoveProductFromCart?productId=<s:property value="productId"/>" onclick="deleteProduct()"><span class="glyphicon glyphicon-trash"></span></a>
+                                                        <a class="a-delete-giohang" onclick="deleteProduct(<s:property value="productId"/>)"><span class="glyphicon glyphicon-trash"></span></a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -107,7 +107,7 @@
                                                 <span class="text-rdo" for="rdo-2">Thanh toán qua ngân hàng</span>
                                             </div>
                                             <div id="pay-quavi" style="display:block;">                                                        
-                                                <a href="DirectPayment" style="color: white" type="button" onclick="checkPay()" class="btn btn-danger">Thanh toán</a>
+                                                <a style="color: white" type="button" onclick="checkPay()" class="btn btn-danger">Thanh toán</a>
                                                 <a href="Home.jsp" style="color: white" type="button" class="btn btn-danger">Huỷ bỏ</a>
                                             </div>
                                             <div id="pay-nganhang" style="display:none;">
@@ -139,20 +139,18 @@
             <%@include file="Footer.jsp"%>
         </div>
         <script type="text/javascript">
-            function deleteProduct() {
+            function deleteProduct(id) {
                 var string;
                 string = "Bạn có chắc chắn muốn xóa sản phẩm khỏi giỏ hàng này không?";
-                if (!confirm(string)) {
-                    window.location.href = "#";
-                    window.history.back(1);
+                if (confirm(string)) {
+                    window.location.href = "RemoveProductFromCart?productId="+id;
                 }
             }
             function checkPay() {
                 var string;
                 string = "Bạn muốn thanh toán số tiền : <s:property value="totalPrice"/> đ ?";
-                if (!confirm(string)) {
-                    window.location.href = "#";
-                    window.history.back(1);
+                if (confirm(string)) {
+                    window.location.href = "DirectPayment";
                 }
             }
         </script>

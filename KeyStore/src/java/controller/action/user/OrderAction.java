@@ -173,14 +173,53 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
 //                keyMap.put(key.getKeyId(), productDetail);
                 }
             }
+            transaction.closeTransaction();
         } catch (Exception e) {
             transaction.rollback();
         }
-        transaction.closeTransaction();
         session.removeAttribute("cart");
         session.removeAttribute("amount");
 
 //        EmailSender.sendProductKey(user, keyMap);
+        return SUCCESS;
+    }
+
+    public String oneTouchPayment() {
+        HttpSession session = request.getSession();
+        Integer userId = (Integer) session.getAttribute("userId");
+        String productId = request.getParameter("productId");
+        String number = request.getParameter("number");
+        if (userId == null) {
+            return "login";
+        }
+        try {
+            transaction.beginTransaction();
+            ProductDetail productDetail = productDAO.getProductById(Integer.parseInt(productId));
+            Double price = productDetail.getPrice();
+            User user = userDAO.getUserDetailById(userId);
+            PaymentMethod method = paymentMethodDAO.getMethodById(1);
+            if (price > user.getMoney()) {
+                transaction.closeTransaction();
+                return ERROR;
+            }
+            user.setMoney(user.getMoney() - price);
+            userDAO.update(user);
+//        Map<String, ProductDetail> keyMap = new HashMap<>();
+            Order order = new Order(method, user, 1, price, new Date(), new HashSet());
+            Integer orderId = orderDAO.createOrder(order);
+            List<ProductKey> lstKey = productKeyDAO.getAvailableKey(productDetail.getProductId(), 1);
+            for (ProductKey key : lstKey) {
+                OrderDetailId ODI = new OrderDetailId(orderId, key.getKeyId());
+                OrderDetail OD = new OrderDetail(ODI, order, key, 1);
+                orderDetailDAO.addOrderDetail(OD);
+//                keyMap.put(key.getKeyId(), productDetail);
+            }
+            transaction.closeTransaction();
+        } catch (Exception e) {
+            transaction.rollback();
+            return ERROR;
+        }
+
         return SUCCESS;
     }
 

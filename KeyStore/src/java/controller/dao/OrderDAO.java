@@ -37,4 +37,14 @@ public class OrderDAO extends HibernateTransaction {
         return lstOrder;
     }
 
+    public Order getOrder(int id) {
+        Order order = null;
+        try {
+            order = (Order) session.get(Order.class, id);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return order;
+    }
+
 }

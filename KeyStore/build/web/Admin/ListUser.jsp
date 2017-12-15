@@ -33,40 +33,40 @@
                         <a href="addProductIn" type="button" class="btn btn-primary addnew"><span class="glyphicon glyphicon-plus"></span> Thêm người dùng</a>                     
                     </section>
                     <section>
-                    <table style="width: 1000px;">
-                        <thead>
-                            <tr style="height: 30px;">
-                                <th class="col-1">##</th>
-                                <th class="col-1">Tên người dùng</th>
-                                <th class="col-3">E-mail</th>
-                                <th class="col-2">Giới tính</th>
-                                <th class="col-2">Ngày sinh</th>
-                                <th class="col-1">Địa chỉ</th>
-                                <th class="col-1">Số dư tài khoản</th>
-                                <th class="col-2"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <s:iterator value="lstUser">
+                        <table style="width: 1000px;">
+                            <thead>
                                 <tr style="height: 30px;">
-                                    <td><s:property value="userId"/></td>
-                                    <td><s:property value="userName"/></td>
-                                    <td><s:property value="email"/></td>
-                                    <td><s:property value="gender"/></td>
-                                    <td><s:property value="dateOfBirth"/></td>
-                                    <td><s:property value="address"/></td>
-                                    <td><s:property value="money"/></td>
-                                    <td><a href="addkey?productId=<s:property value="productId"/>"><span class="glyphicon glyphicon-plus"></span></a>
-                                        <a href="getKeyByID?productId=<s:property value="productId"/>"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                        <a href="initProduct?productId=<s:property value="productId"/>"><span class="glyphicon glyphicon-pencil"></span></a>
-                                        <a href="delete?productId=<s:property value="productId"/>" onclick="deleteProduct()"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                    <th class="col-1">##</th>
+                                    <th class="col-1">Tên người dùng</th>
+                                    <th class="col-3">E-mail</th>
+                                    <th class="col-2">Giới tính</th>
+                                    <th class="col-2">Ngày sinh</th>
+                                    <th class="col-1">Địa chỉ</th>
+                                    <th class="col-1">Số dư tài khoản</th>
+                                    <th class="col-2"></th>
                                 </tr>
-                            </s:iterator>
-                        </tbody>
+                            </thead>
+                            <tbody>
+                                <s:iterator value="lstUser">
+                                    <tr style="height: 30px;">
+                                        <td><s:property value="userId"/></td>
+                                        <td><s:property value="userName"/></td>
+                                        <td><s:property value="email"/></td>
+                                        <td><s:property value="gender"/></td>
+                                        <td><s:property value="dateOfBirth"/></td>
+                                        <td><s:property value="address"/></td>
+                                        <td><s:property value="money"/></td>
+                                        <td><a href="addkey?productId=<s:property value="productId"/>"><span class="glyphicon glyphicon-plus"></span></a>
+                                            <a href="getKeyByID?productId=<s:property value="productId"/>"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                            <a href="initProduct?productId=<s:property value="productId"/>"><span class="glyphicon glyphicon-pencil"></span></a>
+                                            <a href="delete?productId=<s:property value="productId"/>" onclick="deleteProduct()"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                    </tr>
+                                </s:iterator>
+                            </tbody>
 
-                    </table>
+                        </table>
 
-</section>
+                    </section>
                 </div>  
             </div>
         </div>

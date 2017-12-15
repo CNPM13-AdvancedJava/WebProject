@@ -6,7 +6,10 @@
 package controller.dao;
 
 import hibernate.util.HibernateTransaction;
+import java.util.ArrayList;
+import java.util.List;
 import model.dbentities.OrderDetail;
+import org.hibernate.Query;
 
 /**
  *
@@ -20,5 +23,17 @@ public class OrderDetailDAO extends HibernateTransaction {
         } catch (Exception e) {
             System.err.println(e);
         }
+    }
+
+    public List<OrderDetail> getDetailByOrderId(Integer orderId) {
+        List<OrderDetail> lstDetail = new ArrayList<>();
+        try {
+            Query query = session.createQuery("from OrderDetail where id.orderId = :id");
+            query.setParameter("id", orderId);
+            lstDetail = query.list();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return lstDetail;
     }
 }

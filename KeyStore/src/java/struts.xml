@@ -72,6 +72,11 @@
             <result name="success">PaymentSuccess.jsp</result>
             <result name="error">PaymentFail.jsp</result>
         </action>
+        <action name="OneTouchPayment" class="controller.action.user.OrderAction" method="oneTouchPayment">
+            <result name="login">Login.jsp</result>
+            <result name="success">PaymentSuccess.jsp</result>
+            <result name="error">PaymentFail.jsp</result>
+        </action>
         
         
         <!-- Admin action -->
@@ -111,6 +116,10 @@
         <action name="OrderManagerment" class="controller.action.admin.OrderAction" method="getAllOrder">
             <result name="error">Login.jsp</result>
             <result name="success">ListOrder.jsp</result>
+        </action>
+        <action name="OrderDetail" class="controller.action.admin.OrderAction" method="getOrderDetail">
+            <result name="error">Login.jsp</result>
+            <result name="success">OrderDetail.jsp</result>
         </action>
         
     </package>

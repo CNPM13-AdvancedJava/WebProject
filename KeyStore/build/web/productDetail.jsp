@@ -78,7 +78,7 @@
 <!--                                        <form action="goThanhToanoneChamp?giaSponeChamp=<s:property value="productbyId.prince"/>&productThanhtoanId=<s:property value="productbyId.productId"/>" method="POST">-->
 <!--                                        <form>        -->
                                         <input type="text" name="number" id="son-number" value="1" style="display:none;"/>
-                                        <a href="gogo" type="button" class="btn btn-danger form-control" name="btn-pay" onclick="checkPay()">Mua ngay</a>
+                                        <a type="button" class="btn btn-danger form-control" name="btn-pay" onclick="checkPay()">Mua ngay</a>
                                         <!--</form>-->
                                     </div>
                                 </div>
@@ -196,24 +196,21 @@
                 }
             }
             function checkPay() {
+                console.log("sdfasdfasd");
                 var number = document.getElementById('number');
                 if (number.value === null || number.value === "")
                 {
                     alert("Bạn cần nhập số lượng hàng hoá");
-                    window.location.href = "#";
-                    window.history.back(1);
                     return false;
                 }
                 var string;
                 var total = <s:property value="product.originalPrice"/> * number.value;
-                console.log("dfgdfG"+<s:property value="product.originalPrice"/>);
-                console.log("so luong"+number.value);
-                console.log("tong tien"+total);
+                var productId = <s:property value="product.productId"/>;
+                console.log(productId);
                 string = "Bạn muốn thanh toán số tiền : "+total+" đ ?";
-                if (!confirm(string)) {
-                    window.location.href = "#";
-                    window.history.back(1);
-                    return false;
+                if (confirm(string)) {
+                    window.location.href = "OneTouchPayment?productId="+productId+"&number="+number.value;
+                    return true;
                 }
             }
         </script>

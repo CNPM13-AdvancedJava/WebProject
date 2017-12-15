@@ -13,6 +13,7 @@ import hibernate.util.HibernateTransaction;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import model.dbentities.Order;
+import model.dbentities.OrderDetail;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 /**
@@ -26,14 +27,16 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
     private final OrderDAO orderDAO = new OrderDAO();
     private final OrderDetailDAO orderDetailDAO = new OrderDetailDAO();
     private final UserDAO userDAO = new UserDAO();
-    
+
     private List<Order> lstOrder;
-    
-    public String getAllOrder(){
+    private List<OrderDetail> lstOrderDetail;
+    private Order order;
+
+    public String getAllOrder() {
         try {
             transaction.beginTransaction();
             lstOrder = orderDAO.getAllOrder();
-            for (Order order : lstOrder){
+            for (Order order : lstOrder) {
                 if (order.getStatus() == 1) {
                     order.setStt("Đã chuyển hàng");
                 } else {
@@ -41,17 +44,35 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
                 }
                 order.setAmount(order.getOrderDetails().size());
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e);
             transaction.rollback();
-        }
-        finally {
+        } finally {
             transaction.closeTransaction();
         }
         return SUCCESS;
     }
-    
+
+    public String getOrderDetail() {
+        String orderId = request.getParameter("orderId");
+        try {
+            transaction.beginTransaction();
+            order = orderDAO.getOrder(Integer.parseInt(orderId));
+            lstOrderDetail = orderDetailDAO.getDetailByOrderId(order.getOrderId());
+            if (order.getStatus() == 1) {
+                order.setStt("Đã chuyển hàng");
+            } else {
+                order.setStt("Chưa chuyển hàng");
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+            transaction.rollback();
+        } finally {
+            transaction.closeTransaction();
+        }
+        return SUCCESS;
+    }
+
     @Override
     public void setServletRequest(HttpServletRequest hsr) {
         request = hsr;
@@ -60,5 +81,13 @@ public class OrderAction extends ActionSupport implements ServletRequestAware {
     public List<Order> getLstOrder() {
         return lstOrder;
     }
-    
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public List<OrderDetail> getLstOrderDetail() {
+        return lstOrderDetail;
+    }
+
 }

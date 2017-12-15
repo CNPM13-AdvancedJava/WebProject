@@ -15,7 +15,7 @@
         <many-to-one name="order" class="model.dbentities.Order" update="false" insert="false" fetch="select">
             <column name="order_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="productKey" class="model.dbentities.ProductKey" update="false" insert="false" fetch="select">
+        <many-to-one name="productKey" class="model.dbentities.ProductKey" update="false" insert="false" fetch="select" lazy="false">
             <column name="key_id" length="50" not-null="true" />
         </many-to-one>
         <property name="status" type="java.lang.Integer">
