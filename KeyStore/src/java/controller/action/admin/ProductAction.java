@@ -5,7 +5,7 @@
  */
 package controller.action.admin;
 
-import com.opensymphony.xwork2.ActionSupport;
+import controller.action.base.ActionUploadImage;
 import controller.dao.CatalogDAO;
 import controller.dao.ProductDAO;
 import controller.dao.TypeDAO;
@@ -15,14 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import model.dbentities.Catalog;
 import model.dbentities.ProductDetail;
 import model.dbentities.Type;
-import org.apache.struts2.interceptor.ServletRequestAware;
-import util.Util;
 
 /**
  *
  * @author Linh
  */
-public class ProductAction extends ActionSupport implements ServletRequestAware {
+public class ProductAction extends ActionUploadImage {
+    private static final String EXTENDED_PATH = "images\\product\\";
 
     private HttpServletRequest request;
     private HibernateTransaction transaction;
@@ -111,6 +110,11 @@ public class ProductAction extends ActionSupport implements ServletRequestAware 
 
     public List<Type> getLstType() {
         return lstType;
+    }
+
+    @Override
+    protected String extendedPathString() {
+        return EXTENDED_PATH;
     }
 
 }
