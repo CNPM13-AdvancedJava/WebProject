@@ -11,7 +11,7 @@ import model.dbentities.Admin;
 import model.entities.AdminInfo;
 import model.entities.UserInfo;
 import org.hibernate.Query;
-import util.Constant;
+import utils.Constant;
 
 /**
  *

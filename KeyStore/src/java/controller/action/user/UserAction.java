@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import model.entities.UserDetail;
 import org.apache.struts2.interceptor.ServletRequestAware;
-import util.Constant;
-import util.Util;
+import utils.Constant;
+import utils.Util;
 
 /**
  *

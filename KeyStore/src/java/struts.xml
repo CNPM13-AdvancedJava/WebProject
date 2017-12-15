@@ -96,5 +96,16 @@
             <result name="success">ListUser.jsp</result>
         </action>
         
+        <action name="AddNewProduct" class="controller.action.admin.ProductAction" method="addNewProduct">
+            <result name="error">AddProduct.jsp</result>
+            <result name="success">ListProduct.jsp</result>
+        </action>
+        
+        <!-- CuongCV: Cac action quan ly Nha san xuat-->
+        <action name="ManufacturerManagement" class="controller.action.admin.ManufacturerAction" method="getAllManufacturer">
+            <result name="error">Login.jsp</result>
+            <result name="success">ListManufacturer.jsp</result>
+        </action>
+        
     </package>
 </struts>

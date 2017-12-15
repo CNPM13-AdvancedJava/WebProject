@@ -11,7 +11,7 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import model.dbentities.User;
-import util.Util;
+import utils.Util;
 
 /**
  *

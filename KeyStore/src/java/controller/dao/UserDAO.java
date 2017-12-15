@@ -12,7 +12,7 @@ import model.dbentities.User;
 import java.util.List;
 import model.entities.UserDetail;
 import org.hibernate.Query;
-import util.Constant;
+import utils.Constant;
 
 /**
  *

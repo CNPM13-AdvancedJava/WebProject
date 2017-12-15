@@ -16,7 +16,7 @@ import model.dbentities.ProductDetail;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
-import util.Util;
+import utils.Util;
 
 public class ProductAction extends ActionSupport implements ServletRequestAware {
 

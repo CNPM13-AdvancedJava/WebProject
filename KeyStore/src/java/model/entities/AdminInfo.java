@@ -6,7 +6,7 @@
 package model.entities;
 
 import model.dbentities.Admin;
-import util.Constant;
+import utils.Constant;
 
 /**
  *

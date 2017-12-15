@@ -30,7 +30,7 @@
                             <a href="ProductManagerment"><i class="fa fa-table fa-fw"></i> Quản lý sản phẩm</a>
                         </li>
                         <li>
-                            <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nhà sản xuất</a>
+                            <a href="ManufacturerManagement">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nhà sản xuất</a>
                         </li>
                         <li>
                             <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dòng máy</a>

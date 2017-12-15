@@ -30,8 +30,8 @@ import model.dbentities.ProductKey;
 import model.dbentities.User;
 import model.entities.ProductInCart;
 import org.apache.struts2.interceptor.ServletRequestAware;
-import util.EmailSender;
-import util.Util;
+import utils.EmailSender;
+import utils.Util;
 
 /**
  *

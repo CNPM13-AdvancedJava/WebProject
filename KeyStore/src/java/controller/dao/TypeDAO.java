@@ -27,4 +27,16 @@ public class TypeDAO  extends HibernateTransaction {
         }
         return lstType;
     }
+    
+    public Type getType(int id) {
+        Type type = null;
+        try {
+            Query query = session.createQuery("from Type where typeId = :id");
+            query.setParameter("id", id);
+            type = (Type) query.uniqueResult();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return type;
+    }
 }
