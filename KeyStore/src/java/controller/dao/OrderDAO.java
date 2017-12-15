@@ -6,7 +6,10 @@
 package controller.dao;
 
 import hibernate.util.HibernateTransaction;
+import java.util.ArrayList;
+import java.util.List;
 import model.dbentities.Order;
+import org.hibernate.Query;
 
 /**
  *
@@ -21,6 +24,17 @@ public class OrderDAO extends HibernateTransaction {
             System.err.println(e);
         }
         return order.getOrderId();
+    }
+
+    public List<Order> getAllOrder() {
+        List<Order> lstOrder = new ArrayList<>();
+        try {
+            Query query = session.createQuery("from Order order by orderTime desc");
+            lstOrder = query.list();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return lstOrder;
     }
 
 }

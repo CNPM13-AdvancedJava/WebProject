@@ -8,10 +8,10 @@
             <column name="order_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="paymentMethod" class="model.dbentities.PaymentMethod" fetch="select">
+        <many-to-one name="paymentMethod" class="model.dbentities.PaymentMethod" fetch="select" lazy="false">
             <column name="method_id" />
         </many-to-one>
-        <many-to-one name="user" class="model.dbentities.User" fetch="select">
+        <many-to-one name="user" class="model.dbentities.User" fetch="select" lazy="false">
             <column name="user_id" />
         </many-to-one>
         <property name="status" type="java.lang.Integer">
@@ -23,7 +23,7 @@
         <property name="orderTime" type="java.util.Date">
             <column name="order_time"/>
         </property>
-        <set name="orderDetails" table="order_detail" inverse="true" lazy="true" fetch="select">
+        <set name="orderDetails" table="order_detail" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="order_id" not-null="true" />
             </key>

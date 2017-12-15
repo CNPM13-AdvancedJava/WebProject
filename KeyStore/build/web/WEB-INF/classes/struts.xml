@@ -108,6 +108,10 @@
             <result name="error">Login.jsp</result>
             <result name="success">ListUser.jsp</result>
         </action>
+        <action name="OrderManagerment" class="controller.action.admin.OrderAction" method="getAllOrder">
+            <result name="error">Login.jsp</result>
+            <result name="success">ListOrder.jsp</result>
+        </action>
         
     </package>
 </struts>

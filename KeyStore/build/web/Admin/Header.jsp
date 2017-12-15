@@ -42,7 +42,7 @@
                             <a href="UserManagerment"><i class="fa fa-table fa-fw"></i> Quản lý người dùng</a>
                         </li>
                         <li>
-                            <a href="UserManagerment"><i class="fa fa-table fa-fw"></i> Quản lý đơn đặt hàng</a>
+                            <a href="OrderManagerment"><i class="fa fa-table fa-fw"></i> Quản lý đơn đặt hàng</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Thống kê<span class="fa arrow"></span></a>
